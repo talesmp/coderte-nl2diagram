@@ -1,0 +1,68 @@
+@startuml
+
+actor "Aficionado" as Aficionado
+actor "Referee" as Referee
+actor "team" as team
+actor "IFA" as IFA
+actor "Fan" as Fan
+
+rectangle "System" {
+  usecase "Register in the system" as UC_Aficionado_1
+  usecase "Follow teams" as UC_Aficionado_1_1
+  usecase "Configure currency e language" as UC_Aficionado_1_2
+  usecase "Register events in time real" as UC_Referee_1
+  usecase "View events" as UC_Referee_1_1
+  usecase "Configure schedules and restricciones" as UC_Referee_2
+  usecase "View schedules" as UC_Referee_2_1
+  usecase "Communicate with other parties" as UC_Referee_3
+  usecase "Manage resources" as UC_team_1
+  usecase "Create networks social" as UC_team_2
+  usecase "Players" as UC_team_2_1
+  usecase "Entrenadores" as UC_team_2_2
+  usecase "Register transaction" as UC_team_3
+  usecase "Assign administrator" as UC_team_4
+  usecase "Communicate with other parties" as UC_team_5
+  usecase "Define policies" as UC_IFA_1
+  usecase "Budgets" as UC_IFA_1_1
+  usecase "Modify policies" as UC_IFA_1_2
+  usecase "Assign referees" as UC_IFA_2
+  usecase "Record events" as UC_IFA_3
+  usecase "View usage of resources" as UC_IFA_4
+  usecase "Communicate with other parties" as UC_IFA_5
+  usecase "Access to the system" as UC_Fan_1
+  usecase "Follow player" as UC_Fan_1_1
+  usecase "View schedules" as UC_Fan_1_2
+  usecase "Receive notifications" as UC_Fan_1_3
+  usecase "View events" as UC_Fan_1_4
+}
+
+Aficionado --> UC_Aficionado_1
+Referee --> UC_Referee_1
+Referee --> UC_Referee_2
+Referee --> UC_Referee_3
+team --> UC_team_1
+team --> UC_team_2
+team --> UC_team_3
+team --> UC_team_4
+team --> UC_team_5
+IFA --> UC_IFA_1
+IFA --> UC_IFA_2
+IFA --> UC_IFA_3
+IFA --> UC_IFA_4
+IFA --> UC_IFA_5
+Fan --> UC_Fan_1
+
+UC_Aficionado_1 ..> UC_Aficionado_1_1 : <<extend>>
+UC_Aficionado_1 ..> UC_Aficionado_1_2 : <<extend>>
+UC_Referee_1 ..> UC_Referee_1_1 : <<include>>
+UC_Referee_2 ..> UC_Referee_2_1 : <<include>>
+UC_team_2 ..> UC_team_2_1 : <<extend>>
+UC_team_2 ..> UC_team_2_2 : <<extend>>
+UC_IFA_1 ..> UC_IFA_1_1 : <<extend>>
+UC_IFA_1 ..> UC_IFA_1_2 : <<extend>>
+UC_Fan_1 ..> UC_Fan_1_1 : <<extend>>
+UC_Fan_1 ..> UC_Fan_1_2 : <<extend>>
+UC_Fan_1 ..> UC_Fan_1_3 : <<extend>>
+UC_Fan_1 ..> UC_Fan_1_4 : <<extend>>
+
+@enduml

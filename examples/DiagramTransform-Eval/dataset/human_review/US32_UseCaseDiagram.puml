@@ -1,0 +1,95 @@
+@startuml
+
+actor "doctor" as doctor
+actor "Patient" as Patient
+actor "Nurse" as Nurse
+actor "Receptionist" as Receptionist
+actor "User" as User
+actor "Especialista_Laboratory" as Especialista_Laboratory
+
+rectangle "System" {
+  usecase "Access record doctor" as UC_doctor_1
+  usecase "Edit record doctor" as UC_doctor_1_1
+  usecase "Add other doctor" as UC_doctor_1_1_1
+  usecase "Assign importance" as UC_doctor_1_2
+  usecase "Add note" as UC_doctor_1_3
+  usecase "Request test" as UC_doctor_2
+  usecase "View tests solicitadas" as UC_doctor_2_1
+  usecase "Transfer history clinical" as UC_doctor_3
+  usecase "Enter data" as UC_doctor_4
+  usecase "Mobile" as UC_doctor_4_1
+  usecase "Link device" as UC_doctor_5
+  usecase "Configure privacidad" as UC_Patient_1
+  usecase "Link doctor" as UC_Patient_1_1
+  usecase "Access to record doctor" as UC_Patient_2
+  usecase "Edit data" as UC_Patient_3
+  usecase "Add fitness" as UC_Patient_3_1
+  usecase "Link device" as UC_Patient_3_1_1
+  usecase "Authorize" as UC_Patient_3_1_1_1
+  usecase "Reject" as UC_Patient_3_1_1_2
+  usecase "Create account" as UC_Patient_4
+  usecase "Start session" as UC_Patient_4_1
+  usecase "DigiD" as UC_Patient_4_1_1
+  usecase "View results" as UC_Patient_5
+  usecase "Laboratory" as UC_Patient_5_1
+  usecase "Devices external" as UC_Patient_5_2
+  usecase "Link device" as UC_Nurse_1
+  usecase "Load data" as UC_Nurse_1_1
+  usecase "Book appointment" as UC_Receptionist_1
+  usecase "Assign a doctor" as UC_Receptionist_2
+  usecase "Assign a bed" as UC_Receptionist_3
+  usecase "Access from the mobile" as UC_User_1
+  usecase "Create account" as UC_User_2
+  usecase "Name of user" as UC_User_2_1
+  usecase "Password" as UC_User_2_2
+  usecase "Upload tests of laboratory" as UC_Especialista_Laboratory_1
+  usecase "Add a note" as UC_Especialista_Laboratory_1_1
+  usecase "Link history doctor" as UC_Especialista_Laboratory_1_2
+  usecase "Upload results" as UC_Especialista_Laboratory_1_3
+  usecase "Update record" as UC_Especialista_Laboratory_1_4
+  usecase "View tests solicitadas" as UC_Especialista_Laboratory_2
+}
+
+doctor --> UC_doctor_1
+doctor --> UC_doctor_2
+doctor --> UC_doctor_3
+doctor --> UC_doctor_4
+doctor --> UC_doctor_5
+Patient --> UC_Patient_1
+Patient --> UC_Patient_2
+Patient --> UC_Patient_3
+Patient --> UC_Patient_4
+Patient --> UC_Patient_5
+Nurse --> UC_Nurse_1
+Receptionist --> UC_Receptionist_1
+Receptionist --> UC_Receptionist_2
+Receptionist --> UC_Receptionist_3
+User --> UC_User_1
+User --> UC_User_2
+Especialista_Laboratory --> UC_Especialista_Laboratory_1
+Especialista_Laboratory --> UC_Especialista_Laboratory_2
+
+UC_doctor_1 ..> UC_doctor_1_1 : <<extend>>
+UC_doctor_1_1 ..> UC_doctor_1_1_1 : <<include>>
+UC_doctor_1 ..> UC_doctor_1_2 : <<include>>
+UC_doctor_1 ..> UC_doctor_1_3 : <<extend>>
+UC_doctor_2 ..> UC_doctor_2_1 : <<include>>
+UC_doctor_4 ..> UC_doctor_4_1 : <<extend>>
+UC_Patient_1 ..> UC_Patient_1_1 : <<extend>>
+UC_Patient_3 ..> UC_Patient_3_1 : <<extend>>
+UC_Patient_3_1 ..> UC_Patient_3_1_1 : <<extend>>
+UC_Patient_3_1_1 ..> UC_Patient_3_1_1_1 : <<extend>>
+UC_Patient_3_1_1 ..> UC_Patient_3_1_1_2 : <<extend>>
+UC_Patient_4 ..> UC_Patient_4_1 : <<include>>
+UC_Patient_4_1 ..> UC_Patient_4_1_1 : <<extend>>
+UC_Patient_5 ..> UC_Patient_5_1 : <<extend>>
+UC_Patient_5 ..> UC_Patient_5_2 : <<extend>>
+UC_Nurse_1 ..> UC_Nurse_1_1 : <<include>>
+UC_User_2 ..> UC_User_2_1 : <<extend>>
+UC_User_2 ..> UC_User_2_2 : <<extend>>
+UC_Especialista_Laboratory_1 ..> UC_Especialista_Laboratory_1_1 : <<extend>>
+UC_Especialista_Laboratory_1 ..> UC_Especialista_Laboratory_1_2 : <<include>>
+UC_Especialista_Laboratory_1 ..> UC_Especialista_Laboratory_1_3 : <<include>>
+UC_Especialista_Laboratory_1 ..> UC_Especialista_Laboratory_1_4 : <<extend>>
+
+@enduml

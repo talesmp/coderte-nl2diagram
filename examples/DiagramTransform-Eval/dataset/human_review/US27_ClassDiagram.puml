@@ -1,0 +1,148 @@
+@startuml
+
+class person_System {
+  +Name
+  +Id
+  +Sex
+  +Height
+  +date_birth
+  +User
+  +Password
+  +authenticate()
+  +start_session()
+  +close_session()
+}
+
+class Receptionist {
+  +id_patient
+  +identify_patients()
+  +Access_schedule_doctor()
+  +match_patients()
+  +get_description_room()
+}
+
+class Farmaceutico {
+  +review_data_patient()
+}
+
+class Administrator_System {
+  +adjust_rights_access()
+  +start_session()
+  +authenticate()
+}
+
+class medical_appointment {
+  +id_appointment
+  +date
+  +patient
+  +doctor
+  +update_appointment()
+  +consult_appointment()
+  +prioritize_appointment()
+}
+
+class lab_technician {
+  +get_description_tests()
+  +review_test()
+  +receive_notifications()
+  +enter_results()
+  +attach_notes_tests()
+}
+
+class lab_test {
+  +Type_Sample
+  +Result
+  +Group_etnico
+  +Venue
+  +Instruction
+  +Status
+  +analyze()
+  +diagnose()
+  +view_results()
+}
+
+class patient {
+  +dosage_medication
+  +medication_prescribed
+  +Diagnosis
+  +access_history_clinical()
+  +share_data()
+  +Control_access_data()
+  +Status_tests_laboratory()
+  +schedule_appointments()
+  +renew_prescriptions()
+}
+
+class pharmacy {
+  +medication
+  +Prescription
+}
+
+class Record {
+  +import()
+  +provide_access()
+  +add()
+  +edit()
+  +delete()
+  +update()
+  +save()
+}
+
+class doctor {
+  +Specialty
+  +share_data()
+  +import_results()
+  +access_records()
+  +add_data()
+  +create_agenda()
+  +request_tests()
+  +send_prescription()
+  +review_medications()
+  +review_Prescription()
+  +get_description_general()
+  +grant_control_partial()
+  +review_status_tests()
+  +attach_notes_tests()
+}
+
+class Nurse {
+  +edit_record()
+  +review_information_medical()
+}
+
+class clinical_history {
+  +Id_Diagnosis
+  +consult_history()
+}
+
+class pharmacy_external {
+  +Name
+  +Address
+  +Number_contact
+}
+
+person_System <|-- Receptionist
+person_System <|-- Farmaceutico
+person_System <|-- lab_technician
+person_System <|-- Patient
+person_System <|-- doctor
+person_System <|-- Nurse
+person_System <|-- Administrator_System
+Receptionist *-- medical_appointment
+Receptionist o-- Patient
+lab_technician *-- lab_test
+Patient ..> Client
+Farmaceutico o-- Patient
+Patient *-- medical_appointment
+Patient *-- clinical_history
+Patient o-- Record
+Patient -- doctor
+doctor *-- lab_test
+doctor o-- Pharmacy
+doctor o-- Record
+doctor o-- Receptionist
+doctor o-- pharmacy_external
+clinical_history o-- lab_test
+Nurse o-- Record
+
+@enduml

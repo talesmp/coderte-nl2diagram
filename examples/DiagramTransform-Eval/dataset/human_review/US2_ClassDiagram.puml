@@ -1,0 +1,178 @@
+@startuml
+
+class Member {
+  +User
+  +Name
+  +LastName
+  +email
+  +password
+  +Member()
+}
+
+class Client {
+  +Name
+  +LastName
+  +Phone
+  +Email
+  +Password
+  +User
+  +Client()
+  +create_account()
+  +Status_account()
+  +start_session()
+  +perform transaccion()
+  +request_inspection()
+}
+
+class Candidato_potencial {
+  +Name
+  +LastName
+  +Phone
+  +Candidato_potencial()
+  +Investigar_services()
+  +select_Service()
+}
+
+class Solicitante {
+  +Name
+  +LastName
+  +Phone
+  +Email
+  +Request
+  +solicitante()
+  +create_Request()
+  +search_Request()
+  +edit_Request()
+  +Pagar_tarifa()
+  +viewificar_status()
+  +request_meeting()
+  +publish_projects()
+}
+
+class Staff {
+  +Member_Staff()
+  +manage_ordenanzas()
+  +manage_calendarios()
+  +setFechas_audiencias()
+  +getFechas_audiencias()
+  +create_meeting()
+  +create_report()
+  +search_information()
+  +close_Request()
+  +send_citacion()
+  +getCitacion()
+  +publish_citacion()
+  +process_apelacion()
+  +register_decision()
+  +send_response()
+  +review_integrity()
+  +create_retencion()
+  +search_retencion()
+  +delete_retencion()
+}
+
+class Planning {
+  +Member_planning()
+  +register_work()
+  +register_information()
+  +register_results()
+}
+
+class Desarrollo {
+  +Member_desarrollo()
+  +issue_notice_desarrollo()
+}
+
+class Inspection {
+  +Member_inspection()
+  +assign_inspector()
+  +create_inspection()
+  +evaluate_coherencia()
+}
+
+class Compliance {
+  +Member_desarrollo()
+  +issue_notice_infraccion()
+}
+
+class review_plan {
+  +Member_review_plan()
+  +perform_tracking()
+  +perform_meeting()
+  +register_results()
+  +get_results()
+  +review_modificaciones()
+  +associate_Project()
+}
+
+class review_planes {
+  +Member_review_planes()
+  +generate_reports()
+  +assign_planes()
+  +review_planes()
+}
+
+class Zoning {
+  +Member_zoning()
+  +process_Request()
+  +send_comunicado()
+  +issue_Permission()
+}
+
+class Staff_condado {
+  +Member_Staff_condado()
+  +perform_consulta_personalizada()
+  +perform_report_personalizado()
+}
+
+class User {
+  +Name
+  +User()
+  +search_information()
+}
+
+class Employee {
+  +Name
+  +LastName
+  +Id
+  +Email
+  +Phone
+  +Employee()
+}
+
+class Tecnico {
+  +Tecnico()
+  +update_pin_transaccional()
+  +update_GIS_property_management()
+}
+
+class Inspector {
+  +Inspector()
+  +perform_inspection()
+}
+
+class Supervisor {
+  +Supervisor()
+  +manage_workload_work()
+  +assign_inspection()
+}
+
+Member -- Solicitante
+Member -- Candidato_potencial
+Member -- Client
+Member -- User
+Member -- Employee
+Employee <|-- Supervisor
+Employee <|-- Inspector
+Employee <|-- Tecnico
+Member <|-- Staff_condado
+Member <|-- Zoning
+Member <|-- review_planes
+Member <|-- review_plan
+Member <|-- Compliance
+Member <|-- Inspection
+Member <|-- Desarrollo
+Member <|-- Planning
+Member <|-- Staff
+
+@enduml

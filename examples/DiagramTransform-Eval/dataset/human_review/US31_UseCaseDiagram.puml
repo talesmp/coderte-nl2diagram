@@ -1,0 +1,102 @@
+@startuml
+
+actor "Administrator_IFA" as Administrator_IFA
+actor "CIO" as CIO
+actor "Referee" as Referee
+actor "league" as league
+actor "team" as team
+actor "Fan" as Fan
+actor "Aficionado" as Aficionado
+actor "Visitor" as Visitor
+actor "Representante_IFA" as Representante_IFA
+
+rectangle "System" {
+  usecase "Allow access" as UC_Administrator_IFA_1
+  usecase "Games" as UC_Administrator_IFA_1_1
+  usecase "Teams" as UC_Administrator_IFA_1_2
+  usecase "Leagues" as UC_Administrator_IFA_1_3
+  usecase "Create form" as UC_Administrator_IFA_2
+  usecase "Determine policies" as UC_Administrator_IFA_3
+  usecase "Notice of non-compliance" as UC_Administrator_IFA_3_1
+  usecase "Rules of schedule" as UC_Administrator_IFA_3_2
+  usecase "Adjustment of zone time" as UC_Administrator_IFA_3_2_1
+  usecase "View budgets of teams" as UC_Administrator_IFA_4
+  usecase "View reports of teams" as UC_Administrator_IFA_5
+  usecase "Communication with party interested" as UC_Administrator_IFA_6
+  usecase "Restrict creation of budgets" as UC_Administrator_IFA_7
+  usecase "Create statistics about events" as UC_Administrator_IFA_8
+  usecase "Merge systems" as UC_CIO_1
+  usecase "View the games assigned" as UC_Referee_1
+  usecase "Notice of postponement" as UC_Referee_1_1
+  usecase "View List of possible events" as UC_Referee_2
+  usecase "Report events" as UC_Referee_2_1
+  usecase "Create statistics about events" as UC_Referee_2_1_1
+  usecase "Changes of schedule" as UC_league_1
+  usecase "Publish news" as UC_team_1
+  usecase "Assign CM" as UC_team_2
+  usecase "Restrict dates" as UC_team_3
+  usecase "Add comments" as UC_Fan_1
+  usecase "Change language" as UC_Fan_2
+  usecase "Modify preferences" as UC_Fan_3
+  usecase "Record" as UC_Aficionado_1
+  usecase "Notifications" as UC_Aficionado_1_1
+  usecase "Games" as UC_Aficionado_1_1_1
+  usecase "Teams" as UC_Aficionado_1_1_2
+  usecase "Leagues" as UC_Aficionado_1_1_3
+  usecase "View information of tickets" as UC_Aficionado_2
+  usecase "View statistics of the matches" as UC_Aficionado_3
+  usecase "View analysis of the teams" as UC_Aficionado_4
+  usecase "Create account" as UC_Visitor_1
+  usecase "User" as UC_Visitor_1_1
+  usecase "Password" as UC_Visitor_1_2
+  usecase "View schedule" as UC_Representante_IFA_1
+  usecase "Approve schedule" as UC_Representante_IFA_1_1
+  usecase "View reason of rescheduling" as UC_Representante_IFA_2
+  usecase "Confirm change of schedule" as UC_Representante_IFA_2_1
+}
+
+Administrator_IFA --> UC_Administrator_IFA_1
+Administrator_IFA --> UC_Administrator_IFA_2
+Administrator_IFA --> UC_Administrator_IFA_3
+Administrator_IFA --> UC_Administrator_IFA_4
+Administrator_IFA --> UC_Administrator_IFA_5
+Administrator_IFA --> UC_Administrator_IFA_6
+Administrator_IFA --> UC_Administrator_IFA_7
+Administrator_IFA --> UC_Administrator_IFA_8
+CIO --> UC_CIO_1
+Referee --> UC_Referee_1
+Referee --> UC_Referee_2
+league --> UC_league_1
+team --> UC_team_1
+team --> UC_team_2
+team --> UC_team_3
+Fan --> UC_Fan_1
+Fan --> UC_Fan_2
+Fan --> UC_Fan_3
+Aficionado --> UC_Aficionado_1
+Aficionado --> UC_Aficionado_2
+Aficionado --> UC_Aficionado_3
+Aficionado --> UC_Aficionado_4
+Visitor --> UC_Visitor_1
+Representante_IFA --> UC_Representante_IFA_1
+Representante_IFA --> UC_Representante_IFA_2
+
+UC_Administrator_IFA_1 ..> UC_Administrator_IFA_1_1 : <<extend>>
+UC_Administrator_IFA_1 ..> UC_Administrator_IFA_1_2 : <<extend>>
+UC_Administrator_IFA_1 ..> UC_Administrator_IFA_1_3 : <<extend>>
+UC_Administrator_IFA_3 ..> UC_Administrator_IFA_3_1 : <<extend>>
+UC_Administrator_IFA_3 ..> UC_Administrator_IFA_3_2 : <<extend>>
+UC_Administrator_IFA_3_2 ..> UC_Administrator_IFA_3_2_1 : <<extend>>
+UC_Referee_1 ..> UC_Referee_1_1 : <<extend>>
+UC_Referee_2 ..> UC_Referee_2_1 : <<extend>>
+UC_Referee_2_1 ..> UC_Referee_2_1_1 : <<include>>
+UC_Aficionado_1 ..> UC_Aficionado_1_1 : <<extend>>
+UC_Aficionado_1_1 ..> UC_Aficionado_1_1_1 : <<extend>>
+UC_Aficionado_1_1 ..> UC_Aficionado_1_1_2 : <<extend>>
+UC_Aficionado_1_1 ..> UC_Aficionado_1_1_3 : <<extend>>
+UC_Visitor_1 ..> UC_Visitor_1_1 : <<extend>>
+UC_Visitor_1 ..> UC_Visitor_1_2 : <<extend>>
+UC_Representante_IFA_1 ..> UC_Representante_IFA_1_1 : <<extend>>
+UC_Representante_IFA_2 ..> UC_Representante_IFA_2_1 : <<extend>>
+
+@enduml

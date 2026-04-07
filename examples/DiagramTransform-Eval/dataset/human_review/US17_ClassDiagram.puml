@@ -1,0 +1,96 @@
+@startuml
+
+class administrator {
+  +User
+  +password
+  +administrator()
+  +create_User()
+  +reset_password()
+}
+
+class administrator_applications {
+  +administrator_applications()
+  +change_URL()
+  +review_permissions()
+}
+
+class administrator_Repository {
+  +administrator_applications()
+  +add_record()
+  +update_record()
+  +add_description()
+  +edit_description()
+  +update_description()
+}
+
+class administrator_systems {
+  +administrator_Repository()
+  +assign_Role()
+}
+
+class migration {
+  +User
+  +password
+  +migration()
+  +store_Id()
+}
+
+class User {
+  +User
+  +password
+  +User()
+  +authenticate()
+  +add_property()
+  +start_session()
+}
+
+class User_Basic_Data_Entry {
+  +User_Basic_Data_Entry()
+  +add_information()
+  +edit_information()
+}
+
+class User_ReadOnly {
+  +User_ReadOnly()
+  +view_information()
+}
+
+class researcher {
+  +User
+  +password
+  +researcher()
+  +search()
+}
+
+class archivero {
+  +User
+  +password
+  +archivero()
+  +import_File()
+  +store_id()
+  +associate_encabezado()
+  +import_information()
+  +export_record()
+  +view_reason()
+  +access_Repository()
+  +add_Note()
+  +search_en_Repository()
+  +create_record()
+  +edit_record()
+  +export_File()
+  +assign_rights()
+  +edit_rights()
+}
+
+administrator <|-- administrator_applications
+Administrator <|-- administrator_Repository
+Administrator <|-- administrator_systems
+administrator -- migration
+migration -- User
+User <|-- User_Basic_Data_Entry
+User <|-- User_ReadOnly
+researcher -- administrator
+administrator -- archivero
+researcher -- archivero
+
+@enduml

@@ -1,0 +1,504 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  xleftmargin=1em,
+  xrightmargin=1em,
+  backgroundcolor=\color{gray!10},
+  captionpos=b,
+}
+
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore Plant-UML}
+
+\begin{document}
+
+\title{Experiment Proposal: Adapting CodeRPE for\\ LLM-Based Evaluation of NL-to-Diagram and\\ Diagram-to-NL Transformations}
+
+\author{Tales Monteiro Paiva
+\thanks{Manuscript date: \today.}}
+
+\maketitle
+
+% ===========================================================================
+\begin{abstract}
+This proposal describes the adaptation of the CodeRPE (Code Role-Player Evaluation) framework---originally designed to evaluate LLM-generated code summaries---to the domain of UML diagram generation and interpretation. We define four transformation directions: Natural Language to Class Diagram, Natural Language to Use Case Diagram, Class Diagram to Natural Language, and Use Case Diagram to Natural Language. For each direction, we design domain-specific expert roles and evaluation dimensions following the role-player prompting strategy. The gold-standard dataset is derived from the PyUNML dataset, comprising 33 user story sets paired with manually crafted UML class diagrams and use case diagrams, converted to PlantUML notation. We detail the evaluation protocol, ablation study design, and correlation analysis methodology.
+\end{abstract}
+
+% ===========================================================================
+\section{Introduction}
+\label{sec:introduction}
+
+Large Language Models (LLMs) have demonstrated remarkable capabilities in both natural language understanding and structured output generation. A growing body of work explores their ability to generate UML diagrams from textual requirements and, conversely, to produce natural language descriptions from formal diagram notations. However, \emph{evaluating} the quality of these transformations remains an open challenge: traditional metrics such as BLEU capture surface-level similarity but fail to assess structural correctness, semantic fidelity, or notation quality.
+
+Wu et al.~\cite{wu2025coderpe} proposed \textbf{CodeRPE}, a role-player prompting strategy in which LLMs adopt expert personas to evaluate code summaries across multiple quality dimensions. Their approach achieves strong correlation with human judgments while being scalable and cost-effective. We propose adapting this methodology to evaluate four transformation directions involving UML diagrams and natural language requirements.
+
+\subsection{Objectives}
+
+\begin{enumerate}
+    \item Adapt the CodeRPE framework to evaluate NL$\leftrightarrow$Diagram transformations using domain-specific roles and dimensions.
+    \item Construct a gold-standard evaluation dataset from the PyUNML dataset~\cite{pyunml}, with diagrams represented in PlantUML notation.
+    \item Validate the adapted framework by measuring correlation with human annotations.
+    \item Conduct ablation studies to identify optimal prompting configurations.
+\end{enumerate}
+
+% ===========================================================================
+\section{Background: The CodeRPE Framework}
+\label{sec:background}
+
+CodeRPE~\cite{wu2025coderpe} evaluates LLM-generated code summaries by assigning the evaluator LLM one of four expert roles, each responsible for assessing a specific quality dimension on a 0--4 integer scale. The framework was validated on code summarization tasks and published at IEEE TSE 2025.
+
+\subsection{Original Roles and Dimensions}
+
+Table~\ref{tab:original-roles} presents the four roles and their corresponding evaluation dimensions in the original CodeRPE framework.
+
+\begin{table}[!t]
+\centering
+\caption{Original CodeRPE Roles and Dimensions for Code Summarization Evaluation}
+\label{tab:original-roles}
+\begin{tabular}{@{}p{2.2cm}p{1.8cm}p{3.5cm}@{}}
+\toprule
+\textbf{Role} & \textbf{Dimension} & \textbf{Assessment Focus} \\
+\midrule
+Code Reviewer & Coherence & Summary is well-structured, logically organized, and builds coherently \\
+\addlinespace
+Original Code Author & Consistency & Factual alignment between summary and source code; no hallucinations \\
+\addlinespace
+Code Editor & Fluency & Grammatical correctness, natural phrasing, no repetition or formatting errors \\
+\addlinespace
+Systems Analyst & Relevance & Selection of important content; no redundancies or excess information \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Evaluation Pipeline}
+
+The CodeRPE evaluation pipeline operates as follows:
+
+\begin{enumerate}
+    \item \textbf{Input.} An Excel dataset with columns: \texttt{Code} (source), \texttt{Target} (reference summary), and \texttt{Generated} (LLM-produced summary).
+    \item \textbf{Prompt Construction.} For each sample and each (role, dimension) pair, a structured prompt is constructed containing: the role description, dimension-specific behavioral guidance, evaluation criteria with scoring rubric, few-shot examples, and the item to evaluate.
+    \item \textbf{LLM Evaluation.} Each prompt is sent as an independent API call to the evaluator LLM. The framework supports multiple rounds for robustness averaging.
+    \item \textbf{Score Extraction.} A 0--4 integer score is extracted from the LLM response via regex pattern matching.
+    \item \textbf{Aggregation.} Per-sample scores are averaged across rounds and normalized.
+\end{enumerate}
+
+\subsection{Optimal Configuration}
+
+The original study identified the following optimal configuration through ablation:
+
+\begin{itemize}
+    \item \textbf{Evaluator LLM:} \texttt{gpt-4o-mini}
+    \item \textbf{Few-shot examples:} 4-shot per dimension
+    \item \textbf{Reference mode:} Reference-free (no gold reference in prompt)
+    \item \textbf{Rating form:} Score-only for Coherence, Consistency, and Fluency; Analyze-then-Rate for Relevance
+    \item \textbf{Robustness:} 3 rounds averaged
+\end{itemize}
+
+\subsection{Ablation Axes}
+
+Three orthogonal axes are varied in the ablation study:
+
+\begin{enumerate}
+    \item \textbf{Chain-of-Thought (CoT):} Whether step-by-step reasoning instructions are included in the prompt.
+    \item \textbf{Rating Form:} Three variants---\emph{Score-only} (direct numeric output), \emph{Analyze-then-Rate} (analysis followed by rating), and \emph{Rate-then-Explain} (rating followed by rationale).
+    \item \textbf{Reference Mode:} Whether the gold-standard reference is provided alongside the generated output.
+\end{enumerate}
+
+\subsection{Correlation Metrics}
+
+Evaluation quality is measured by computing correlation between LLM-assigned scores and human annotations:
+
+\begin{itemize}
+    \item \textbf{Kendall's $\tau$:} Measures ordinal association based on concordant and discordant pairs.
+    \item \textbf{Spearman's $\rho$:} Measures rank-order correlation.
+\end{itemize}
+
+Statistical significance is assessed via Welch's $t$-test and Mann-Whitney $U$ test for pairwise comparisons.
+
+% ===========================================================================
+\section{Adaptation for Diagram Transformations}
+\label{sec:adaptation}
+
+We extend CodeRPE to evaluate four transformation directions between natural language (user stories) and UML diagrams (class diagrams and use case diagrams). The key adaptations are: (1)~domain-specific expert roles and evaluation dimensions for each direction, (2)~PlantUML as the diagram representation format, and (3)~modified prompt templates reflecting the input/output modalities.
+
+\subsection{Transformation Directions}
+
+We define four evaluation tasks, organized into two categories:
+
+\paragraph{Forward Transformations (NL $\rightarrow$ Diagram)}
+\begin{itemize}
+    \item \textbf{NL2ClassDiagram:} Given user stories (NL), generate a UML class diagram in PlantUML notation.
+    \item \textbf{NL2UseCaseDiagram:} Given user stories (NL), generate a UML use case diagram in PlantUML notation.
+\end{itemize}
+
+\paragraph{Reverse Transformations (Diagram $\rightarrow$ NL)}
+\begin{itemize}
+    \item \textbf{ClassDiagram2NL:} Given a PlantUML class diagram, produce a natural language description.
+    \item \textbf{UseCaseDiagram2NL:} Given a PlantUML use case diagram, produce a natural language description.
+\end{itemize}
+
+\subsection{Diagram Representation: PlantUML}
+
+We adopt PlantUML as the textual notation for UML diagrams, motivated by several advantages over alternatives such as Mermaid.js:
+
+\begin{itemize}
+    \item \textbf{Native UML support:} PlantUML provides first-class syntax for both class diagrams and use case diagrams, including actors, system boundaries, \texttt{<<extend>>}/\texttt{<<include>>} stereotypes, and all UML relationship types.
+    \item \textbf{Text-based evaluation:} Since PlantUML diagrams are plain text, they can be directly embedded in LLM prompts and evaluated without image processing.
+    \item \textbf{Deterministic rendering:} The same PlantUML code always produces the same diagram, ensuring reproducibility.
+\end{itemize}
+
+Listing~\ref{lst:plantuml-cd} and Listing~\ref{lst:plantuml-uc} show representative examples of the PlantUML notation used for class diagrams and use case diagrams, respectively.
+
+\begin{lstlisting}[caption={Example PlantUML class diagram (US1).},label={lst:plantuml-cd},language={}]
+@startuml
+class Owner {
+  +username
+  +password
+  +define_schedule()
+  +reset_values()
+}
+class User {
+  +username
+  +password
+  +generate_file()
+  +validate_file()
+}
+Owner -- Agency_Team
+User <|-- Web_User
+User <|-- Agency_User
+@enduml
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Example PlantUML use case diagram (US1, excerpt).},label={lst:plantuml-uc},language={}]
+@startuml
+actor "Developer" as Developer
+rectangle "System" {
+  usecase "Update data FABS" as UC1
+  usecase "Delete FAC" as UC1_1
+  usecase "Update rules of validation" as UC2
+}
+Developer --> UC1
+Developer --> UC2
+UC1 ..> UC1_1 : <<extend>>
+@enduml
+\end{lstlisting}
+
+\subsection{Adapted Roles and Dimensions}
+\label{sec:roles}
+
+We design distinct sets of expert roles and evaluation dimensions for each transformation category. Tables~\ref{tab:nl2cd-roles}, \ref{tab:nl2uc-roles}, and \ref{tab:d2nl-roles} detail these adaptations.
+
+\subsubsection{NL $\rightarrow$ Class Diagram}
+
+\begin{table}[!t]
+\centering
+\caption{Roles and Dimensions for NL$\rightarrow$Class Diagram Evaluation}
+\label{tab:nl2cd-roles}
+\begin{tabular}{@{}p{2cm}p{1.8cm}p{3.7cm}@{}}
+\toprule
+\textbf{Role} & \textbf{Dimension} & \textbf{Assessment Focus} \\
+\midrule
+Software Modeler & Structural Correctness & Valid PlantUML syntax; proper class definitions, attributes, methods, and relationships \\
+\addlinespace
+Requirements Analyst & Semantic Fidelity & Diagram faithfully represents entities and relationships described in user stories \\
+\addlinespace
+UML Notation Expert & Notation Quality & Correct UML conventions: appropriate relationship types, multiplicities, naming \\
+\addlinespace
+Systems Architect & Completeness & All essential domain classes and relationships captured; no redundancies \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{NL $\rightarrow$ Use Case Diagram}
+
+\begin{table}[!t]
+\centering
+\caption{Roles and Dimensions for NL$\rightarrow$Use Case Diagram Evaluation}
+\label{tab:nl2uc-roles}
+\begin{tabular}{@{}p{2cm}p{1.8cm}p{3.7cm}@{}}
+\toprule
+\textbf{Role} & \textbf{Dimension} & \textbf{Assessment Focus} \\
+\midrule
+Business Analyst & Structural Correctness & Valid use case notation; proper actors, use cases, system boundary \\
+\addlinespace
+Requirements Analyst & Semantic Fidelity & Use cases faithfully capture functionality described in user stories \\
+\addlinespace
+UML Notation Expert & Notation Quality & Correct use of extends/includes, actor generalization, naming conventions \\
+\addlinespace
+Systems Architect & Completeness & All actors and functionalities covered; no missing or redundant use cases \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Diagram $\rightarrow$ NL (Both Directions)}
+
+For the reverse transformations (ClassDiagram2NL and UseCaseDiagram2NL), the task resembles the original code summarization setting. We adopt the same four dimensions with domain-adapted roles:
+
+\begin{table}[!t]
+\centering
+\caption{Roles and Dimensions for Diagram$\rightarrow$NL Evaluation}
+\label{tab:d2nl-roles}
+\begin{tabular}{@{}p{2cm}p{1.8cm}p{3.7cm}@{}}
+\toprule
+\textbf{Role} & \textbf{Dimension} & \textbf{Assessment Focus} \\
+\midrule
+Technical Writer & Coherence & Well-structured, logically organized NL description \\
+\addlinespace
+Software Modeler & Consistency & NL is factually aligned with diagram; no hallucinated elements \\
+\addlinespace
+Language Editor & Fluency & Grammatically correct, natural, readable prose \\
+\addlinespace
+Domain Expert & Relevance & Captures important diagram elements without excess detail \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Prompt Template Adaptations}
+
+The original CodeRPE prompt template references ``Source Code'' and ``Summary.'' We adapt these labels to match each transformation direction, as shown in Table~\ref{tab:prompt-labels}.
+
+\begin{table}[!t]
+\centering
+\caption{Prompt Label Adaptations per Transformation Direction}
+\label{tab:prompt-labels}
+\begin{tabular}{@{}p{2.2cm}p{2.5cm}p{2.8cm}@{}}
+\toprule
+\textbf{Direction} & \textbf{Source Label} & \textbf{Output Label} \\
+\midrule
+NL2Class\-Diagram & Natural Language (User Stories) & Generated Class Diagram (PlantUML) \\
+\addlinespace
+NL2UseCase\-Diagram & Natural Language (User Stories) & Generated Use Case Diagram (PlantUML) \\
+\addlinespace
+ClassDiagram\-2NL & Class Diagram (PlantUML) & Generated NL Description \\
+\addlinespace
+UseCaseDiagram\-2NL & Use Case Diagram (PlantUML) & Generated NL Description \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The remainder of the prompt structure---role description, evaluation criteria, few-shot examples, and rating form---follows the same template as the original CodeRPE.
+
+% ===========================================================================
+\section{Dataset: PyUNML}
+\label{sec:dataset}
+
+\subsection{Source}
+
+The evaluation dataset is derived from the \textbf{PyUNML} dataset~\cite{pyunml}, available at \url{https://github.com/matovaro/PyUNML-DataSet}. PyUNML contains 33 user story sets, each paired with manually crafted UML class diagrams and use case diagrams. The user stories originate from two collections:
+
+\begin{itemize}
+    \item \textbf{Dalpiaz 2018}~\cite{dalpiaz2018}: 22 user story sets (US1--US22) from diverse software domains including federal spending, county services, content management, and academic platforms.
+    \item \textbf{Dalpiaz 2020}~\cite{dalpiaz2020}: 11 user story sets (US23--US33) covering healthcare, urban traffic planning, and sports management systems.
+\end{itemize}
+
+\subsection{Data Preparation Pipeline}
+
+The gold-standard UML diagrams in PyUNML are provided as draw.io XML files with structured data in a \texttt{Diagrams.json} file. Diagram labels are in Spanish (translated from the original English user stories). We implement a multi-step preparation pipeline to produce English PlantUML diagrams:
+
+\begin{enumerate}
+    \item \textbf{Parse} (\texttt{parse\_diagrams\_json.py}): Extract structured class diagram data (classes, attributes, methods, relationships) and use case diagram data (actors, use cases, extend/include relationships) from \texttt{Diagrams.json}.
+
+    \item \textbf{Translate} (\texttt{translate\_to\_english.py}): Translate all Spanish labels to English using a systematic translation pipeline with 500+ entries covering nouns, verbs, prepositions, and domain-specific terms, cross-referenced against the original English user stories.
+
+    \item \textbf{Convert to PlantUML} (\texttt{convert\_to\_plantuml.py}): Generate PlantUML notation from the translated structured data. Class diagram relationships are mapped as: \texttt{ASOC}$\rightarrow$\texttt{-{}-}, \texttt{HER}$\rightarrow$\texttt{<|--}, \texttt{AGR}$\rightarrow$\texttt{o--}, \texttt{COMP}$\rightarrow$\texttt{*--}, \texttt{DEP}$\rightarrow$\texttt{..>}. Use case relationships: \texttt{E}$\rightarrow$\texttt{..>~<<extend>>}, \texttt{I}$\rightarrow$\texttt{..>~<<include>>}.
+
+    \item \textbf{Human Review Gate}: All 33 triplets (user stories + class diagram + use case diagram) are manually reviewed against the original PDF renderings before proceeding.
+
+    \item \textbf{Build Experiment Files} (\texttt{build\_dataset.py}): Combine English user story text with PlantUML diagrams into four Excel datasets, one per transformation direction.
+\end{enumerate}
+
+\subsection{Dataset Statistics}
+
+Table~\ref{tab:dataset-stats} summarizes the scale of the prepared dataset.
+
+\begin{table}[!t]
+\centering
+\caption{PyUNML Dataset Statistics After Preparation}
+\label{tab:dataset-stats}
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Metric} & \textbf{Count} \\
+\midrule
+User story sets & 33 \\
+Total actors (across all UC diagrams) & 258 \\
+Total use cases & 2{,}014 \\
+Total classes (across all CD) & 341 \\
+Total attributes and methods & 2{,}389 \\
+\midrule
+NL2ClassDiagram samples & 33 \\
+NL2UseCaseDiagram samples & 33 \\
+ClassDiagram2NL samples & 33 \\
+UseCaseDiagram2NL samples & 33 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Dataset Format}
+
+Each transformation direction produces an Excel file with the following schema:
+
+\paragraph{Forward (NL $\rightarrow$ Diagram):}
+\texttt{US\_ID}, \texttt{NL\_Description}, \texttt{Target\_PlantUML}, \texttt{Notation\_Type}, \texttt{Generated}
+
+\paragraph{Reverse (Diagram $\rightarrow$ NL):}
+\texttt{US\_ID}, \texttt{Diagram\_PlantUML}, \texttt{Target\_NL}, \texttt{Notation\_Type}, \texttt{Generated}
+
+The \texttt{Generated} column is populated by running multiple generator LLMs on the input, producing the candidate outputs to be evaluated.
+
+% ===========================================================================
+\section{Experimental Design}
+\label{sec:experimental-design}
+
+We replicate the three research questions (RQs) from the original CodeRPE study, adapted for diagram transformations.
+
+\subsection{RQ1: Role-Player Effectiveness}
+
+\textbf{Goal:} Evaluate whether LLMs, when assigned domain-specific expert roles, produce evaluation scores that correlate with human judgments for diagram quality assessment.
+
+\textbf{Method:} For each of the four transformation directions:
+\begin{enumerate}
+    \item Collect human annotations on 0--4 scale for all four dimensions.
+    \item Run the adapted CodeRPE pipeline with the roles defined in Section~\ref{sec:roles}.
+    \item Compute Kendall's $\tau$ and Spearman's $\rho$ between LLM scores and human annotations.
+\end{enumerate}
+
+\textbf{Evaluator LLMs:} \texttt{gpt-4o-mini} (primary), with additional models (\texttt{gpt-4o}, \texttt{claude-sonnet-4-6}) for comparison.
+
+\subsection{RQ2: Ablation Study}
+
+\textbf{Goal:} Identify the optimal prompting configuration for diagram evaluation across the three ablation axes.
+
+\textbf{Ablation Axes:}
+\begin{itemize}
+    \item \textbf{Chain-of-Thought:} With vs.\ without step-by-step evaluation instructions.
+    \item \textbf{Rating Form:} Score-only vs.\ Analyze-then-Rate vs.\ Rate-then-Explain.
+    \item \textbf{Reference Mode:} Reference-free vs.\ reference-included (gold-standard diagram or NL description provided).
+\end{itemize}
+
+\textbf{Method:} Systematic variation of one axis at a time, measuring correlation with human annotations. We also evaluate $n$-shot performance (0, 1, 2, 4 examples).
+
+\subsection{RQ3: Full Evaluation Pipeline}
+
+\textbf{Goal:} Compare multiple LLM generators using the optimized evaluation framework and validate against traditional metrics.
+
+\textbf{Method:}
+\begin{enumerate}
+    \item Use 3+ generator LLMs to produce diagrams/descriptions for all 33 samples.
+    \item Evaluate all generated outputs using the optimized CodeRPE configuration from RQ2.
+    \item Compute BLEU scores as a traditional baseline.
+    \item Compare rankings produced by CodeRPE vs.\ BLEU vs.\ human judgments.
+    \item Report statistical significance via Welch's $t$-test and Mann-Whitney $U$ test.
+\end{enumerate}
+
+\subsection{Robustness}
+
+Following the original study, all LLM evaluations are run for \textbf{3 rounds}, with scores averaged to reduce variance from non-deterministic LLM outputs.
+
+% ===========================================================================
+\section{Implementation}
+\label{sec:implementation}
+
+The implementation extends the codebase of the original CodeRPE experiment\footnote{Original repository: \url{https://github.com/CGCL-codes/naturalcc}}, forked as \texttt{coderte-nl2diagram}\footnote{\url{https://github.com/talesmp/coderte-nl2diagram}}.
+
+\subsection{Directory Structure}
+
+The experiment code is organized under \texttt{examples/DiagramTransform-Eval/} with the following structure:
+
+\begin{itemize}
+    \item \texttt{dataset\_preparation/} --- Pipeline scripts for dataset preparation (parse, translate, convert, build).
+    \item \texttt{common/} --- Shared utilities: unified LLM API client, configuration, score extraction.
+    \item \texttt{NL2ClassDiagram/} --- Prompts, RQ1--RQ3 scripts for the NL$\rightarrow$Class Diagram direction.
+    \item \texttt{NL2UseCaseDiagram/} --- Same structure for NL$\rightarrow$Use Case Diagram.
+    \item \texttt{ClassDiagram2NL/} --- Same structure for Class Diagram$\rightarrow$NL.
+    \item \texttt{UseCaseDiagram2NL/} --- Same structure for Use Case Diagram$\rightarrow$NL.
+    \item \texttt{utils/} --- Correlation computation, diagram validators, notation metrics.
+    \item \texttt{dataset/} --- Excel files, human evaluation data, and human review materials.
+\end{itemize}
+
+\subsection{Key Differences from Original Implementation}
+
+\begin{enumerate}
+    \item \textbf{Unified API module:} The original codebase duplicates the \texttt{model\_api()} function across five files. We extract it into a shared \texttt{common/model\_api.py} module with exponential backoff and support for modern model APIs.
+    \item \textbf{PlantUML validation:} A dedicated \texttt{diagram\_validators.py} module validates PlantUML syntax before evaluation.
+    \item \textbf{Structural metrics:} Beyond BLEU, we implement structural comparison metrics (element count overlap, edge overlap, label similarity) in \texttt{notation\_metrics.py}.
+\end{enumerate}
+
+% ===========================================================================
+\section{Risks and Mitigations}
+\label{sec:risks}
+
+\begin{enumerate}
+    \item \textbf{Small sample size.} With $N=33$, statistical power for correlation analysis is limited. \emph{Mitigation:} Consider sub-evaluations at the individual user story level within each set to increase effective sample size.
+
+    \item \textbf{Token limits.} Some user story sets contain 30--50 individual stories, potentially exceeding context windows. \emph{Mitigation:} Evaluate models with large context windows; consider chunking strategies.
+
+    \item \textbf{Translation accuracy.} The Spanish$\rightarrow$English translation of diagram labels, while systematic and cross-referenced, may introduce artifacts. \emph{Mitigation:} Human review gate verifies all translations against original English user stories before experiments begin.
+
+    \item \textbf{PlantUML expressiveness.} The structured data from \texttt{Diagrams.json} may not capture all visual layout information from the original draw.io diagrams. \emph{Mitigation:} We focus on structural and semantic content rather than visual layout, which is appropriate for the evaluation dimensions.
+\end{enumerate}
+
+% ===========================================================================
+\section{Timeline}
+\label{sec:timeline}
+
+\begin{enumerate}
+    \item \textbf{Dataset preparation and human review} --- Complete (33 triplets prepared, under review).
+    \item \textbf{Human annotation collection} --- Collect 0--4 scores from 2+ annotators for a subset of samples.
+    \item \textbf{LLM diagram/description generation} --- Generate candidate outputs using 3+ LLMs.
+    \item \textbf{RQ1 experiments} --- Run role-player evaluation, compute correlations.
+    \item \textbf{RQ2 ablation} --- Systematic variation of prompting parameters.
+    \item \textbf{RQ3 full pipeline} --- End-to-end evaluation and comparison.
+    \item \textbf{Analysis and write-up} --- Statistical analysis, visualization, paper drafting.
+\end{enumerate}
+
+% ===========================================================================
+\section*{Acknowledgments}
+
+This work builds upon the CodeRPE framework by Wu et al.~\cite{wu2025coderpe} and uses the PyUNML dataset by Matovaro et al.~\cite{pyunml}. The original user story collections are from Dalpiaz et al.~\cite{dalpiaz2018,dalpiaz2020}.
+
+% ===========================================================================
+\begin{thebibliography}{9}
+
+\bibitem{wu2025coderpe}
+Y.~Wu, Z.~Xie, H.~Hu, Y.~Wang, S.~Gao, and Y.~Liu,
+``Can Large Language Models Serve as Evaluators for Code Summarization?''
+\textit{IEEE Transactions on Software Engineering}, vol.~51, no.~1, pp.~308--326, 2025.
+
+\bibitem{pyunml}
+M.~A.~Tovaro, A.~Mart\'{i}nez-Fern\'{a}ndez, and X.~Franch,
+``PyUNML-DataSet: A dataset of user stories, use case diagrams, and domain models,''
+GitHub Repository, 2024.
+[Online]. Available: \url{https://github.com/matovaro/PyUNML-DataSet}
+
+\bibitem{dalpiaz2018}
+F.~Dalpiaz, I.~van~der~Schalk, and S.~Brinkkemper,
+``Detecting terminological ambiguity in user stories: Tool and experimentation,''
+\textit{Information and Software Technology}, vol.~110, pp.~3--16, 2019.
+
+\bibitem{dalpiaz2020}
+F.~Dalpiaz,
+``Requirements data sets (user stories),''
+Mendeley Data, V1, 2018.
+[Online]. Available: \url{https://data.mendeley.com/datasets/7zbk8zsd8y/1}
+
+\end{thebibliography}
+
+\end{document}

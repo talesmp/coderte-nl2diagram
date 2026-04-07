@@ -1,0 +1,161 @@
+@startuml
+
+actor "Member_facultad" as Member_facultad
+actor "Staff_biblioteca" as Staff_biblioteca
+actor "External" as External
+actor "Administrator_DB_IR" as Administrator_DB_IR
+actor "Administrator" as Administrator
+actor "Administrator_assets" as Administrator_assets
+actor "Administrator_extension" as Administrator_extension
+actor "Curator_data" as Curator_data
+actor "Educador_extension" as Educador_extension
+actor "Student" as Student
+actor "Researcher" as Researcher
+actor "User" as User
+actor "Soporte" as Soporte
+actor "Member_Cornell" as Member_Cornell
+
+rectangle "System" {
+  usecase "Access to Repository" as UC_Member_facultad_1
+  usecase "Access to collection" as UC_Member_facultad_1_1
+  usecase "Upload work" as UC_Member_facultad_1_2
+  usecase "Direccionar to a party" as UC_Member_facultad_1_2_1
+  usecase "Associate files" as UC_Member_facultad_1_2_2
+  usecase "Collect publicaciones" as UC_Member_facultad_2
+  usecase "Apply mebargo to article" as UC_Staff_biblioteca_1
+  usecase "Delete embargo" as UC_Staff_biblioteca_1_1
+  usecase "View statistics" as UC_Staff_biblioteca_2
+  usecase "Upload elements" as UC_Staff_biblioteca_3
+  usecase "Assign metadata" as UC_Staff_biblioteca_3_1
+  usecase "Include files" as UC_Staff_biblioteca_3_2
+  usecase "Create coleccionaes" as UC_Staff_biblioteca_3_3
+  usecase "Upload material in name of author" as UC_Staff_biblioteca_4
+  usecase "Create fields of metadata" as UC_Staff_biblioteca_5
+  usecase "Access to information to partir of a topic" as UC_External_1
+  usecase "Start session in account especial" as UC_Administrator_DB_IR_1
+  usecase "Modify passwords" as UC_Administrator_DB_IR_1_1
+  usecase "List administradores" as UC_Administrator_DB_IR_1_2
+  usecase "Find administrator through e-mail" as UC_Administrator_DB_IR_1_2_1
+  usecase "View List of suscriptores of a report" as UC_Administrator_DB_IR_2
+  usecase "Manage groups" as UC_Administrator_DB_IR_3
+  usecase "Manage classifications" as UC_Administrator_DB_IR_4
+  usecase "Create report or set of data" as UC_Administrator_DB_IR_5
+  usecase "Renombrar report or set of data" as UC_Administrator_DB_IR_5_1
+  usecase "Upload new version" as UC_Administrator_DB_IR_5_2
+  usecase "Cancel publication" as UC_Administrator_DB_IR_5_3
+  usecase "Marcar report or set of data" as UC_Administrator_DB_IR_5_4
+  usecase "View statistics of tracking" as UC_Administrator_1
+  usecase "Difundir works" as UC_Administrator_2
+  usecase "Create copia of security" as UC_Administrator_assets_1
+  usecase "Verify amenazas" as UC_Administrator_assets_2
+  usecase "Review monitoreos" as UC_Administrator_assets_3
+  usecase "Create List of active" as UC_Administrator_assets_4
+  usecase "Sacar active" as UC_Administrator_assets_5
+  usecase "Create plan of disposicion of active" as UC_Administrator_assets_6
+  usecase "Transfer property or active to a successor" as UC_Administrator_assets_7
+  usecase "Receive recordatorios" as UC_Administrator_extension_1
+  usecase "Create flujos of work" as UC_Administrator_extension_2
+  usecase "Update element" as UC_Curator_data_1
+  usecase "Schedule records" as UC_Curator_data_2
+  usecase "Store elements" as UC_Educador_extension_1
+  usecase "View involucrados in research" as UC_Student_1
+  usecase "Upload data to the Repository" as UC_Student_2
+  usecase "Search in a Repository" as UC_Researcher_1
+  usecase "Share work" as UC_Researcher_2
+  usecase "Promover work" as UC_Researcher_3
+  usecase "Receive notification of update" as UC_Researcher_4
+  usecase "Search libros" as UC_Researcher_5
+  usecase "View metadata" as UC_Researcher_5_1
+  usecase "Contactar author" as UC_Researcher_5_1_1
+  usecase "Search report" as UC_User_1
+  usecase "Select report" as UC_User_1_1
+  usecase "View data about report" as UC_User_1_1_1
+  usecase "View versions of report" as UC_User_1_2
+  usecase "Create account" as UC_User_2
+  usecase "Download calendar" as UC_User_2_1
+  usecase "Inform of errors to soporte" as UC_User_3
+  usecase "Export data" as UC_Soporte_1
+  usecase "Move collection" as UC_Soporte_2
+  usecase "Renombrar collection" as UC_Soporte_3
+  usecase "Access to Repository" as UC_Member_Cornell_1
+  usecase "Load data" as UC_Member_Cornell_1_1
+  usecase "Associate publication" as UC_Member_Cornell_1_1_1
+  usecase "Associate ResearchID" as UC_Member_Cornell_1_1_1_1
+  usecase "Share" as UC_Member_Cornell_1_1_1_1_1
+  usecase "Notify if download" as UC_Member_Cornell_1_1_1_2
+  usecase "Assign license" as UC_Member_Cornell_1_1_1_3
+  usecase "Download data" as UC_Member_Cornell_2
+}
+
+Member_facultad --> UC_Member_facultad_1
+Member_facultad --> UC_Member_facultad_2
+Staff_biblioteca --> UC_Staff_biblioteca_1
+Staff_biblioteca --> UC_Staff_biblioteca_2
+Staff_biblioteca --> UC_Staff_biblioteca_3
+Staff_biblioteca --> UC_Staff_biblioteca_4
+Staff_biblioteca --> UC_Staff_biblioteca_5
+External --> UC_External_1
+Administrator_DB_IR --> UC_Administrator_DB_IR_1
+Administrator_DB_IR --> UC_Administrator_DB_IR_2
+Administrator_DB_IR --> UC_Administrator_DB_IR_3
+Administrator_DB_IR --> UC_Administrator_DB_IR_4
+Administrator_DB_IR --> UC_Administrator_DB_IR_5
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator_assets --> UC_Administrator_assets_1
+Administrator_assets --> UC_Administrator_assets_2
+Administrator_assets --> UC_Administrator_assets_3
+Administrator_assets --> UC_Administrator_assets_4
+Administrator_assets --> UC_Administrator_assets_5
+Administrator_assets --> UC_Administrator_assets_6
+Administrator_assets --> UC_Administrator_assets_7
+Administrator_extension --> UC_Administrator_extension_1
+Administrator_extension --> UC_Administrator_extension_2
+Curator_data --> UC_Curator_data_1
+Curator_data --> UC_Curator_data_2
+Educador_extension --> UC_Educador_extension_1
+Student --> UC_Student_1
+Student --> UC_Student_2
+Researcher --> UC_Researcher_1
+Researcher --> UC_Researcher_2
+Researcher --> UC_Researcher_3
+Researcher --> UC_Researcher_4
+Researcher --> UC_Researcher_5
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+Soporte --> UC_Soporte_1
+Soporte --> UC_Soporte_2
+Soporte --> UC_Soporte_3
+Member_Cornell --> UC_Member_Cornell_1
+Member_Cornell --> UC_Member_Cornell_2
+
+UC_Member_facultad_1 ..> UC_Member_facultad_1_1 : <<extend>>
+UC_Member_facultad_1 ..> UC_Member_facultad_1_2 : <<extend>>
+UC_Member_facultad_1_2 ..> UC_Member_facultad_1_2_1 : <<extend>>
+UC_Member_facultad_1_2 ..> UC_Member_facultad_1_2_2 : <<extend>>
+UC_Staff_biblioteca_1 ..> UC_Staff_biblioteca_1_1 : <<extend>>
+UC_Staff_biblioteca_3 ..> UC_Staff_biblioteca_3_1 : <<extend>>
+UC_Staff_biblioteca_3 ..> UC_Staff_biblioteca_3_2 : <<extend>>
+UC_Staff_biblioteca_3 ..> UC_Staff_biblioteca_3_3 : <<extend>>
+UC_Administrator_DB_IR_1 ..> UC_Administrator_DB_IR_1_1 : <<extend>>
+UC_Administrator_DB_IR_1 ..> UC_Administrator_DB_IR_1_2 : <<extend>>
+UC_Administrator_DB_IR_1_2 ..> UC_Administrator_DB_IR_1_2_1 : <<extend>>
+UC_Administrator_DB_IR_5 ..> UC_Administrator_DB_IR_5_1 : <<extend>>
+UC_Administrator_DB_IR_5 ..> UC_Administrator_DB_IR_5_2 : <<extend>>
+UC_Administrator_DB_IR_5 ..> UC_Administrator_DB_IR_5_3 : <<extend>>
+UC_Administrator_DB_IR_5 ..> UC_Administrator_DB_IR_5_3 : <<extend>>
+UC_Researcher_5 ..> UC_Researcher_5_1 : <<extend>>
+UC_Researcher_5_1 ..> UC_Researcher_5_1_1 : <<extend>>
+UC_User_1 ..> UC_User_1_1 : <<extend>>
+UC_User_1_1 ..> UC_User_1_1_1 : <<extend>>
+UC_User_1 ..> UC_User_1_2 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<extend>>
+UC_Member_Cornell_1 ..> UC_Member_Cornell_1_1 : <<extend>>
+UC_Member_Cornell_1_1 ..> UC_Member_Cornell_1_1_1 : <<extend>>
+UC_Member_Cornell_1_1_1 ..> UC_Member_Cornell_1_1_1_1 : <<include>>
+UC_Member_Cornell_1_1_1_1 ..> UC_Member_Cornell_1_1_1_1_1 : <<extend>>
+UC_Member_Cornell_1_1_1 ..> UC_Member_Cornell_1_1_1_2 : <<include>>
+UC_Member_Cornell_1_1_1 ..> UC_Member_Cornell_1_1_1_3 : <<include>>
+
+@enduml

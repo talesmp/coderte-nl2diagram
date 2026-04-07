@@ -1,0 +1,268 @@
+@startuml
+
+actor "IFA" as IFA
+actor "Employee_IFA" as Employee_IFA
+actor "Fan" as Fan
+actor "Official_match" as Official_match
+actor "Manager_team" as Manager_team
+actor "Member_peronal_team" as Member_peronal_team
+actor "Administrados_IFA" as Administrados_IFA
+actor "Manager_IFA" as Manager_IFA
+actor "Aficionado" as Aficionado
+
+rectangle "System" {
+  usecase "Integrate different systems" as UC_IFA_1
+  usecase "Avoid save data redundant" as UC_IFA_1_1
+  usecase "Configure languages" as UC_IFA_2
+  usecase "Improve languages" as UC_IFA_2_1
+  usecase "Grant services in other paises" as UC_IFA_2_1_1
+  usecase "Use system" as UC_IFA_3
+  usecase "Validate reliability" as UC_IFA_3_1
+  usecase "Verify number people connected in simultaneous" as UC_IFA_3_1_1
+  usecase "Satisfy user" as UC_IFA_3_1_1_1
+  usecase "Classify type user" as UC_IFA_4
+  usecase "Validad tools" as UC_IFA_4_1
+  usecase "Restrict access tools" as UC_IFA_4_1_1
+  usecase "Make system less confusing" as UC_IFA_4_1_1_1
+  usecase "Enter to the system" as UC_IFA_5
+  usecase "Open Module leagues" as UC_IFA_5_1
+  usecase "Manage leagues" as UC_IFA_5_1_1
+  usecase "Access to the data relevant" as UC_IFA_5_1_1_1
+  usecase "Stipulate set rules" as UC_IFA_6
+  usecase "Enter sets rules" as UC_IFA_6_1
+  usecase "Define competiciones" as UC_IFA_6_1_1
+  usecase "Avoid errors" as UC_IFA_6_1_1_1
+  usecase "Avoid errors update tablas classification" as UC_IFA_6_1_1_1_1
+  usecase "Avoid errors schedule matches" as UC_IFA_6_1_1_1_2
+  usecase "Avoid errors auditar budgets" as UC_IFA_6_1_1_1_3
+  usecase "Avoid bias teams" as UC_IFA_7
+  usecase "Deny schedule more lighter" as UC_IFA_7_1
+  usecase "Avoid claims advantages unfair" as UC_IFA_7_1_1
+  usecase "Apply automatically rules league" as UC_IFA_8
+  usecase "Validate attributes same teams" as UC_IFA_8_1
+  usecase "Deny refereeing same team" as UC_IFA_8_1_1
+  usecase "Avoid claims or partico advantages unfair" as UC_IFA_8_1_1_1
+  usecase "Avoid conflicts" as UC_IFA_9
+  usecase "Avoid conflicts schedules games" as UC_IFA_9_1
+  usecase "Lack of reschedule games" as UC_IFA_9_1_1
+  usecase "Avoid conflicts schedules peronales or match" as UC_IFA_9_2
+  usecase "Check certification employee" as UC_IFA_10
+  usecase "Have available of employees" as UC_IFA_10_1
+  usecase "Cancel schedule" as UC_IFA_10_1_1
+  usecase "Avoid errors" as UC_IFA_10_1_1_1
+  usecase "Enter to the system" as UC_IFA_11
+  usecase "Enter transaction system" as UC_IFA_11_1
+  usecase "Validate tracking team" as UC_IFA_11_1_1
+  usecase "Prepare of a event of game" as UC_IFA_12
+  usecase "Notify to parties interested" as UC_IFA_12_1
+  usecase "Notify same manera" as UC_IFA_12_1_1
+  usecase "Increase efficiency" as UC_IFA_12_1_1_1
+  usecase "Notify same time" as UC_IFA_12_1_2
+  usecase "Inform directly events game" as UC_IFA_13
+  usecase "Evutar sources data not authorized" as UC_IFA_13_1
+  usecase "Receive events particos informados" as UC_IFA_14
+  usecase "Derive statistics" as UC_IFA_14_1
+  usecase "Derive statistics players" as UC_IFA_14_1_1
+  usecase "Avoid work additional" as UC_IFA_14_1_1_1
+  usecase "Derive statistics matches" as UC_IFA_14_1_2
+  usecase "Check certification employee" as UC_Employee_IFA_1
+  usecase "Have available of employees" as UC_Employee_IFA_1_1
+  usecase "Cancel schedule" as UC_Employee_IFA_1_1_1
+  usecase "Avoid errors" as UC_Employee_IFA_1_1_1_1
+  usecase "Access to the system from desktop" as UC_Employee_IFA_2
+  usecase "Enter new data to the system" as UC_Employee_IFA_2_1
+  usecase "Automate aspect game" as UC_Employee_IFA_3
+  usecase "Automate schedule game" as UC_Employee_IFA_3_1
+  usecase "Automate assignment officials" as UC_Employee_IFA_3_2
+  usecase "Reduce workload work" as UC_Employee_IFA_3_1_1
+  usecase "Access to the system from phone" as UC_Fan_1
+  usecase "Access to the system cualquier location" as UC_Fan_1_1
+  usecase "Notify changes important" as UC_Fan_2
+  usecase "Plan in consequence" as UC_Fan_2_1
+  usecase "Eligir events games" as UC_Fan_3
+  usecase "Notify about of events" as UC_Fan_3_1
+  usecase "Avoid notifications of not agrado" as UC_Fan_3_1_1
+  usecase "Inform events in live" as UC_Fan_4
+  usecase "Perform tracking closely" as UC_Fan_4_1
+  usecase "Access to the system from phone" as UC_Official_match_1
+  usecase "Access to the system from the field" as UC_Official_match_1_1
+  usecase "Access to the system while viaja" as UC_Official_match_1_2
+  usecase "Have account aspects schedule" as UC_Official_match_2
+  usecase "Consider time slot time" as UC_Official_match_2_1
+  usecase "Consider dates" as UC_Official_match_2_2
+  usecase "Consider ligares preferred" as UC_Official_match_2_3
+  usecase "Officiate game" as UC_Official_match_2_1_1
+  usecase "Avoid trabajar time inconvenient" as UC_Official_match_2_1_1_1
+  usecase "Notify changes important calendar" as UC_Official_match_3
+  usecase "Planning in consequence" as UC_Official_match_3_1
+  usecase "Inform events match in live" as UC_Official_match_4
+  usecase "Attend the match" as UC_Official_match_4_1
+  usecase "Avoid register events dos veces" as UC_Official_match_4_1_1
+  usecase "Inform directly events game" as UC_Official_match_5
+  usecase "Avoid sources data not authorized" as UC_Official_match_5_1
+  usecase "Access to the system from desktop" as UC_Manager_team_1
+  usecase "Manage active" as UC_Manager_team_1_1
+  usecase "Commit less errors administration" as UC_Manager_team_1_1_1
+  usecase "Enter to the system" as UC_Manager_team_2
+  usecase "Aministrar finances team" as UC_Manager_team_2_1
+  usecase "Avoid haver work unnecessary" as UC_Manager_team_2_1_1
+  usecase "Define roles and privileges" as UC_Manager_team_3
+  usecase "Assign roles and privileges of the system" as UC_Manager_team_3_1
+  usecase "Identify members team" as UC_Manager_team_3_1_1
+  usecase "Delegate tasks" as UC_Manager_team_3_1_1_1
+  usecase "Save time" as UC_Manager_team_3_1_1_2
+  usecase "Access to the system from desktop" as UC_Member_peronal_team_1
+  usecase "Bring together members personal" as UC_Member_peronal_team_1_1
+  usecase "Facilitate trbajo" as UC_Member_peronal_team_1_1_1
+  usecase "Access statistics" as UC_Member_peronal_team_2
+  usecase "Access statistics matches" as UC_Member_peronal_team_2_1
+  usecase "Access statistics players" as UC_Member_peronal_team_2_2
+  usecase "Devise mejor strategy" as UC_Member_peronal_team_2_1_1
+  usecase "Execute actions system" as UC_Administrados_IFA_1
+  usecase "Add new leagues system" as UC_Administrados_IFA_1_1
+  usecase "Register new teams system" as UC_Administrados_IFA_1_2
+  usecase "Maintain system updated" as UC_Administrados_IFA_1_1_1
+  usecase "Visit new teams registered" as UC_Manager_IFA_1
+  usecase "Approve new teams" as UC_Manager_IFA_1_1
+  usecase "Maintain integrity" as UC_Manager_IFA_1_1_1
+  usecase "Verify new leagues registered" as UC_Manager_IFA_2
+  usecase "Approve new leagues" as UC_Manager_IFA_2_1
+  usecase "Check estadistiacs" as UC_Aficionado_1
+  usecase "Check statistics matches" as UC_Aficionado_1_1
+  usecase "Check statistics players" as UC_Aficionado_1_2
+  usecase "Promote participation respective leagues" as UC_Aficionado_1_1_1
+}
+
+IFA --> UC_IFA_1
+IFA --> UC_IFA_2
+IFA --> UC_IFA_3
+IFA --> UC_IFA_4
+IFA --> UC_IFA_5
+IFA --> UC_IFA_6
+IFA --> UC_IFA_7
+IFA --> UC_IFA_8
+IFA --> UC_IFA_9
+IFA --> UC_IFA_10
+IFA --> UC_IFA_11
+IFA --> UC_IFA_12
+IFA --> UC_IFA_13
+IFA --> UC_IFA_14
+Employee_IFA --> UC_Employee_IFA_1
+Employee_IFA --> UC_Employee_IFA_2
+Employee_IFA --> UC_Employee_IFA_3
+Fan --> UC_Fan_1
+Fan --> UC_Fan_2
+Fan --> UC_Fan_3
+Fan --> UC_Fan_4
+Official_match --> UC_Official_match_1
+Official_match --> UC_Official_match_2
+Official_match --> UC_Official_match_3
+Official_match --> UC_Official_match_4
+Official_match --> UC_Official_match_5
+Manager_team --> UC_Manager_team_1
+Manager_team --> UC_Manager_team_2
+Manager_team --> UC_Manager_team_3
+Member_peronal_team --> UC_Member_peronal_team_1
+Member_peronal_team --> UC_Member_peronal_team_2
+Administrados_IFA --> UC_Administrados_IFA_1
+Manager_IFA --> UC_Manager_IFA_1
+Manager_IFA --> UC_Manager_IFA_2
+Aficionado --> UC_Aficionado_1
+
+UC_IFA_1 ..> UC_IFA_1_1 : <<include>>
+UC_IFA_2 ..> UC_IFA_2_1 : <<include>>
+UC_IFA_2_1 ..> UC_IFA_2_1_1 : <<include>>
+UC_IFA_3 ..> UC_IFA_3_1 : <<include>>
+UC_IFA_3_1 ..> UC_IFA_3_1_1 : <<include>>
+UC_IFA_3_1_1 ..> UC_IFA_3_1_1_1 : <<include>>
+UC_IFA_4 ..> UC_IFA_4_1 : <<include>>
+UC_IFA_4_1 ..> UC_IFA_4_1_1 : <<include>>
+UC_IFA_4_1_1 ..> UC_IFA_4_1_1_1 : <<include>>
+UC_IFA_5 ..> UC_IFA_5_1 : <<include>>
+UC_IFA_5_1 ..> UC_IFA_5_1_1 : <<include>>
+UC_IFA_5_1_1 ..> UC_IFA_5_1_1_1 : <<include>>
+UC_IFA_6 ..> UC_IFA_6_1 : <<include>>
+UC_IFA_6_1 ..> UC_IFA_6_1_1 : <<include>>
+UC_IFA_6_1_1 ..> UC_IFA_6_1_1_1 : <<include>>
+UC_IFA_6_1_1_1 ..> UC_IFA_6_1_1_1_1 : <<include>>
+UC_IFA_6_1_1_1 ..> UC_IFA_6_1_1_1_2 : <<include>>
+UC_IFA_6_1_1_1 ..> UC_IFA_6_1_1_1_3 : <<include>>
+UC_IFA_7 ..> UC_IFA_7_1 : <<include>>
+UC_IFA_7_1 ..> UC_IFA_7_1_1 : <<include>>
+UC_IFA_8 ..> UC_IFA_8_1 : <<include>>
+UC_IFA_8_1 ..> UC_IFA_8_1_1 : <<include>>
+UC_IFA_8_1_1 ..> UC_IFA_8_1_1_1 : <<include>>
+UC_IFA_9 ..> UC_IFA_9_1 : <<include>>
+UC_IFA_9_1 ..> UC_IFA_9_1_1 : <<include>>
+UC_IFA_9 ..> UC_IFA_9_2 : <<include>>
+UC_IFA_9_2 ..> UC_IFA_9_1_1 : <<include>>
+UC_IFA_10 ..> UC_IFA_10_1 : <<include>>
+UC_IFA_10_1 ..> UC_IFA_10_1_1 : <<include>>
+UC_IFA_10_1_1 ..> UC_IFA_10_1_1_1 : <<include>>
+UC_IFA_11 ..> UC_IFA_11_1 : <<include>>
+UC_IFA_11_1 ..> UC_IFA_11_1_1 : <<include>>
+UC_IFA_12 ..> UC_IFA_12_1 : <<include>>
+UC_IFA_12_1 ..> UC_IFA_12_1_1 : <<include>>
+UC_IFA_12_1_1 ..> UC_IFA_12_1_1_1 : <<include>>
+UC_IFA_12_1 ..> UC_IFA_12_1_2 : <<include>>
+UC_IFA_12_1_2 ..> UC_IFA_12_1_1_1 : <<include>>
+UC_IFA_13 ..> UC_IFA_13_1 : <<include>>
+UC_IFA_14 ..> UC_IFA_14_1 : <<include>>
+UC_IFA_14_1 ..> UC_IFA_14_1_1 : <<include>>
+UC_IFA_14_1_1 ..> UC_IFA_14_1_1_1 : <<include>>
+UC_IFA_14_1 ..> UC_IFA_14_1_2 : <<include>>
+UC_IFA_14_1_2 ..> UC_IFA_14_1_1_1 : <<include>>
+UC_Employee_IFA_1 ..> UC_Employee_IFA_1_1 : <<include>>
+UC_Employee_IFA_1_1 ..> UC_Employee_IFA_1_1_1 : <<include>>
+UC_Employee_IFA_1_1_1 ..> UC_Employee_IFA_1_1_1_1 : <<include>>
+UC_Employee_IFA_2 ..> UC_Employee_IFA_2_1 : <<include>>
+UC_Employee_IFA_3 ..> UC_Employee_IFA_3_1 : <<extend>>
+UC_Employee_IFA_3 ..> UC_Employee_IFA_3_2 : <<extend>>
+UC_Employee_IFA_3_1 ..> UC_Employee_IFA_3_1_1 : <<include>>
+UC_Employee_IFA_3_2 ..> UC_Employee_IFA_3_1_1 : <<include>>
+UC_Fan_1 ..> UC_Fan_1_1 : <<include>>
+UC_Fan_2 ..> UC_Fan_2_1 : <<include>>
+UC_Fan_3 ..> UC_Fan_3_1 : <<include>>
+UC_Fan_3_1 ..> UC_Fan_3_1_1 : <<include>>
+UC_Fan_4 ..> UC_Fan_4_1 : <<include>>
+UC_Official_match_1 ..> UC_Official_match_1_1 : <<extend>>
+UC_Official_match_1 ..> UC_Official_match_1_2 : <<extend>>
+UC_Official_match_2 ..> UC_Official_match_2_1 : <<include>>
+UC_Official_match_2 ..> UC_Official_match_2_2 : <<include>>
+UC_Official_match_2 ..> UC_Official_match_2_3 : <<include>>
+UC_Official_match_2_1 ..> UC_Official_match_2_1_1 : <<include>>
+UC_Official_match_2_2 ..> UC_Official_match_2_1_1 : <<include>>
+UC_Official_match_2_3 ..> UC_Official_match_2_1_1 : <<include>>
+UC_Official_match_2_1_1 ..> UC_Official_match_2_1_1_1 : <<include>>
+UC_Official_match_3 ..> UC_Official_match_3_1 : <<include>>
+UC_Official_match_4 ..> UC_Official_match_4_1 : <<include>>
+UC_Official_match_4_1 ..> UC_Official_match_4_1_1 : <<include>>
+UC_Official_match_5 ..> UC_Official_match_5_1 : <<include>>
+UC_Manager_team_1 ..> UC_Manager_team_1_1 : <<include>>
+UC_Manager_team_1_1 ..> UC_Manager_team_1_1_1 : <<include>>
+UC_Manager_team_2 ..> UC_Manager_team_2_1 : <<include>>
+UC_Manager_team_2_1 ..> UC_Manager_team_2_1_1 : <<include>>
+UC_Manager_team_3 ..> UC_Manager_team_3_1 : <<include>>
+UC_Manager_team_3_1 ..> UC_Manager_team_3_1_1 : <<include>>
+UC_Manager_team_3_1_1 ..> UC_Manager_team_3_1_1_1 : <<include>>
+UC_Manager_team_3_1_1 ..> UC_Manager_team_3_1_1_2 : <<include>>
+UC_Member_peronal_team_1 ..> UC_Member_peronal_team_1_1 : <<include>>
+UC_Member_peronal_team_1_1 ..> UC_Member_peronal_team_1_1_1 : <<include>>
+UC_Member_peronal_team_2 ..> UC_Member_peronal_team_2_1 : <<include>>
+UC_Member_peronal_team_2_1 ..> UC_Member_peronal_team_2_1_1 : <<include>>
+UC_Member_peronal_team_2 ..> UC_Member_peronal_team_2_2 : <<include>>
+UC_Member_peronal_team_2_2 ..> UC_Member_peronal_team_2_1_1 : <<include>>
+UC_Administrados_IFA_1 ..> UC_Administrados_IFA_1_1 : <<extend>>
+UC_Administrados_IFA_1 ..> UC_Administrados_IFA_1_2 : <<extend>>
+UC_Administrados_IFA_1_1 ..> UC_Administrados_IFA_1_1_1 : <<include>>
+UC_Administrados_IFA_1_2 ..> UC_Administrados_IFA_1_1_1 : <<include>>
+UC_Manager_IFA_1 ..> UC_Manager_IFA_1_1 : <<include>>
+UC_Manager_IFA_1_1 ..> UC_Manager_IFA_1_1_1 : <<include>>
+UC_Manager_IFA_2 ..> UC_Manager_IFA_2_1 : <<include>>
+UC_Manager_IFA_2_1 ..> UC_Manager_IFA_1_1_1 : <<include>>
+UC_Aficionado_1 ..> UC_Aficionado_1_1 : <<include>>
+UC_Aficionado_1_1 ..> UC_Aficionado_1_1_1 : <<include>>
+UC_Aficionado_1 ..> UC_Aficionado_1_2 : <<include>>
+UC_Aficionado_1_2 ..> UC_Aficionado_1_1_1 : <<include>>
+
+@enduml

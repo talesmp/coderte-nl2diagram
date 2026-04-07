@@ -1,0 +1,104 @@
+@startuml
+
+actor "Moderator" as Moderator
+actor "Mike" as Mike
+actor "Participant" as Participant
+actor "Estimador" as Estimador
+
+rectangle "System" {
+  usecase "Create game" as UC_Moderator_1
+  usecase "Select modo of estimate" as UC_Moderator_1_1
+  usecase "Fibonacci modificada" as UC_Moderator_1_1_1
+  usecase "Comenzar round" as UC_Moderator_1_1_1_1
+  usecase "Potencias of 2" as UC_Moderator_1_1_2
+  usecase "Add element" as UC_Moderator_1_1_3
+  usecase "Invite estimadores with URL" as UC_Moderator_2
+  usecase "Maximo 15" as UC_Moderator_2_1
+  usecase "View elements estimados" as UC_Moderator_3
+  usecase "Select element" as UC_Moderator_4
+  usecase "Edit element" as UC_Moderator_4_1
+  usecase "Perform or repetir estimate" as UC_Moderator_4_2
+  usecase "Delete element" as UC_Moderator_4_3
+  usecase "View all the estimates" as UC_Moderator_5
+  usecase "Aceptar promedio" as UC_Moderator_6
+  usecase "Pass to the siguiente element" as UC_Moderator_6_1
+  usecase "Enter budget" as UC_Moderator_7
+  usecase "Import stories" as UC_Moderator_8
+  usecase "Sheet of calculation" as UC_Moderator_8_1
+  usecase "Copy and paste" as UC_Moderator_8_2
+  usecase "Navigate between games past" as UC_Moderator_9
+  usecase "View transcript of a game" as UC_Moderator_9_1
+  usecase "Export transcript" as UC_Moderator_9_1_1
+  usecase "HTML" as UC_Moderator_9_1_1_1
+  usecase "CSV" as UC_Moderator_9_1_1_2
+  usecase "Delete game" as UC_Moderator_9_2
+  usecase "View date and time local" as UC_Moderator_10
+  usecase "Create account" as UC_Moderator_11
+  usecase "Delete account" as UC_Moderator_11_1
+  usecase "Update data" as UC_Moderator_11_2
+  usecase "Start session" as UC_Moderator_11_3
+  usecase "Receive reminder password" as UC_Moderator_11_4
+  usecase "View metrics of usage" as UC_Mike_1
+  usecase "Start temporizador" as UC_Participant_1
+  usecase "Reset to the estimate" as UC_Participant_1_1
+  usecase "View estimador acertado" as UC_Participant_2
+  usecase "View stories and estimates past" as UC_Participant_3
+  usecase "View estimates to end of round" as UC_Participant_3_1
+  usecase "Change budget" as UC_Participant_4
+  usecase "View estimates" as UC_Participant_5
+  usecase "View estimates past" as UC_Participant_5_1
+  usecase "Make questions to other participants" as UC_Participant_5_1_1
+  usecase "Enter name" as UC_Estimador_1
+  usecase "View elements estimados" as UC_Estimador_2
+  usecase "Enter estimate" as UC_Estimador_3
+}
+
+Moderator --> UC_Moderator_1
+Moderator --> UC_Moderator_2
+Moderator --> UC_Moderator_3
+Moderator --> UC_Moderator_4
+Moderator --> UC_Moderator_5
+Moderator --> UC_Moderator_6
+Moderator --> UC_Moderator_7
+Moderator --> UC_Moderator_8
+Moderator --> UC_Moderator_9
+Moderator --> UC_Moderator_10
+Moderator --> UC_Moderator_11
+Mike --> UC_Mike_1
+Participant --> UC_Participant_1
+Participant --> UC_Participant_2
+Participant --> UC_Participant_3
+Participant --> UC_Participant_4
+Participant --> UC_Participant_5
+Estimador --> UC_Estimador_1
+Estimador --> UC_Estimador_2
+Estimador --> UC_Estimador_3
+
+UC_Moderator_1 ..> UC_Moderator_1_1 : <<include>>
+UC_Moderator_1_1 ..> UC_Moderator_1_1_1 : <<extend>>
+UC_Moderator_1_1_1 ..> UC_Moderator_1_1_1_1 : <<extend>>
+UC_Moderator_1_1 ..> UC_Moderator_1_1_2 : <<extend>>
+UC_Moderator_1_1_2 ..> UC_Moderator_1_1_1_1 : <<extend>>
+UC_Moderator_1_1 ..> UC_Moderator_1_1_3 : <<include>>
+UC_Moderator_2 ..> UC_Moderator_2_1 : <<extend>>
+UC_Moderator_4 ..> UC_Moderator_4_1 : <<extend>>
+UC_Moderator_4 ..> UC_Moderator_4_2 : <<extend>>
+UC_Moderator_4 ..> UC_Moderator_4_3 : <<extend>>
+UC_Moderator_6 ..> UC_Moderator_6_1 : <<include>>
+UC_Moderator_8 ..> UC_Moderator_8_1 : <<extend>>
+UC_Moderator_8 ..> UC_Moderator_8_2 : <<extend>>
+UC_Moderator_9 ..> UC_Moderator_9_1 : <<extend>>
+UC_Moderator_9 ..> UC_Moderator_9_2 : <<extend>>
+UC_Moderator_9_1 ..> UC_Moderator_9_1_1 : <<extend>>
+UC_Moderator_9_1_1 ..> UC_Moderator_9_1_1_1 : <<extend>>
+UC_Moderator_9_1_1 ..> UC_Moderator_9_1_1_2 : <<extend>>
+UC_Moderator_11 ..> UC_Moderator_11_1 : <<extend>>
+UC_Moderator_11 ..> UC_Moderator_11_2 : <<extend>>
+UC_Moderator_11 ..> UC_Moderator_11_3 : <<extend>>
+UC_Moderator_11 ..> UC_Moderator_11_4 : <<extend>>
+UC_Participant_1 ..> UC_Participant_1_1 : <<extend>>
+UC_Participant_3 ..> UC_Participant_3_1 : <<include>>
+UC_Participant_5 ..> UC_Participant_5_1 : <<extend>>
+UC_Participant_5_1 ..> UC_Participant_5_1_1 : <<extend>>
+
+@enduml

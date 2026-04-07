@@ -1,0 +1,440 @@
+@startuml
+
+actor "Developer" as Developer
+actor "Researcher" as Researcher
+actor "Editor" as Editor
+actor "Reseacher_publisher" as Reseacher_publisher
+actor "Experto_aprendizaje_autonomo" as Experto_aprendizaje_autonomo
+actor "Editor_researcher_Government" as Editor_researcher_Government
+actor "Researcher_Developer" as Researcher_Developer
+actor "Administrator_Repository" as Administrator_Repository
+actor "Developer_Wrangler" as Developer_Wrangler
+actor "Editor_gobierno" as Editor_gobierno
+actor "Activista_tecnologia_civica" as Activista_tecnologia_civica
+actor "Developer_Data_Wrangler" as Developer_Data_Wrangler
+actor "Developer_Publisher" as Developer_Publisher
+actor "Repository_Manager_Researcher" as Repository_Manager_Researcher
+actor "Researcher_editor" as Researcher_editor
+
+rectangle "System" {
+  usecase "Get package data" as UC_Developer_1
+  usecase "Get package data node" as UC_Developer_1_1
+  usecase "Get package data python seconds" as UC_Developer_1_2
+  usecase "Get package data clojure seconds" as UC_Developer_1_3
+  usecase "Get package data julia seconds" as UC_Developer_1_4
+  usecase "Get package data c++ seconds" as UC_Developer_1_5
+  usecase "Use data" as UC_Developer_1_1_1
+  usecase "Perform analysis and visualizaciones" as UC_Developer_1_1_1_1
+  usecase "Adquirir complemento jQuery" as UC_Developer_2
+  usecase "Use complemento packages data" as UC_Developer_2_1
+  usecase "Apply to the control of form" as UC_Developer_2_1_1
+  usecase "Autocompletar usando set data" as UC_Developer_2_1_1_1
+  usecase "Make analysis data exploratorios R" as UC_Developer_3
+  usecase "Put in operation in python" as UC_Developer_3_1
+  usecase "Use mejor tool work" as UC_Developer_3_1_1
+  usecase "Integrate data" as UC_Developer_4
+  usecase "Integrate data Elasticsearch" as UC_Developer_4_1
+  usecase "Integrate data SPSS" as UC_Developer_4_2
+  usecase "Integrate data Eprints" as UC_Developer_4_3
+  usecase "Integrate data Mongo" as UC_Developer_4_4
+  usecase "Integrate data DAT" as UC_Developer_4_5
+  usecase "Integrate data Dspace" as UC_Developer_4_6
+  usecase "Integrate data feather" as UC_Developer_4_7
+  usecase "Integrate data HDF5" as UC_Developer_4_8
+  usecase "Package with pipelines" as UC_Developer_4_1_1
+  usecase "Use packaged" as UC_Developer_4_1_1_1
+  usecase "Use packaged Elasticsearch" as UC_Developer_4_1_1_1_1
+  usecase "Use packaged SPSS" as UC_Developer_4_1_1_1_2
+  usecase "Use packaged Eprints" as UC_Developer_4_1_1_1_3
+  usecase "Use packaged Mongo" as UC_Developer_4_1_1_1_4
+  usecase "Use packaged DAT" as UC_Developer_4_1_1_1_5
+  usecase "Use packaged Dspace" as UC_Developer_4_1_1_1_6
+  usecase "Use packaged Feather" as UC_Developer_4_1_1_1_7
+  usecase "Use packaged HDF5" as UC_Developer_4_1_1_1_8
+  usecase "Create service online" as UC_Developer_5
+  usecase "Connect Repository data" as UC_Developer_5_1
+  usecase "Update data" as UC_Developer_5_1_1
+  usecase "Validate data" as UC_Developer_5_1_1_1
+  usecase "Delegate validation data third party" as UC_Developer_5_1_1_1_1
+  usecase "Create protocol service web" as UC_Developer_6
+  usecase "Use protocol tool Frictionless" as UC_Developer_6_1
+  usecase "Use packages data" as UC_Developer_6_1_1
+  usecase "Use tools analysis data" as UC_Developer_6_1_1_1
+  usecase "Get package data" as UC_Researcher_1
+  usecase "Get package data julia seconds" as UC_Researcher_1_1
+  usecase "Get package data R seconds" as UC_Researcher_1_2
+  usecase "Get package data excel seconds" as UC_Researcher_1_3
+  usecase "Get package data SPSS seconds" as UC_Researcher_1_4
+  usecase "Get package data STATA seconds" as UC_Researcher_1_5
+  usecase "Get package data Libre/Open Office seconds" as UC_Researcher_1_6
+  usecase "Use data" as UC_Researcher_1_1_1
+  usecase "Perform analysis and visualizaciones" as UC_Researcher_1_1_1_1
+  usecase "Save new visualizaciones" as UC_Researcher_2
+  usecase "Share with other packages data" as UC_Researcher_2_1
+  usecase "Include with other packages data" as UC_Researcher_2_2
+  usecase "Select set of data EML" as UC_Researcher_3
+  usecase "Traducir to package data" as UC_Researcher_3_1
+  usecase "Get beneficio gama tools packages" as UC_Researcher_3_1_1
+  usecase "Choose package of data" as UC_Researcher_4
+  usecase "Include sheet calculation excel" as UC_Researcher_4_1
+  usecase "Get beneficio tools" as UC_Researcher_4_1_1
+  usecase "Get beneficio estandarizacion" as UC_Researcher_4_1_2
+  usecase "Referenciar vocabulario" as UC_Researcher_5
+  usecase "Control vocabulario form remote" as UC_Researcher_5_1
+  usecase "Validate columna set data" as UC_Researcher_5_1_1
+  usecase "Integrate data" as UC_Researcher_6
+  usecase "Integrate data Microsoft BI" as UC_Researcher_6_1
+  usecase "Import set data" as UC_Researcher_6_1_1
+  usecase "Avoid download localmente" as UC_Researcher_6_1_1_1
+  usecase "Integrate data NetCDF" as UC_Researcher_6_2
+  usecase "Store data texto without format" as UC_Researcher_6_2_1
+  usecase "Conservar metadata" as UC_Researcher_6_2_2
+  usecase "Integrate data Data Mendeley" as UC_Researcher_6_3
+  usecase "Validate ticket data service" as UC_Researcher_6_3_1
+  usecase "Create tools statistics basicas" as UC_Researcher_7
+  usecase "Use tool statistics basicas" as UC_Researcher_7_1
+  usecase "Generate statistics basicas set data" as UC_Researcher_7_1_1
+  usecase "Get view previous data" as UC_Researcher_7_1_1_1
+  usecase "Implement application" as UC_Researcher_8
+  usecase "Generate point end API" as UC_Researcher_8_1
+  usecase "Use package data tabulares" as UC_Researcher_8_1_1
+  usecase "Limpiar data desordenados" as UC_Researcher_8_1_1_1
+  usecase "Create packages proxy" as UC_Researcher_8_2
+  usecase "Determine data conocidos and confiables" as UC_Researcher_8_2_1
+  usecase "Use tools alta quality" as UC_Researcher_8_2_1_1
+  usecase "Load data" as UC_Researcher_8_2_1_1_1
+  usecase "Add information type data" as UC_Editor_1
+  usecase "Brindar utility other users" as UC_Editor_1_1
+  usecase "Use mejor the tools" as UC_Editor_1_2
+  usecase "Provide visualization data" as UC_Editor_2
+  usecase "Visualize data in packages" as UC_Editor_2_1
+  usecase "Provide analysis" as UC_Editor_2_1_1
+  usecase "Display work users" as UC_Editor_2_1_2
+  usecase "Integrate data" as UC_Editor_3
+  usecase "Integrate data Open Refine" as UC_Editor_3_1
+  usecase "Generate packages data limpios" as UC_Editor_3_1_1
+  usecase "Integrate data excel" as UC_Editor_3_2
+  usecase "Store data online" as UC_Editor_4
+  usecase "Store data form rapida" as UC_Editor_4_1
+  usecase "Store data form sencilla" as UC_Editor_4_2
+  usecase "Update data" as UC_Editor_5
+  usecase "Check utility data" as UC_Editor_5_1
+  usecase "Detect errors temprano" as UC_Editor_5_1_1
+  usecase "Store data fiables" as UC_Editor_5_1_2
+  usecase "Incrustar view previous interactiva" as UC_Editor_6
+  usecase "Identify assignment data users" as UC_Editor_6_1
+  usecase "Incrustar boton view previous" as UC_Editor_7
+  usecase "Get view previous data" as UC_Editor_7_1
+  usecase "Brindar satisfaccion data user" as UC_Editor_7_2
+  usecase "Get number view previous data" as UC_Editor_8
+  usecase "Match interes data" as UC_Editor_8_1
+  usecase "Match number downloads" as UC_Editor_8_2
+  usecase "Add data" as UC_Editor_9
+  usecase "Add metadata" as UC_Editor_9_1
+  usecase "Add columnas data" as UC_Editor_9_2
+  usecase "Give utility set data" as UC_Editor_9_1_1
+  usecase "Package steps reproducibles" as UC_Editor_10
+  usecase "Get status data" as UC_Editor_10_1
+  usecase "Implement tool persistencia" as UC_Editor_11
+  usecase "Publish data" as UC_Editor_11_1
+  usecase "Verify persistencia availability data" as UC_Editor_11_1_1
+  usecase "Validate data profile" as UC_Reseacher_publisher_1
+  usecase "Adjust profile package data" as UC_Reseacher_publisher_1_1
+  usecase "Trust validez" as UC_Reseacher_publisher_1_1_1
+  usecase "Trust utility data" as UC_Reseacher_publisher_1_1_2
+  usecase "Comprender forms data invalidos" as UC_Reseacher_publisher_2
+  usecase "Know solution" as UC_Reseacher_publisher_2_1
+  usecase "Integrate data zenodo" as UC_Reseacher_publisher_3
+  usecase "Store set data Github" as UC_Reseacher_publisher_3_1
+  usecase "Avoid write information descriptiva" as UC_Reseacher_publisher_3_1_1
+  usecase "Publish package data CKAN" as UC_Reseacher_publisher_4
+  usecase "Find data" as UC_Reseacher_publisher_4_1
+  usecase "Have API data" as UC_Reseacher_publisher_4_2
+  usecase "Validate data" as UC_Reseacher_publisher_5
+  usecase "Set minimo clics" as UC_Reseacher_publisher_5_1
+  usecase "Trust validez data" as UC_Reseacher_publisher_5_1_1
+  usecase "Trust utility data" as UC_Reseacher_publisher_5_1_2
+  usecase "Package set data" as UC_Experto_aprendizaje_autonomo_1
+  usecase "Package aprendizaje autonomo" as UC_Experto_aprendizaje_autonomo_1_1
+  usecase "Package as packages data" as UC_Experto_aprendizaje_autonomo_1_1_1
+  usecase "Import to platform aprendizaje autonomo" as UC_Experto_aprendizaje_autonomo_1_1_1_1
+  usecase "Use data analysis realizados" as UC_Experto_aprendizaje_autonomo_1_1_1_1_1
+  usecase "Add data" as UC_Editor_researcher_Government_1
+  usecase "Add data referencia general" as UC_Editor_researcher_Government_1_1
+  usecase "Give utility set data" as UC_Editor_researcher_Government_1_1_1
+  usecase "Add data set data limitado" as UC_Editor_researcher_Government_1_2
+  usecase "Add names paises" as UC_Editor_researcher_Government_2
+  usecase "Add paises conunto data" as UC_Editor_researcher_Government_2_1
+  usecase "Make set of data legible" as UC_Editor_researcher_Government_2_1_1
+  usecase "Add data referencia inflacion" as UC_Editor_researcher_Government_3
+  usecase "Add set data inflacion gastos" as UC_Editor_researcher_Government_3_1
+  usecase "Comprender lineas gasto set data" as UC_Editor_researcher_Government_3_1_1
+  usecase "Mapear lineas set data" as UC_Editor_researcher_Government_4
+  usecase "Use data geograficos set data" as UC_Editor_researcher_Government_4_1
+  usecase "Make atractivo set data" as UC_Editor_researcher_Government_4_1_1
+  usecase "Import from SQL" as UC_Researcher_Developer_1
+  usecase "Use package data flujos work SQL" as UC_Researcher_Developer_1_1
+  usecase "Export from SQL" as UC_Researcher_Developer_2
+  usecase "Implement tool" as UC_Administrator_Repository_1
+  usecase "Facilitate to investigadores" as UC_Administrator_Repository_1_1
+  usecase "Facilitate to users" as UC_Administrator_Repository_1_2
+  usecase "Add metadata basicos research" as UC_Administrator_Repository_1_1_1
+  usecase "Facilitate search" as UC_Administrator_Repository_1_1_1_1
+  usecase "Promote utility" as UC_Administrator_Repository_1_1_1_2
+  usecase "Use tool online comando" as UC_Developer_Wrangler_1
+  usecase "Allow to met validate data" as UC_Developer_Wrangler_1_1
+  usecase "Hallar reliability" as UC_Developer_Wrangler_1_1_1
+  usecase "Trust validez data" as UC_Developer_Wrangler_1_1_1_1
+  usecase "Trust utility data" as UC_Developer_Wrangler_1_1_1_2
+  usecase "Trust contexto flujo work online comando" as UC_Developer_Wrangler_1_1_1_3
+  usecase "Facilitate test data published" as UC_Editor_gobierno_1
+  usecase "Validate data published" as UC_Editor_gobierno_1_1
+  usecase "Afirmar compliance compromisos transparencia" as UC_Editor_gobierno_1_1_1
+  usecase "Facilitate evaluation quality data" as UC_Activista_tecnologia_civica_1
+  usecase "Store data gobierno" as UC_Activista_tecnologia_civica_1_1
+  usecase "Asegurar compliance compromisos transparencia" as UC_Activista_tecnologia_civica_1_1_1
+  usecase "Store package data" as UC_Developer_Data_Wrangler_1
+  usecase "Store Github" as UC_Developer_Data_Wrangler_1_1
+  usecase "Store automatically CKAN" as UC_Developer_Data_Wrangler_1_2
+  usecase "Get API data" as UC_Developer_Data_Wrangler_1_1_1
+  usecase "Display set data catalogo relevant" as UC_Developer_Data_Wrangler_1_1_1_1
+  usecase "Implement tool" as UC_Developer_Publisher_1
+  usecase "Create summary data incrustable" as UC_Developer_Publisher_1_1
+  usecase "Use iframe" as UC_Developer_Publisher_1_1_1
+  usecase "Incrustar summary data sitios" as UC_Developer_Publisher_1_1_1_1
+  usecase "Implement application" as UC_Repository_Manager_Researcher_1
+  usecase "Desplegar service emparejamiento" as UC_Repository_Manager_Researcher_1_1
+  usecase "Package data" as UC_Repository_Manager_Researcher_1_1_1
+  usecase "Ubicar owner" as UC_Repository_Manager_Researcher_1_1_1_1
+  usecase "Emparejar with empaquetador data" as UC_Repository_Manager_Researcher_1_1_1_1_1
+  usecase "Contribute financiacion" as UC_Researcher_editor_1
+  usecase "Especificar financiacion" as UC_Researcher_editor_1_1
+  usecase "Determine set data" as UC_Researcher_editor_1_1_1
+  usecase "Create set data" as UC_Researcher_editor_1_1_1_1
+  usecase "Identify source financiacion set data" as UC_Researcher_editor_1_1_1_1_1
+  usecase "Add DOI set data" as UC_Researcher_editor_2
+  usecase "Citar in articles almacenados data" as UC_Researcher_editor_2_1
+}
+
+Developer --> UC_Developer_1
+Developer --> UC_Developer_2
+Developer --> UC_Developer_3
+Developer --> UC_Developer_4
+Developer --> UC_Developer_5
+Developer --> UC_Developer_6
+Researcher --> UC_Researcher_1
+Researcher --> UC_Researcher_2
+Researcher --> UC_Researcher_3
+Researcher --> UC_Researcher_4
+Researcher --> UC_Researcher_5
+Researcher --> UC_Researcher_6
+Researcher --> UC_Researcher_7
+Researcher --> UC_Researcher_8
+Editor --> UC_Editor_1
+Editor --> UC_Editor_2
+Editor --> UC_Editor_3
+Editor --> UC_Editor_4
+Editor --> UC_Editor_5
+Editor --> UC_Editor_6
+Editor --> UC_Editor_7
+Editor --> UC_Editor_8
+Editor --> UC_Editor_9
+Editor --> UC_Editor_10
+Editor --> UC_Editor_11
+Reseacher_publisher --> UC_Reseacher_publisher_1
+Reseacher_publisher --> UC_Reseacher_publisher_2
+Reseacher_publisher --> UC_Reseacher_publisher_3
+Reseacher_publisher --> UC_Reseacher_publisher_4
+Reseacher_publisher --> UC_Reseacher_publisher_5
+Experto_aprendizaje_autonomo --> UC_Experto_aprendizaje_autonomo_1
+Editor_researcher_Government --> UC_Editor_researcher_Government_1
+Editor_researcher_Government --> UC_Editor_researcher_Government_2
+Editor_researcher_Government --> UC_Editor_researcher_Government_3
+Editor_researcher_Government --> UC_Editor_researcher_Government_4
+Researcher_Developer --> UC_Researcher_Developer_1
+Researcher_Developer --> UC_Researcher_Developer_2
+Administrator_Repository --> UC_Administrator_Repository_1
+Developer_Wrangler --> UC_Developer_Wrangler_1
+Editor_gobierno --> UC_Editor_gobierno_1
+Activista_tecnologia_civica --> UC_Activista_tecnologia_civica_1
+Developer_Data_Wrangler --> UC_Developer_Data_Wrangler_1
+Developer_Publisher --> UC_Developer_Publisher_1
+Repository_Manager_Researcher --> UC_Repository_Manager_Researcher_1
+Researcher_editor --> UC_Researcher_editor_1
+Researcher_editor --> UC_Researcher_editor_2
+
+UC_Developer_1 ..> UC_Developer_1_1 : <<extend>>
+UC_Developer_1 ..> UC_Developer_1_2 : <<extend>>
+UC_Developer_1 ..> UC_Developer_1_3 : <<extend>>
+UC_Developer_1 ..> UC_Developer_1_4 : <<extend>>
+UC_Developer_1 ..> UC_Developer_1_5 : <<extend>>
+UC_Developer_1_1 ..> UC_Developer_1_1_1 : <<include>>
+UC_Developer_1_2 ..> UC_Developer_1_1_1 : <<include>>
+UC_Developer_1_3 ..> UC_Developer_1_1_1 : <<include>>
+UC_Developer_1_4 ..> UC_Developer_1_1_1 : <<include>>
+UC_Developer_1_5 ..> UC_Developer_1_1_1 : <<include>>
+UC_Developer_1_1_1 ..> UC_Developer_1_1_1_1 : <<include>>
+UC_Developer_2 ..> UC_Developer_2_1 : <<include>>
+UC_Developer_2_1 ..> UC_Developer_2_1_1 : <<include>>
+UC_Developer_2_1_1 ..> UC_Developer_2_1_1_1 : <<include>>
+UC_Developer_3 ..> UC_Developer_3_1 : <<include>>
+UC_Developer_3_1 ..> UC_Developer_3_1_1 : <<include>>
+UC_Developer_4 ..> UC_Developer_4_1 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_2 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_3 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_4 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_5 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_6 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_7 : <<extend>>
+UC_Developer_4 ..> UC_Developer_4_8 : <<extend>>
+UC_Developer_4_1 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_2 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_3 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_4 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_5 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_6 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_6 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_8 ..> UC_Developer_4_1_1 : <<include>>
+UC_Developer_4_1_1 ..> UC_Developer_4_1_1_1 : <<include>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_1 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_2 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_3 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_4 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_5 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_6 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_7 : <<extend>>
+UC_Developer_4_1_1_1 ..> UC_Developer_4_1_1_1_8 : <<extend>>
+UC_Developer_5 ..> UC_Developer_5_1 : <<include>>
+UC_Developer_5_1 ..> UC_Developer_5_1_1 : <<include>>
+UC_Developer_5_1_1 ..> UC_Developer_5_1_1_1 : <<include>>
+UC_Developer_5_1_1_1 ..> UC_Developer_5_1_1_1_1 : <<extend>>
+UC_Developer_6 ..> UC_Developer_6_1 : <<include>>
+UC_Developer_6_1 ..> UC_Developer_6_1_1 : <<extend>>
+UC_Developer_6_1_1 ..> UC_Developer_6_1_1_1 : <<include>>
+UC_Researcher_1 ..> UC_Researcher_1_1 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_2 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_3 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_4 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_5 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_6 : <<extend>>
+UC_Researcher_1_1 ..> UC_Researcher_1_1_1 : <<include>>
+UC_Researcher_1_2 ..> UC_Researcher_1_1_1 : <<include>>
+UC_Researcher_1_3 ..> UC_Researcher_1_1_1 : <<include>>
+UC_Researcher_1_4 ..> UC_Researcher_1_1_1 : <<include>>
+UC_Researcher_1_5 ..> UC_Researcher_1_1_1 : <<include>>
+UC_Researcher_1_6 ..> UC_Researcher_1_1_1 : <<include>>
+UC_Researcher_1_1_1 ..> UC_Researcher_1_1_1_1 : <<include>>
+UC_Researcher_2 ..> UC_Researcher_2_1 : <<include>>
+UC_Researcher_2 ..> UC_Researcher_2_2 : <<include>>
+UC_Researcher_3 ..> UC_Researcher_3_1 : <<include>>
+UC_Researcher_3_1 ..> UC_Researcher_3_1_1 : <<include>>
+UC_Researcher_4 ..> UC_Researcher_4_1 : <<include>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_1 : <<include>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_2 : <<include>>
+UC_Researcher_5 ..> UC_Researcher_5_1 : <<include>>
+UC_Researcher_5_1 ..> UC_Researcher_5_1_1 : <<include>>
+UC_Researcher_6 ..> UC_Researcher_6_1 : <<extend>>
+UC_Researcher_6_1 ..> UC_Researcher_6_1_1 : <<include>>
+UC_Researcher_6_1_1 ..> UC_Researcher_6_1_1_1 : <<include>>
+UC_Researcher_6 ..> UC_Researcher_6_2 : <<extend>>
+UC_Researcher_6_2 ..> UC_Researcher_6_2_1 : <<include>>
+UC_Researcher_6_2 ..> UC_Researcher_6_2_2 : <<include>>
+UC_Researcher_6 ..> UC_Researcher_6_3 : <<extend>>
+UC_Researcher_6_3 ..> UC_Researcher_6_3_1 : <<include>>
+UC_Researcher_7 ..> UC_Researcher_7_1 : <<include>>
+UC_Researcher_7_1 ..> UC_Researcher_7_1_1 : <<include>>
+UC_Researcher_7_1_1 ..> UC_Researcher_7_1_1_1 : <<include>>
+UC_Researcher_8 ..> UC_Researcher_8_1 : <<extend>>
+UC_Researcher_8_1 ..> UC_Researcher_8_1_1 : <<include>>
+UC_Researcher_8_1_1 ..> UC_Researcher_8_1_1_1 : <<include>>
+UC_Researcher_8 ..> UC_Researcher_8_2 : <<extend>>
+UC_Researcher_8_2 ..> UC_Researcher_8_2_1 : <<include>>
+UC_Researcher_8_2_1 ..> UC_Researcher_8_2_1_1 : <<include>>
+UC_Researcher_8_2_1_1 ..> UC_Researcher_8_2_1_1_1 : <<extend>>
+UC_Editor_1 ..> UC_Editor_1_1 : <<include>>
+UC_Editor_1 ..> UC_Editor_1_2 : <<include>>
+UC_Editor_2 ..> UC_Editor_2_1 : <<include>>
+UC_Editor_2_1 ..> UC_Editor_2_1_1 : <<include>>
+UC_Editor_2_1 ..> UC_Editor_2_1_2 : <<include>>
+UC_Editor_3 ..> UC_Editor_3_1 : <<extend>>
+UC_Editor_3 ..> UC_Editor_3_2 : <<extend>>
+UC_Editor_3_1 ..> UC_Editor_3_1_1 : <<include>>
+UC_Editor_3_2 ..> UC_Editor_3_1_1 : <<include>>
+UC_Editor_4 ..> UC_Editor_4_1 : <<include>>
+UC_Editor_4 ..> UC_Editor_4_2 : <<include>>
+UC_Editor_5 ..> UC_Editor_5_1 : <<include>>
+UC_Editor_5_1 ..> UC_Editor_5_1_1 : <<include>>
+UC_Editor_5_1 ..> UC_Editor_5_1_2 : <<include>>
+UC_Editor_6 ..> UC_Editor_6_1 : <<include>>
+UC_Editor_7 ..> UC_Editor_7_1 : <<include>>
+UC_Editor_7 ..> UC_Editor_7_2 : <<include>>
+UC_Editor_8 ..> UC_Editor_8_1 : <<include>>
+UC_Editor_8 ..> UC_Editor_8_2 : <<include>>
+UC_Editor_9 ..> UC_Editor_9_1 : <<extend>>
+UC_Editor_9 ..> UC_Editor_9_2 : <<extend>>
+UC_Editor_9_1 ..> UC_Editor_9_1_1 : <<include>>
+UC_Editor_9_2 ..> UC_Editor_9_1_1 : <<include>>
+UC_Editor_10 ..> UC_Editor_10_1 : <<include>>
+UC_Editor_11 ..> UC_Editor_11_1 : <<include>>
+UC_Editor_11_1 ..> UC_Editor_11_1_1 : <<include>>
+UC_Reseacher_publisher_1 ..> UC_Reseacher_publisher_1_1 : <<include>>
+UC_Reseacher_publisher_1_1 ..> UC_Reseacher_publisher_1_1_1 : <<include>>
+UC_Reseacher_publisher_1_1 ..> UC_Reseacher_publisher_1_1_2 : <<include>>
+UC_Reseacher_publisher_2 ..> UC_Reseacher_publisher_2_1 : <<include>>
+UC_Reseacher_publisher_3 ..> UC_Reseacher_publisher_3_1 : <<include>>
+UC_Reseacher_publisher_3_1 ..> UC_Reseacher_publisher_3_1_1 : <<include>>
+UC_Reseacher_publisher_4 ..> UC_Reseacher_publisher_4_1 : <<include>>
+UC_Reseacher_publisher_4 ..> UC_Reseacher_publisher_4_2 : <<include>>
+UC_Reseacher_publisher_5 ..> UC_Reseacher_publisher_5_1 : <<include>>
+UC_Reseacher_publisher_5_1 ..> UC_Reseacher_publisher_5_1_1 : <<include>>
+UC_Reseacher_publisher_5_1 ..> UC_Reseacher_publisher_5_1_2 : <<include>>
+UC_Experto_aprendizaje_autonomo_1 ..> UC_Experto_aprendizaje_autonomo_1_1 : <<include>>
+UC_Experto_aprendizaje_autonomo_1_1 ..> UC_Experto_aprendizaje_autonomo_1_1_1 : <<include>>
+UC_Experto_aprendizaje_autonomo_1_1_1 ..> UC_Experto_aprendizaje_autonomo_1_1_1_1 : <<include>>
+UC_Experto_aprendizaje_autonomo_1_1_1_1 ..> UC_Experto_aprendizaje_autonomo_1_1_1_1_1 : <<extend>>
+UC_Editor_researcher_Government_1 ..> UC_Editor_researcher_Government_1_1 : <<extend>>
+UC_Editor_researcher_Government_1 ..> UC_Editor_researcher_Government_1_2 : <<extend>>
+UC_Editor_researcher_Government_1_1 ..> UC_Editor_researcher_Government_1_1_1 : <<include>>
+UC_Editor_researcher_Government_1_2 ..> UC_Editor_researcher_Government_1_1_1 : <<include>>
+UC_Editor_researcher_Government_2 ..> UC_Editor_researcher_Government_2_1 : <<include>>
+UC_Editor_researcher_Government_2_1 ..> UC_Editor_researcher_Government_2_1_1 : <<include>>
+UC_Editor_researcher_Government_3 ..> UC_Editor_researcher_Government_3_1 : <<include>>
+UC_Editor_researcher_Government_3_1 ..> UC_Editor_researcher_Government_3_1_1 : <<extend>>
+UC_Editor_researcher_Government_4 ..> UC_Editor_researcher_Government_4_1 : <<include>>
+UC_Editor_researcher_Government_4_1 ..> UC_Editor_researcher_Government_4_1_1 : <<include>>
+UC_Researcher_Developer_1 ..> UC_Researcher_Developer_1_1 : <<include>>
+UC_Researcher_Developer_2 ..> UC_Researcher_Developer_1_1 : <<include>>
+UC_Administrator_Repository_1 ..> UC_Administrator_Repository_1_1 : <<include>>
+UC_Administrator_Repository_1 ..> UC_Administrator_Repository_1_2 : <<include>>
+UC_Administrator_Repository_1_1 ..> UC_Administrator_Repository_1_1_1 : <<include>>
+UC_Administrator_Repository_1_2 ..> UC_Administrator_Repository_1_1_1 : <<include>>
+UC_Administrator_Repository_1_1_1 ..> UC_Administrator_Repository_1_1_1_1 : <<include>>
+UC_Administrator_Repository_1_1_1 ..> UC_Administrator_Repository_1_1_1_2 : <<include>>
+UC_Developer_Wrangler_1 ..> UC_Developer_Wrangler_1_1 : <<include>>
+UC_Developer_Wrangler_1_1 ..> UC_Developer_Wrangler_1_1_1 : <<include>>
+UC_Developer_Wrangler_1_1_1 ..> UC_Developer_Wrangler_1_1_1_1 : <<extend>>
+UC_Developer_Wrangler_1_1_1 ..> UC_Developer_Wrangler_1_1_1_2 : <<extend>>
+UC_Developer_Wrangler_1_1_1 ..> UC_Developer_Wrangler_1_1_1_3 : <<extend>>
+UC_Editor_gobierno_1 ..> UC_Editor_gobierno_1_1 : <<include>>
+UC_Editor_gobierno_1_1 ..> UC_Editor_gobierno_1_1_1 : <<include>>
+UC_Activista_tecnologia_civica_1 ..> UC_Activista_tecnologia_civica_1_1 : <<include>>
+UC_Activista_tecnologia_civica_1_1 ..> UC_Activista_tecnologia_civica_1_1_1 : <<include>>
+UC_Developer_Data_Wrangler_1 ..> UC_Developer_Data_Wrangler_1_1 : <<include>>
+UC_Developer_Data_Wrangler_1 ..> UC_Developer_Data_Wrangler_1_2 : <<include>>
+UC_Developer_Data_Wrangler_1_1 ..> UC_Developer_Data_Wrangler_1_1_1 : <<extend>>
+UC_Developer_Data_Wrangler_1_2 ..> UC_Developer_Data_Wrangler_1_1_1 : <<extend>>
+UC_Developer_Data_Wrangler_1_1_1 ..> UC_Developer_Data_Wrangler_1_1_1_1 : <<include>>
+UC_Developer_Publisher_1 ..> UC_Developer_Publisher_1_1 : <<include>>
+UC_Developer_Publisher_1_1 ..> UC_Developer_Publisher_1_1_1 : <<include>>
+UC_Developer_Publisher_1_1_1 ..> UC_Developer_Publisher_1_1_1_1 : <<include>>
+UC_Repository_Manager_Researcher_1 ..> UC_Repository_Manager_Researcher_1_1 : <<include>>
+UC_Repository_Manager_Researcher_1_1 ..> UC_Repository_Manager_Researcher_1_1_1 : <<include>>
+UC_Repository_Manager_Researcher_1_1_1 ..> UC_Repository_Manager_Researcher_1_1_1_1 : <<extend>>
+UC_Repository_Manager_Researcher_1_1_1_1 ..> UC_Repository_Manager_Researcher_1_1_1_1_1 : <<include>>
+UC_Researcher_editor_1 ..> UC_Researcher_editor_1_1 : <<include>>
+UC_Researcher_editor_1_1 ..> UC_Researcher_editor_1_1_1 : <<include>>
+UC_Researcher_editor_1_1_1 ..> UC_Researcher_editor_1_1_1_1 : <<include>>
+UC_Researcher_editor_1_1_1_1 ..> UC_Researcher_editor_1_1_1_1_1 : <<include>>
+UC_Researcher_editor_2 ..> UC_Researcher_editor_2_1 : <<include>>
+
+@enduml

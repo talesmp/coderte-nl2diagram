@@ -1,0 +1,219 @@
+@startuml
+
+class Person {
+  +Name
+  +ID
+  +Sex
+  +Height
+  +date_birth
+}
+
+class Owner_collection {
+  +id_owner
+  +validate_modification_collection()
+}
+
+class Member_facultad {
+  +id_Member
+  +Password
+  +add_demilitador()
+  +limit_search()
+  +return_results()
+  +manage_members()
+  +grant_permissions()
+  +view_confirmacion()
+  +delete_permissions()
+  +configure_start()
+  +configure_dates()
+}
+
+class Curator_collections {
+  +date
+  +Password
+  +set_date_expiry()
+  +Mapear_elements()
+  +Levantar_embargo()
+  +create_Form()
+  +set_date_embargo()
+  +Control_author()
+  +move_element()
+  +Summary_submission()
+  +change_metadata()
+  +create_groups_User()
+  +restrict_access_collection()
+  +request_access()
+  +change_Permission()
+  +authenticate()
+  +view_permissions()
+}
+
+class Curator_collection {
+  +Date
+  +Password
+  +id_author
+  +view_date_disposal()
+  +Encriptar_Password()
+  +view_metadata()
+  +identify_author()
+  +view_referentes()
+}
+
+class Researcher {
+  +id_researcher
+  +Password
+  +describe_team()
+  +edit_metadata()
+}
+
+class Repoadmin {
+  +id_repoadmin
+  +Password
+  +use_services()
+  +update()
+  +migrate()
+  +Presentar_license()
+  +Denegar_deposit()
+  +register_license()
+  +expose_content()
+  +provide_SLA()
+  +provide_Interface()
+  +communicate()
+  +integrate()
+  +Instanciar()
+  +select_license()
+}
+
+class Developer {
+  +id_Developer
+  +Password
+  +use_services()
+  +migrate()
+  +update()
+}
+
+class Archivista {
+  +id_archivista
+  +Password
+  +process_batches()
+  +Ingestar_batches()
+  +view_metadata()
+  +download_files()
+  +Levantar_embargoes()
+  +set_controls_access()
+  +add_people_col_esp()
+  +delete_people_col_esp()
+  +deposit_groups()
+  +grant_Permission_depositor()
+  +expose_record()
+  +grant_Permission_admin()
+  +add_people_indv_dep()
+  +delete_people_indv_dep()
+  +edit_duration_embargo()
+}
+
+class Superusuario {
+  +id_superuser
+  +Password
+  +Entrar()
+  +Salir()
+}
+
+class Remitente_batches {
+  +id_remitente
+  +Password
+  +provide_data()
+  +provide_metadata()
+  +access_documentation()
+}
+
+class Visitor {
+  +view_status()
+}
+
+class depositor {
+  +Email
+  +receive_comments()
+  +view_cosas_Repository()
+  +view_formats()
+  +find_information_DOI()
+}
+
+class Contact_Person {
+  +Phone
+  +Email
+  +Cargo
+  +Address
+}
+
+class Collection {
+  +Date
+  +author
+  +Title
+  +Editorial
+  +description
+  +language
+  +ISBN
+}
+
+class Administrator {
+  +execute_report()
+  +Especificar_policy()
+  +Replicar()
+  +view_users()
+  +view_duplicate()
+  +view_statistics()
+  +update_indice()
+  +view_viewsiones_available()
+}
+
+class Repository {
+  +Element
+  +Num_element
+  +Component
+  +Service
+  +Activity
+  +Replicar_remote()
+  +Insertar()
+  +Limpiar()
+  +get_dominio()
+}
+
+class DPC {
+  +create_event()
+  +register()
+}
+
+Person <|-- Contact_Person
+Person <|-- Owner_collection
+Person <|-- Member_Facultad
+Person <|-- Cuidador_collections
+Person <|-- Cuidador_collection
+Person <|-- Researcher
+Person <|-- Repoadmin
+Person <|-- Desarrolador
+Person <|-- Archivista
+Person <|-- Superusuario
+Person <|-- Remitente_batches
+Person <|-- Visitor
+Person <|-- depositio
+Collection *-- Owner_collection
+Collection *-- curator_collections
+Collection *-- curator_collection
+Contact_Person *-- manage
+Repository *-- Collection
+Repository *-- Administrator
+Repository *-- Repoadmin
+Repository *-- DPC
+Repository *-- Archivista
+Repository ..> Person
+Repository ..> Publica
+Member_Facultad o-- Repository
+Researcher o-- Repository
+Developer o-- Repository
+remitente_batches o-- Repository
+Visitor o-- Repository
+depositor o-- Repository
+Superusuario o-- Repository
+curator_collections -- curator_collection
+
+@enduml

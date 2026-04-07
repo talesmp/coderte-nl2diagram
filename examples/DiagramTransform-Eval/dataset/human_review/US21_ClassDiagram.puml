@@ -1,0 +1,185 @@
+@startuml
+
+class Member_cornell {
+  +name
+  +last_name
+  +email
+  +Member_cornell()
+  +accerder_Repository()
+  +load_data()
+  +associate_Publication()
+  +search_Publication()
+  +notify_download()
+  +assign_license()
+  +download_data()
+  +share()
+  +associate_researchID()
+}
+
+class researcher {
+  +name
+  +last_name
+  +email
+  +researcher()
+  +search_Repository()
+  +promover_work()
+  +share_work()
+  +receive_notification_update()
+}
+
+class Member_facultad {
+  +email
+  +last_name
+  +name
+  +facultad
+  +Member_facultad()
+  +accerder_Repository()
+  +access_collection()
+  +upload_work()
+  +associate_ archivos()
+}
+
+class soporte {
+  +name
+  +last_name
+  +soporte()
+  +export_data()
+  +move_collection()
+  +renombrar_collection()
+}
+
+class Staff_biblioteca {
+  +name
+  +email
+  +last_name
+  +Staff_biblioteca()
+  +apply_embargo()
+  +quitar_embargo()
+  +view_statistics()
+  +upload_elements()
+  +create_collection()
+  +upload_material()
+  +create_fields_metadata()
+}
+
+class external {
+  +external()
+  +search_topic()
+  +display_information_topic()
+}
+
+class Student {
+  +name
+  +last_name
+  +email
+  +code
+  +Student()
+  +view_involucrados()
+  +upload_data()
+}
+
+class curator_data {
+  +name
+  +curator_data()
+  +search_element()
+  +update_element()
+  +schedule_record()
+}
+
+class User {
+  +name
+  +last_name
+  +email
+  +User
+  +password
+  +User()
+  +search_report()
+  +get_report()
+  +visualize_report()
+  +view_viewsiones_report()
+  +create_account()
+  +inform_error()
+}
+
+class educador_extension {
+  +name
+  +last_name
+  +educador_extension()
+  +store_elements()
+}
+
+class administration {
+  +name
+  +last_name
+  +email
+  +id
+  +User
+  +password
+  +administration()
+  +get_name()
+  +get_last_name()
+  +get_email()
+  +get_id()
+  +get_User()
+  +get_password()
+}
+
+class administrator {
+  +User_id
+  +administrator()
+  +view_statistics_tracking()
+  +difundir_works()
+}
+
+class administrator_assets {
+  +status
+  +administrator_asset()
+  +create_copia_security()
+  +viewificar_amenazas()
+  +review_monitoreo()
+  +create_List_asset()
+  +sacar_asset()
+  +create_plan_disposicion_assets()
+  +transfer_property()
+}
+
+class administrator_extension {
+  +area
+  +administrator_extension()
+  +receive_reminder()
+  +create_flujo_work()
+}
+
+class administrator_DB_IR {
+  +User_especial
+  +password_especial
+  +administrator_DB_IR()
+  +start_session()
+  +edit_password()
+  +list_administradores()
+  +search_administrator()
+  +list_suscriptores_report()
+  +manage_Group()
+  +manage_calificaciones()
+  +create_report()
+  +edit_report()
+  +delete_Publication()
+}
+
+Member_cornell -- Researcher
+researcher -- Member_facultad
+Member_facultad -- soporte
+soporte -- Staff_biblioteca
+Staff_biblioteca -- administrator
+Staff_biblioteca -- external
+external -- Student
+Student -- curator_data
+curator_data -- User
+User -- educador_extension
+educador_extension -- administration
+administration <|-- administrator
+administration <|-- administrator_assets
+administration <|-- administrator_extension
+administration <|-- administrator_DB_IR
+
+@enduml

@@ -1,0 +1,191 @@
+@startuml
+
+actor "Patient" as Patient
+actor "doctor" as doctor
+actor "Nurse" as Nurse
+actor "Receptionist" as Receptionist
+actor "lab_technician" as lab_technician
+actor "Administrator_System" as Administrator_System
+actor "Farmaceutico" as Farmaceutico
+
+rectangle "System" {
+  usecase "Enter account" as UC_Patient_1
+  usecase "Access account from phone mobile" as UC_Patient_1_1
+  usecase "Review results tests" as UC_Patient_1_1_1
+  usecase "Review results measurements" as UC_Patient_1_1_2
+  usecase "Collect data" as UC_Patient_2
+  usecase "Select devices wearable" as UC_Patient_2_1
+  usecase "Share data professionals of health" as UC_Patient_2_1_1
+  usecase "Verify personal access data" as UC_Patient_3
+  usecase "Control access data" as UC_Patient_3_1
+  usecase "Restrict access data" as UC_Patient_3_1_1
+  usecase "Review status tests laboratory" as UC_Patient_4
+  usecase "Determine availability results" as UC_Patient_4_1
+  usecase "Display results" as UC_Patient_4_1_1
+  usecase "Schedule appointment" as UC_Patient_5
+  usecase "Schedule appointment form remote" as UC_Patient_5_1
+  usecase "Renew prescription medication" as UC_Patient_6
+  usecase "View data appointment" as UC_Patient_7
+  usecase "Get agenda" as UC_Patient_7_1
+  usecase "Fill agenda" as UC_Patient_7_1_1
+  usecase "Create agenda" as UC_Patient_7_1_1_1
+  usecase "Share data patients" as UC_doctor_1
+  usecase "Share data laboratories internal" as UC_doctor_1_1
+  usecase "Share data laboratories external" as UC_doctor_1_2
+  usecase "Get results measurements patient" as UC_doctor_2
+  usecase "Configure records doctors" as UC_doctor_2_1
+  usecase "Import results automatically" as UC_doctor_2_1_1
+  usecase "Avoid enter manually records" as UC_doctor_2_1_1_1
+  usecase "Authenticate records doctors" as UC_doctor_3
+  usecase "Access records doctors" as UC_doctor_3_1
+  usecase "View data doctors relevant" as UC_doctor_3_1
+  usecase "Select records doctors" as UC_doctor_4
+  usecase "Schedule data records doctors" as UC_doctor_4_1
+  usecase "Request tests laboratory" as UC_doctor_5
+  usecase "Register results tests laboratory" as UC_doctor_5_1
+  usecase "Send prescriptions pharmacy" as UC_doctor_6
+  usecase "Consult medications stock pharmacies" as UC_doctor_7
+  usecase "Get list medications stock pharmacies" as UC_doctor_7_1
+  usecase "Consult prescriptions intake medications" as UC_doctor_8
+  usecase "Get list prescriptions intake medications" as UC_doctor_8_1
+  usecase "Advise patients about intake medications" as UC_doctor_8_1_1
+  usecase "Get description general pharmacies external" as UC_doctor_9
+  usecase "Get names pharmacies external" as UC_doctor_9_1
+  usecase "Get addresses pharmacies external" as UC_doctor_9_2
+  usecase "Get numbers contact pharmacies external" as UC_doctor_9_3
+  usecase "Grant control pacial records doctors" as UC_doctor_10
+  usecase "Review status tests laboratory" as UC_doctor_11
+  usecase "Determine availability results" as UC_doctor_11_1
+  usecase "Display results" as UC_doctor_11_1_1
+  usecase "Select tests laboratory" as UC_doctor_12
+  usecase "Attach notes tests laboratory" as UC_doctor_12_1
+  usecase "Provide information additional personal" as UC_doctor_12_1_1
+  usecase "Start session quickly system" as UC_doctor_13
+  usecase "Avoid perder time appointments" as UC_doctor_13_1
+  usecase "Edit records doctors patient" as UC_Nurse_1
+  usecase "Enter results measurements" as UC_Nurse_1_1
+  usecase "Review information medical patient" as UC_Nurse_2
+  usecase "Prepare room consequence" as UC_Nurse_2_1
+  usecase "Avoid erase data important" as UC_Nurse_3
+  usecase "Enter ID patient" as UC_Receptionist_1
+  usecase "Identify patient" as UC_Receptionist_1_1
+  usecase "Access schedules doctors" as UC_Receptionist_2
+  usecase "Schedule appointments" as UC_Receptionist_2_1
+  usecase "Match patients with doctors" as UC_Receptionist_3
+  usecase "Get description general rooms" as UC_Receptionist_4
+  usecase "Asignarpacientes room" as UC_Receptionist_4_1
+  usecase "Get description general tests to perform" as UC_lab_technician_1
+  usecase "Perform test" as UC_lab_technician_2
+  usecase "Consult aspect urgency" as UC_lab_technician_2_1
+  usecase "Consult type urgency" as UC_lab_technician_2_1_1
+  usecase "Request test" as UC_lab_technician_2_1_1_1
+  usecase "Consult level urgency" as UC_lab_technician_2_1_2
+  usecase "Send Request test to perform" as UC_lab_technician_3
+  usecase "Receive notifications test to perform" as UC_lab_technician_3_1
+  usecase "Perform tests time timely" as UC_lab_technician_3_1_1
+  usecase "Enter results tests" as UC_lab_technician_4
+  usecase "Review results" as UC_lab_technician_4_1
+  usecase "Select tests laboratory" as UC_lab_technician_5
+  usecase "Attach notes tests laboratory" as UC_lab_technician_5_1
+  usecase "Provide information additional" as UC_lab_technician_5_1_1
+  usecase "Adjust rights access users" as UC_Administrator_System_1
+  usecase "Start session" as UC_Administrator_System_2
+  usecase "Use Authentication dos steps" as UC_Administrator_System_2_1
+  usecase "Ensure security system" as UC_Administrator_System_2_1_1
+  usecase "Review data patient" as UC_Farmaceutico_1
+  usecase "Review number identification" as UC_Farmaceutico_1_1
+  usecase "Review dosage patient" as UC_Farmaceutico_1_2
+  usecase "Review medication prescribed" as UC_Farmaceutico_1_3
+}
+
+Patient --> UC_Patient_1
+Patient --> UC_Patient_2
+Patient --> UC_Patient_3
+Patient --> UC_Patient_4
+Patient --> UC_Patient_5
+Patient --> UC_Patient_6
+Patient --> UC_Patient_7
+doctor --> UC_doctor_1
+doctor --> UC_doctor_2
+doctor --> UC_doctor_3
+doctor --> UC_doctor_4
+doctor --> UC_doctor_5
+doctor --> UC_doctor_6
+doctor --> UC_doctor_7
+doctor --> UC_doctor_8
+doctor --> UC_doctor_9
+doctor --> UC_doctor_10
+doctor --> UC_doctor_11
+doctor --> UC_doctor_12
+doctor --> UC_doctor_13
+Nurse --> UC_Nurse_1
+Nurse --> UC_Nurse_2
+Nurse --> UC_Nurse_3
+Receptionist --> UC_Receptionist_1
+Receptionist --> UC_Receptionist_2
+Receptionist --> UC_Receptionist_3
+Receptionist --> UC_Receptionist_4
+lab_technician --> UC_lab_technician_1
+lab_technician --> UC_lab_technician_2
+lab_technician --> UC_lab_technician_3
+lab_technician --> UC_lab_technician_4
+lab_technician --> UC_lab_technician_5
+Administrator_System --> UC_Administrator_System_1
+Administrator_System --> UC_Administrator_System_2
+Farmaceutico --> UC_Farmaceutico_1
+
+UC_Patient_1 ..> UC_Patient_1_1 : <<include>>
+UC_Patient_1_1 ..> UC_Patient_1_1_1 : <<include>>
+UC_Patient_1_1 ..> UC_Patient_1_1_2 : <<include>>
+UC_Patient_2 ..> UC_Patient_2_1 : <<include>>
+UC_Patient_2_1 ..> UC_Patient_2_1_1 : <<include>>
+UC_Patient_3 ..> UC_Patient_3_1 : <<include>>
+UC_Patient_3_1 ..> UC_Patient_3_1_1 : <<include>>
+UC_Patient_4 ..> UC_Patient_4_1 : <<include>>
+UC_Patient_4_1 ..> UC_Patient_4_1_1 : <<include>>
+UC_Patient_5 ..> UC_Patient_5_1 : <<include>>
+UC_Patient_7 ..> UC_Patient_7_1 : <<include>>
+UC_Patient_7_1 ..> UC_Patient_7_1_1 : <<extend>>
+UC_Patient_7_1_1 ..> UC_Patient_7_1_1_1 : <<include>>
+UC_doctor_1 ..> UC_doctor_1_1 : <<include>>
+UC_doctor_1_1 ..> UC_doctor_1_2 : <<include>>
+UC_doctor_2 ..> UC_doctor_2_1 : <<include>>
+UC_doctor_2_1 ..> UC_doctor_2_1_1 : <<include>>
+UC_doctor_2_1_1 ..> UC_doctor_2_1_1_1 : <<include>>
+UC_doctor_3 ..> UC_doctor_3_1 : <<include>>
+UC_doctor_4 ..> UC_doctor_4_1 : <<include>>
+UC_doctor_5 ..> UC_doctor_5_1 : <<include>>
+UC_doctor_7 ..> UC_doctor_7_1 : <<include>>
+UC_doctor_8 ..> UC_doctor_8_1 : <<include>>
+UC_doctor_8_1 ..> UC_doctor_8_1_1 : <<include>>
+UC_doctor_9 ..> UC_doctor_9_1 : <<include>>
+UC_doctor_9 ..> UC_doctor_9_2 : <<include>>
+UC_doctor_9 ..> UC_doctor_9_3 : <<include>>
+UC_doctor_11 ..> UC_doctor_11_1 : <<include>>
+UC_doctor_11_1 ..> UC_doctor_11_1_1 : <<include>>
+UC_doctor_12 ..> UC_doctor_12_1 : <<include>>
+UC_doctor_12_1 ..> UC_doctor_12_1_1 : <<include>>
+UC_doctor_13 ..> UC_doctor_13_1 : <<include>>
+UC_Nurse_1 ..> UC_Nurse_1_1 : <<include>>
+UC_Nurse_2 ..> UC_Nurse_2_1 : <<include>>
+UC_Receptionist_1 ..> UC_Receptionist_1_1 : <<include>>
+UC_Receptionist_2 ..> UC_Receptionist_2_1 : <<include>>
+UC_Receptionist_3 ..> UC_Receptionist_2_1 : <<include>>
+UC_Receptionist_4 ..> UC_Receptionist_4_1 : <<include>>
+UC_lab_technician_2 ..> UC_lab_technician_2_1 : <<include>>
+UC_lab_technician_2_1 ..> UC_lab_technician_2_1_1 : <<include>>
+UC_lab_technician_2_1 ..> UC_lab_technician_2_1_2 : <<include>>
+UC_lab_technician_2_1_1 ..> UC_lab_technician_2_1_1_1 : <<include>>
+UC_lab_technician_2_1_2 ..> UC_lab_technician_2_1_1_1 : <<include>>
+UC_lab_technician_3 ..> UC_lab_technician_3_1 : <<include>>
+UC_lab_technician_3_1 ..> UC_lab_technician_3_1_1 : <<include>>
+UC_lab_technician_4 ..> UC_lab_technician_4_1 : <<include>>
+UC_lab_technician_5 ..> UC_lab_technician_5_1 : <<include>>
+UC_lab_technician_5_1 ..> UC_lab_technician_5_1_1 : <<include>>
+UC_Administrator_System_2 ..> UC_Administrator_System_2_1 : <<include>>
+UC_Administrator_System_2_1 ..> UC_Administrator_System_2_1_1 : <<include>>
+UC_Farmaceutico_1 ..> UC_Farmaceutico_1_1 : <<include>>
+UC_Farmaceutico_1 ..> UC_Farmaceutico_1_2 : <<include>>
+UC_Farmaceutico_1 ..> UC_Farmaceutico_1_3 : <<include>>
+
+@enduml

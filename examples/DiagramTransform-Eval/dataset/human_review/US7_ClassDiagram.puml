@@ -1,0 +1,240 @@
+@startuml
+
+class Summary {
+  +Content
+  +author
+  +summary()
+  +get_Content()
+  +get_author()
+}
+
+class Participant {
+  +participant()
+  +create_summary()
+  +view_summary()
+}
+
+class Member {
+  +User
+  +Password
+  +estatus
+  +Member()
+  +view_beta()
+  +prioritize_elements()
+  +create_schedules_coworking()
+  +address_end()
+  +create_meeting()
+  +visualization_MVP()
+  +create_sheet_ruta()
+  +visualize_hipotesis()
+  +create_prototipos()
+}
+
+class Schedule {
+  +day
+  +month
+  +year
+  +hour
+  +schedule()
+  +get_day()
+  +get_month()
+  +get_year()
+  +get_hour()
+  +set_day()
+  +set_month()
+  +set_year()
+  +set_hour()
+}
+
+class Document {
+  +Title
+  +objective
+  +Desarrollo
+  +conclusion
+  +document()
+  +get_Title()
+  +get_objective()
+  +get_Desarrollo()
+  +get_conclusion()
+}
+
+class Sheet_ruta {
+  +Result_esperado
+  +Organizacion
+  +Task
+  +schedule
+  +Budget
+  +Resource
+  +sheet_ruta()
+  +get_Result_esperado()
+  +get_Organizacion()
+  +get_Task()
+  +get_schedule()
+  +get_Budget()
+  +get_Resource()
+}
+
+class Report {
+  +start
+  +objective_specific
+  +introduction
+  +body
+  +report()
+  +get_start()
+  +get_objective_specific()
+  +get_introduction()
+  +get_body()
+}
+
+class Member_NSF {
+  +Document
+  +Member_nsf()
+  +review_document()
+}
+
+class author {
+  +credential
+  +author()
+  +Sangria()
+  +status_sangria()
+  +quitar_sangria()
+}
+
+class User {
+  +Video
+  +User()
+  +upload_video()
+  +get_video()
+}
+
+class Manager_recruitment {
+  +User
+  +Password
+  +manager_recruitment()
+  +viewificar_operation()
+}
+
+class Employee_NSF {
+  +User
+  +Password
+  +Employee_NSF()
+  +change_plan()
+  +limit_options()
+  +create_account_GitHub()
+  +view_Form_recruitment()
+  +view_information_meeting()
+  +receive_recommendations()
+  +schedule_records()
+}
+
+class Researcher {
+  +Id
+  +researcher()
+  +protocol_research()
+  +recruit()
+}
+
+class Developer {
+  +Level
+  +Developer()
+  +configure_subdominio()
+  +view_hipotesis()
+}
+
+class Researcher_users {
+  +Id
+  +User
+  +Password
+  +researcher_users()
+  +probar_plan_research()
+  +identify_participant()
+  +get_prototipo_WIG()
+  +configure_recruitment()
+  +generate_List_candidatos()
+}
+
+class Designer {
+  +Designer()
+  +view_indicaciones()
+  +view_structure()
+  +visualize_guias()
+}
+
+class Editor_content {
+  +editor_content()
+  +search_content_editable()
+  +upload_video()
+}
+
+class Involucrado {
+  +Name
+  +LastName
+  +Phone
+  +Email
+  +involucrado()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_Email()
+}
+
+class Interesado {
+  +interesado()
+  +view_result()
+}
+
+class Designer_content {
+  +Designer_content()
+  +comprender_plan_NSF()
+  +display_importance_design()
+}
+
+class Administrator {
+  +User
+  +Password
+  +Email
+  +administrator()
+  +get_Name()
+  +get_LastName()
+  +get_User()
+  +get_Password()
+  +get_Email()
+}
+
+class Administrator_site {
+  +Organizacion
+  +administrator_site()
+  +comprender_organizacion()
+  +get_Organizacion()
+}
+
+class Administrator_CMS {
+  +Title
+  +administrator_CMS()
+  +assign_Role()
+}
+
+Participant *-- Summary
+Member o-- Schedule
+Member o-- Sheet_ruta
+Member_NSF o-- Report
+Document <|-- Report
+Document <|-- Sheet_ruta
+Administrator <|-- Administrator_site
+Document <|-- Administrator_CMS
+Involucrado <|-- Member
+Involucrado <|-- Member_NSF
+Involucrado <|-- author
+Involucrado <|-- User
+Involucrado <|-- Manager_recruitment
+Involucrado <|-- Employee_NSF
+Involucrado <|-- Researcher
+Involucrado <|-- Interesado
+Involucrado <|-- Designer_content
+Involucrado <|-- Developer
+Involucrado <|-- Researcher_users
+Involucrado <|-- Designer
+Involucrado <|-- Editor_content
+Involucrado <|-- Administrator
+
+@enduml

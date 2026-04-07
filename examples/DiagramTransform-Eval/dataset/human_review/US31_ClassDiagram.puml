@@ -1,0 +1,143 @@
+@startuml
+
+class Fan {
+  +comment
+  +fan()
+  +add_comment()
+  +change_language()
+  +modify_preference()
+}
+
+class Referee {
+  +Contract
+  +Referee()
+  +view_games_assigned()
+  +notice_postponement()
+  +list_possible_events()
+  +report_event()
+}
+
+class Administrator_IFA {
+  +permissions
+  +administrator_IFA()
+  +allow_access()
+  +create_Form()
+  +determine_policies()
+  +issue_eviso_non_compliance()
+  +rules_schedule()
+  +adjust_zone_time()
+  +view_budget_teams()
+  +view_reports_teams()
+  +communication_party_interested()
+  +restrict_creation_budgets()
+  +create_statistics_events()
+}
+
+class Individuo {
+  +Name
+  +LastName
+  +date_birth
+  +email
+  +password
+  +User
+  +id_number
+  +id
+  +individuo()
+  +get_Name()
+  +get_LastName()
+  +get_date_birth()
+  +get_email()
+  +get_password()
+  +get_User()
+  +get_id_number()
+  +get_id()
+}
+
+class Visitor {
+  +new_User
+  +new_password
+  +Visitor()
+  +create_account()
+}
+
+class Aficionado {
+  +aficionado()
+  +notify_game()
+  +notify_team()
+  +notify_league()
+  +view_information_ticket()
+  +view_Statistic_match()
+  +view_analysis_teams()
+}
+
+class CIO {
+  +CIO()
+  +Merge_systems()
+}
+
+class Representante_IFA {
+  +Code
+  +Representante_IFA()
+  +view_schedule()
+  +approve_schedule()
+  +view_reason_rescheduling()
+  +approve_rescheduling()
+}
+
+class Organizacion {
+  +Name
+  +crest
+  +Venue
+  +Organizacion()
+  +get_Name()
+  +get_crest()
+  +get_Venue()
+}
+
+class league {
+  +Director
+  +treasurer
+  +Administration
+  +resource
+  +league()
+  +change_schedule()
+}
+
+class team {
+  +league
+  +division
+  +Player
+  +Coach
+  +Administrator
+  +team()
+  +publish_news()
+  +assign_CM()
+  +restrict_dates()
+}
+
+class Schedule {
+  +day
+  +month
+  +year
+  +hour
+  +schedule()
+  +get_day()
+  +get_month()
+  +get_year()
+  +get_hour()
+}
+
+Individuo <|-- Fan
+Individuo <|-- Referee
+Individuo <|-- Administrator_IFA
+Individuo <|-- Visitor
+Individuo <|-- Aficionado
+Individuo <|-- Representante_IFA
+Individuo <|-- CIO
+Organizacion o-- Individuo
+Organizacion <|-- league
+Organizacion <|-- team
+league o-- team
+league *-- Schedule
+
+@enduml

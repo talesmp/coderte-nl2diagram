@@ -1,0 +1,24 @@
+@startuml
+
+actor "Actor1" as Actor1
+
+rectangle "System" {
+  usecase "Case 1..." as UC_Actor1_1
+  usecase "other caso..." as UC_Actor1_1_1
+  usecase "other caso..." as UC_Actor1_1_1_1
+  usecase "other caso..." as UC_Actor1_1_2
+  usecase "other caso..." as UC_Actor1_2
+  usecase "other caso..." as UC_Actor1_2_1
+  usecase "other caso..." as UC_Actor1_2_2
+}
+
+Actor1 --> UC_Actor1_1
+Actor1 --> UC_Actor1_2
+
+UC_Actor1_1 ..> UC_Actor1_1_1 : <<include>>
+UC_Actor1_1 ..> UC_Actor1_1_2 : <<include>>
+UC_Actor1_1_1 ..> UC_Actor1_1_1_1 : <<include>>
+UC_Actor1_2 ..> UC_Actor1_2_1 : <<include>>
+UC_Actor1_2 ..> UC_Actor1_2_2 : <<include>>
+
+@enduml

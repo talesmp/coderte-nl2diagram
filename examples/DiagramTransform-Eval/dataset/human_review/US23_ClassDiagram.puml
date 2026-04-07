@@ -1,0 +1,72 @@
+@startuml
+
+class Administrator {
+  +User
+  +password
+  +administrator()
+  +change_people()
+  +change_groups()
+}
+
+class UHOPE_Employee {
+  +User
+  +password
+  +uhope()
+  +search_DataPoint()
+  +enter_patient()
+  +start_session()
+  +search_patient()
+  +view_patient()
+}
+
+class Facturador {
+  +User
+  +password
+  +facturador()
+  +view_appointment()
+  +view_doctor()
+  +generate_Invoice()
+  +search_patient()
+  +send_Invoice()
+}
+
+class Patient {
+  +User
+  +password
+  +patient()
+  +request_appointment()
+  +view_schedules()
+  +cancel_appointment()
+  +view_history()
+  +view_results()
+  +edit_data()
+}
+
+class doctor {
+  +User
+  +password
+  +doctor()
+  +view_history()
+  +edit_history()
+  +schedule_appointment()
+  +view_reason()
+}
+
+class Nurse {
+  +User
+  +password
+  +Nurse()
+  +search_history()
+  +view_history()
+}
+
+Administrator -- UHOPE_Employee
+Administrator -- Facturador
+Administrator -- doctor
+Administrator -- Nurse
+UHOPE_Employee -- Facturador
+Facturador -- Patient
+Patient -- doctor
+doctor -- Nurse
+
+@enduml

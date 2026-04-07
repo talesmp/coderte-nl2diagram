@@ -1,0 +1,130 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "Developer" as Developer
+actor "Member" as Member
+actor "User" as User
+actor "User_Publication" as User_Publication
+actor "User_API" as User_API
+actor "Data_User" as Data_User
+
+rectangle "System" {
+  usecase "View all the sets of data published" as UC_Administrator_1
+  usecase "Delete set of data" as UC_Administrator_2
+  usecase "Ocultar set of data" as UC_Administrator_3
+  usecase "Enter in modo visor" as UC_Administrator_4
+  usecase "Traducir jerarquia" as UC_Administrator_4_1
+  usecase "Personalizar name e icono" as UC_Developer_1
+  usecase "View ejemplos of sets of data" as UC_Member_1
+  usecase "View blog of projects" as UC_Member_2
+  usecase "Create account" as UC_User_1
+  usecase "Define name of user" as UC_User_1_1
+  usecase "Enter modo oculto" as UC_User_Publication_1
+  usecase "Add set of data" as UC_User_Publication_1_1
+  usecase "Import modelo of data" as UC_User_Publication_2
+  usecase "Edit modelo of data" as UC_User_Publication_2_1
+  usecase "Edit source" as UC_User_Publication_2_2
+  usecase "JSON" as UC_User_Publication_2_3
+  usecase "Excel" as UC_User_Publication_2_4
+  usecase "Google Sheets" as UC_User_Publication_2_5
+  usecase "Create set of data" as UC_User_Publication_3
+  usecase "Ocultar set of data" as UC_User_Publication_3_1
+  usecase "Delete set of data" as UC_User_Publication_3_2
+  usecase "View all the sets of data published" as UC_User_Publication_4
+  usecase "Personalizar the view" as UC_User_API_1
+  usecase "Color" as UC_User_API_1_1
+  usecase "Estilo" as UC_User_API_1_2
+  usecase "Normalizar measurements" as UC_User_API_2
+  usecase "PIB" as UC_User_API_2_1
+  usecase "GINI" as UC_User_API_2_2
+  usecase "Poblacion" as UC_User_API_2_3
+  usecase "Area geografica" as UC_User_API_2_4
+  usecase "Consult region" as UC_User_API_3
+  usecase "View zonas limitrofes" as UC_User_API_3_1
+  usecase "View type of user" as UC_User_API_4
+  usecase "Administrator" as UC_User_API_4_1
+  usecase "Editor" as UC_User_API_4_2
+  usecase "Perform consulta" as UC_User_API_5
+  usecase "Get CSV" as UC_User_API_5_1
+  usecase "Request poligonos" as UC_User_API_5_2
+  usecase "Get multiples sets" as UC_User_API_6
+  usecase "Data" as UC_User_API_6_1
+  usecase "Metadata" as UC_User_API_6_2
+  usecase "Search set of data" as UC_Data_User_1
+  usecase "Title" as UC_Data_User_1_1
+  usecase "Metadata" as UC_Data_User_1_2
+  usecase "Change measurements monetarias" as UC_Data_User_2
+  usecase "Generate status of view" as UC_Data_User_3
+  usecase "Share" as UC_Data_User_3_1
+  usecase "URL" as UC_Data_User_3_1_1
+  usecase "Image" as UC_Data_User_3_1_2
+  usecase "Download" as UC_Data_User_3_2
+  usecase "CSV" as UC_Data_User_3_2_1
+  usecase "Ampliar" as UC_Data_User_3_3
+  usecase "View descripciones" as UC_Data_User_4
+  usecase "Create set of data" as UC_Data_User_5
+  usecase "Filter" as UC_Data_User_5_1
+  usecase "Sort" as UC_Data_User_5_2
+  usecase "Add" as UC_Data_User_5_3
+}
+
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+Developer --> UC_Developer_1
+Member --> UC_Member_1
+Member --> UC_Member_2
+User --> UC_User_1
+User_Publication --> UC_User_Publication_1
+User_Publication --> UC_User_Publication_2
+User_Publication --> UC_User_Publication_3
+User_Publication --> UC_User_Publication_4
+User_API --> UC_User_API_1
+User_API --> UC_User_API_2
+User_API --> UC_User_API_3
+User_API --> UC_User_API_4
+User_API --> UC_User_API_5
+User_API --> UC_User_API_6
+Data_User --> UC_Data_User_1
+Data_User --> UC_Data_User_2
+Data_User --> UC_Data_User_3
+Data_User --> UC_Data_User_4
+Data_User --> UC_Data_User_5
+
+UC_Administrator_4 ..> UC_Administrator_4_1 : <<extend>>
+UC_User_1 ..> UC_User_1_1 : <<include>>
+UC_User_Publication_1 ..> UC_User_Publication_1_1 : <<extend>>
+UC_User_Publication_2 ..> UC_User_Publication_2_1 : <<extend>>
+UC_User_Publication_2 ..> UC_User_Publication_2_2 : <<extend>>
+UC_User_Publication_2 ..> UC_User_Publication_2_3 : <<extend>>
+UC_User_Publication_2 ..> UC_User_Publication_2_4 : <<extend>>
+UC_User_Publication_2 ..> UC_User_Publication_2_5 : <<extend>>
+UC_User_Publication_3 ..> UC_User_Publication_3_1 : <<extend>>
+UC_User_Publication_3 ..> UC_User_Publication_3_2 : <<extend>>
+UC_User_API_1 ..> UC_User_API_1_1 : <<extend>>
+UC_User_API_1 ..> UC_User_API_1_2 : <<extend>>
+UC_User_API_2 ..> UC_User_API_2_1 : <<extend>>
+UC_User_API_2 ..> UC_User_API_2_2 : <<extend>>
+UC_User_API_2 ..> UC_User_API_2_3 : <<extend>>
+UC_User_API_2 ..> UC_User_API_2_4 : <<extend>>
+UC_User_API_3 ..> UC_User_API_3_1 : <<include>>
+UC_User_API_4 ..> UC_User_API_4_1 : <<extend>>
+UC_User_API_4 ..> UC_User_API_4_2 : <<extend>>
+UC_User_API_5 ..> UC_User_API_5_1 : <<extend>>
+UC_User_API_5 ..> UC_User_API_5_2 : <<extend>>
+UC_User_API_6 ..> UC_User_API_6_1 : <<extend>>
+UC_User_API_6 ..> UC_User_API_6_2 : <<extend>>
+UC_Data_User_1 ..> UC_Data_User_1_1 : <<extend>>
+UC_Data_User_1 ..> UC_Data_User_1_2 : <<extend>>
+UC_Data_User_3 ..> UC_Data_User_3_1 : <<extend>>
+UC_Data_User_3 ..> UC_Data_User_3_2 : <<extend>>
+UC_Data_User_3 ..> UC_Data_User_3_3 : <<extend>>
+UC_Data_User_3_1 ..> UC_Data_User_3_1_1 : <<extend>>
+UC_Data_User_3_1 ..> UC_Data_User_3_1_2 : <<extend>>
+UC_Data_User_3_2 ..> UC_Data_User_3_2_1 : <<include>>
+UC_Data_User_5 ..> UC_Data_User_5_1 : <<extend>>
+UC_Data_User_5 ..> UC_Data_User_5_2 : <<extend>>
+UC_Data_User_5 ..> UC_Data_User_5_3 : <<extend>>
+
+@enduml

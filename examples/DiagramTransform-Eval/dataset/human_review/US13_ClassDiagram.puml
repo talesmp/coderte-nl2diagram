@@ -1,0 +1,70 @@
+@startuml
+
+class researcher {
+  +User
+  +Researcher()
+  +abrir_files()
+  +attach_files()
+  +anadir_review()
+  +create_page()
+  +load_File()
+  +search_data()
+  +restrict_usage()
+  +download_files()
+}
+
+class administrator {
+  +User
+  +Administrator()
+  +create_plantilla()
+  +migrate,datos()
+  +manage_cepa()
+}
+
+class User {
+  +User
+  +User()
+  +define_search()
+  +create_Table()
+  +attach_files()
+  +assign_metadata()
+  +tag_data()
+  +associate_files()
+  +link_Calendar()
+  +link_twitter()
+}
+
+class Supervisor {
+  +User
+  +Supervisor()
+  +create_Form()
+}
+
+class operador {
+  +User
+  +operador()
+  +register_response()
+}
+
+class Member {
+  +User
+  +Member()
+  +view_elements()
+}
+
+class ingeniero_viewsiones {
+  +User
+  +ingeniero_viewsiones()
+  +define_complilaciones()
+  +migrate_data()
+}
+
+researcher o-- administrator
+User o-- administrator
+ingeniero_viewsiones o-- administrator
+Member o-- administrator
+researcher o-- administrator
+operador o-- administrator
+Supervisor o-- administrator
+
+@enduml

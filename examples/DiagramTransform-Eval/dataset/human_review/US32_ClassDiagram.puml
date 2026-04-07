@@ -1,0 +1,151 @@
+@startuml
+
+class doctor {
+  +Name
+  +LastName
+  +Phone
+  +ID
+  +Salary
+  +Area
+  +Title
+  +doctor()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_ID()
+  +get_Salary()
+  +get_Area()
+  +get_Title()
+  +access_record_doctor()
+  +edit_record_doctor()
+  +add_doctor()
+  +request_test()
+  +add_note()
+  +assign_importance()
+  +transfer_history_clinical()
+  +enter_DataPoint()
+  +link_Device()
+}
+
+class Receptionist {
+  +Name
+  +LastName
+  +Phone
+  +ID
+  +Receptionist()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_ID()
+  +book_appointment()
+  +assign_doctor()
+  +assign_bed()
+}
+
+class User {
+  +Name
+  +LastName
+  +Phone
+  +ID
+  +User()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_ID()
+  +access()
+  +create_account()
+}
+
+class Test_Results {
+  +date_issue
+  +Name_patient
+  +signature
+  +author
+  +Result
+  +conclusion
+  +Test_Results()
+  +get_date_issue()
+  +get_Name_patient()
+  +get_signature()
+  +get_author()
+  +get_Result()
+  +get_conclusion()
+}
+
+class Patient {
+  +Name
+  +LastName
+  +HealthInsurance
+  +ID
+  +Symptoms
+  +Phone
+  +Date_appointment
+  +Patient()
+  +get_Name()
+  +get_LastName()
+  +get_HealthInsurance()
+  +get_ID()
+  +get_Symptoms()
+  +get_Phone()
+  +get_Date_appointment()
+  +configure_privacidad()
+  +link_doctor()
+  +access_record_doctor()
+  +edit_data()
+  +add_fitness()
+  +link_Device()
+  +authorize()
+  +create_account()
+  +start_session()
+  +view_results_laboratory()
+  +view_results_devices_external()
+}
+
+class Especialista_laboratory {
+  +Name
+  +LastName
+  +Phone
+  +ID
+  +Salary
+  +Area
+  +Title
+  +Especialista_laboratory()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_ID()
+  +get_Salary()
+  +get_Area()
+  +get_Title()
+  +upload_tests_laboratory()
+  +add_note()
+  +link_history_doctor()
+  +upload_result()
+  +update_record()
+  +view_tests()
+}
+
+class Nurse {
+  +Name
+  +LastName
+  +Phone
+  +ID
+  +Nurse()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_ID()
+  +link_Device()
+  +load_data()
+}
+
+doctor o-- Test_Results
+Receptionist -- doctor
+Receptionist -- Patient
+User -- doctor
+User -- Especialista_laboratory
+Patient -- Test_Results
+Especialista_laboratory *-- Test_Results
+Nurse -- Patient
+
+@enduml

@@ -1,0 +1,327 @@
+@startuml
+
+actor "User" as User
+actor "Administrator" as Administrator
+actor "Administrator_Zooniverse" as Administrator_Zooniverse
+
+rectangle "System" {
+  usecase "Search content musical" as UC_User_1
+  usecase "Search identification content" as UC_User_1_1
+  usecase "Search huella dactilar" as UC_User_1_2
+  usecase "Search content musical profile" as UC_User_1_3
+  usecase "Search users similar" as UC_User_1_4
+  usecase "Search tonos devolucion llamada" as UC_User_1_5
+  usecase "Search similitud content" as UC_User_1_6
+  usecase "Descubrir music" as UC_User_1_1_1
+  usecase "Search music" as UC_User_2
+  usecase "Search music explotando metadata" as UC_User_2_1
+  usecase "Search etiquetas image" as UC_User_2_2
+  usecase "Find information music" as UC_User_2_1_1
+  usecase "Find artistas relacionados" as UC_User_2_1_1_1
+  usecase "Find new generos" as UC_User_2_1_1_2
+  usecase "Find ruta escucha relevant" as UC_User_2_1_1_3
+  usecase "Descubrir music" as UC_User_2_1_1_1_1
+  usecase "Tag videos" as UC_User_3
+  usecase "Upload videos etiquetados" as UC_User_3_1
+  usecase "Have etiquetas" as UC_User_3_1_1
+  usecase "Follow the steps later" as UC_User_3_1_1_1
+  usecase "View secuencias miniaturas" as UC_User_4
+  usecase "View segmentos video" as UC_User_4_1
+  usecase "Select videos" as UC_User_5
+  usecase "Compare videos" as UC_User_5_1
+  usecase "Get information videos" as UC_User_5_1_1
+  usecase "Get elements similar" as UC_User_5_1_1_1
+  usecase "Get segmentos similar" as UC_User_5_1_1_2
+  usecase "Get elements perceptualmente similar" as UC_User_5_1_1_3
+  usecase "Get segmentos perceptualmente similar" as UC_User_5_1_1_4
+  usecase "Receive recommendations" as UC_User_6
+  usecase "Receive recommendations perfiles similar" as UC_User_6_1
+  usecase "Receive recommendations news area" as UC_User_6_2
+  usecase "Identify in videos" as UC_User_7
+  usecase "Identify people" as UC_User_7_1
+  usecase "Identify productos" as UC_User_7_2
+  usecase "Identify logotipos" as UC_User_7_3
+  usecase "Identify marcas" as UC_User_7_4
+  usecase "Receive information relacionada" as UC_User_7_1_1
+  usecase "Recomendar videos" as UC_User_8
+  usecase "Match with foto" as UC_User_8_1
+  usecase "Match with image" as UC_User_8_2
+  usecase "Select action" as UC_User_8_1_1
+  usecase "Take foto" as UC_User_8_1_1_1
+  usecase "Upload image" as UC_User_8_1_1_2
+  usecase "Use map geografico" as UC_User_9
+  usecase "Caminar contents" as UC_User_9_1
+  usecase "Access contents" as UC_User_9_2
+  usecase "Inform about videos" as UC_User_9_1_1
+  usecase "Notify videos cubierta zone" as UC_User_9_1_1_1
+  usecase "Notify videos monumentos" as UC_User_9_1_1_2
+  usecase "Notify videos points interes" as UC_User_9_1_1_3
+  usecase "Record voz reconocimiento" as UC_User_10
+  usecase "Execute search voz" as UC_User_10_1
+  usecase "Execute action segmentation videos" as UC_Administrator_1
+  usecase "View segmentation videos" as UC_Administrator_1_1
+  usecase "Edit segmentation videos" as UC_Administrator_1_2
+  usecase "Validate segmentation videos" as UC_Administrator_1_3
+  usecase "Anotar segmentos videos news" as UC_Administrator_2
+  usecase "Extraer topic by segmento" as UC_Administrator_2_1
+  usecase "Filter videos quality A/V" as UC_Administrator_3
+  usecase "Classify videos quality A/V" as UC_Administrator_3_1
+  usecase "Precargar material audio" as UC_Administrator_4
+  usecase "Get evaluation rapida" as UC_Administrator_4_1
+  usecase "Filter content previous" as UC_Administrator_5
+  usecase "Filter content desnudos" as UC_Administrator_5_1
+  usecase "Filter content search bajo level" as UC_Administrator_5_2
+  usecase "Filter content search alto level" as UC_Administrator_5_3
+  usecase "Provide metadata and etiquetas" as UC_Administrator_5_3_1
+  usecase "Validate automatically content infraccion rights author" as UC_Administrator_6
+  usecase "View summary articles" as UC_Administrator_7
+  usecase "Reuse articles" as UC_Administrator_7_1
+  usecase "Evaluate aspect image" as UC_Administrator_Zooniverse_1
+  usecase "Evaluate interes" as UC_Administrator_Zooniverse_1_1
+  usecase "Evaluate atractivo" as UC_Administrator_Zooniverse_1_2
+  usecase "Evaluate complejidad" as UC_Administrator_Zooniverse_1_3
+  usecase "Fundamentar image" as UC_Administrator_Zooniverse_1_1_1
+  usecase "Fundamentar in analysis automatizados" as UC_Administrator_Zooniverse_1_1_1_1
+  usecase "Fundamentar in actions ciudadanas" as UC_Administrator_Zooniverse_1_1_1_2
+  usecase "Fundamentar in comments talk" as UC_Administrator_Zooniverse_1_1_1_3
+  usecase "Pedir to cientifico" as UC_Administrator_Zooniverse_2
+  usecase "Mirar topic" as UC_Administrator_Zooniverse_2_1
+  usecase "Mirar according to anotaciones" as UC_Administrator_Zooniverse_2_1_1
+  usecase "Mirar according to comments talk" as UC_Administrator_Zooniverse_2_1_2
+  usecase "Detect observacion" as UC_Administrator_Zooniverse_2_1_1_1
+  usecase "Identify type volunteer" as UC_Administrator_Zooniverse_3
+  usecase "Preclasificar images Galaxy Zoo" as UC_Administrator_Zooniverse_4
+  usecase "Use features image bajo level" as UC_Administrator_Zooniverse_4_1
+  usecase "Perform segmentation plankton in Portal plankton" as UC_Administrator_Zooniverse_5
+  usecase "Detect automatically" as UC_Administrator_Zooniverse_6
+  usecase "Detect images Snapshot without animales" as UC_Administrator_Zooniverse_6_1
+  usecase "Detect images Snapshot mal operation" as UC_Administrator_Zooniverse_6_2
+  usecase "Detect nuemro images Snapshot" as UC_Administrator_Zooniverse_6_3
+  usecase "Detect images Portal plankton without plankton" as UC_Administrator_Zooniverse_6_4
+  usecase "Detect size images Portal plankton" as UC_Administrator_Zooniverse_6_5
+  usecase "Detect orientacion images Portal plankton" as UC_Administrator_Zooniverse_6_6
+  usecase "Detect time video Worm Watch Lab new" as UC_Administrator_Zooniverse_6_7
+  usecase "Perform pre-classification automatic" as UC_Administrator_Zooniverse_7
+  usecase "Preclasificar especies animales snapshot" as UC_Administrator_Zooniverse_7_1
+  usecase "Preclasificar attributes animales snapshot" as UC_Administrator_Zooniverse_7_2
+  usecase "Preclasificar especies plankton Portal plankton" as UC_Administrator_Zooniverse_7_3
+  usecase "Perform analysis automatic" as UC_Administrator_Zooniverse_8
+  usecase "Move gusano" as UC_Administrator_Zooniverse_8_1
+  usecase "Reduce duration video Worm Watch Lab" as UC_Administrator_Zooniverse_8_1_1
+  usecase "Detect features images satelite" as UC_Administrator_Zooniverse_9
+  usecase "Detect inundaciones" as UC_Administrator_Zooniverse_9_1
+  usecase "Detect damage" as UC_Administrator_Zooniverse_9_2
+  usecase "Detect refugios temporales" as UC_Administrator_Zooniverse_9_3
+  usecase "Detect roads bloqueadas" as UC_Administrator_Zooniverse_9_4
+  usecase "Save in images" as UC_Administrator_Zooniverse_9_1_1
+  usecase "Evaluate probabilidad or Weight classification" as UC_Administrator_Zooniverse_10
+  usecase "Perform filtrado previous images" as UC_Administrator_Zooniverse_11
+  usecase "Delete artefactos" as UC_Administrator_Zooniverse_11_1
+  usecase "Delete estrellas brillantes" as UC_Administrator_Zooniverse_11_1_1
+  usecase "Delete errors lectura camara" as UC_Administrator_Zooniverse_11_1_2
+  usecase "Detect objects images" as UC_Administrator_Zooniverse_12
+  usecase "Detect objects movimiento" as UC_Administrator_Zooniverse_12_1
+  usecase "Detect objects transitorios" as UC_Administrator_Zooniverse_12_2
+  usecase "Delete files of audio" as UC_Administrator_Zooniverse_13
+  usecase "Delete sonidos" as UC_Administrator_Zooniverse_13_1
+  usecase "Delete ruidos of fondo" as UC_Administrator_Zooniverse_13_2
+  usecase "Escuchar llamadas whales" as UC_Administrator_Zooniverse_14
+  usecase "Compare llamadas whales" as UC_Administrator_Zooniverse_14_1
+  usecase "Agrupar llamadas whales similar" as UC_Administrator_Zooniverse_14_1_1
+  usecase "Reproducir file audio" as UC_Administrator_Zooniverse_15
+  usecase "Activar contador whales file audio" as UC_Administrator_Zooniverse_15_1
+  usecase "Entregar information number whales" as UC_Administrator_Zooniverse_15_1_1
+  usecase "Know action volunteer" as UC_Administrator_Zooniverse_16
+  usecase "Know action volunteer" as UC_Administrator_Zooniverse_16_1
+  usecase "Interrumpir volunteer texto" as UC_Administrator_Zooniverse_16_1_1
+  usecase "Interrumpir volunteer image" as UC_Administrator_Zooniverse_16_1_2
+  usecase "Interrumpir volunteer video" as UC_Administrator_Zooniverse_16_1_3
+  usecase "Educate volunteer" as UC_Administrator_Zooniverse_16_2
+  usecase "Educate volunteer texto" as UC_Administrator_Zooniverse_16_2_1
+  usecase "Educate volunteer image" as UC_Administrator_Zooniverse_16_2_2
+  usecase "Educate volunteer video" as UC_Administrator_Zooniverse_16_2_3
+  usecase "Educate volunteer according to type education" as UC_Administrator_Zooniverse_16_2_4
+  usecase "Atender volunteer" as UC_Administrator_Zooniverse_16_3
+  usecase "Atender volunteer comment topic" as UC_Administrator_Zooniverse_16_3_1
+  usecase "Know action zoonibot" as UC_Administrator_Zooniverse_17
+  usecase "Comentar about a topic" as UC_Administrator_Zooniverse_17_1
+  usecase "Give explicacion" as UC_Administrator_Zooniverse_17_2
+  usecase "Communicate opinion to volunteer" as UC_Administrator_Zooniverse_17_3
+  usecase "Agrupar subjects similitud" as UC_Administrator_Zooniverse_18
+  usecase "Indagar experiencia volunteer" as UC_Administrator_Zooniverse_19
+  usecase "Know projects volunteer" as UC_Administrator_Zooniverse_19_1
+  usecase "Know projects actuales" as UC_Administrator_Zooniverse_19_1_1
+  usecase "Compare projects" as UC_Administrator_Zooniverse_19_1_1_1
+  usecase "Recomendar project volunteer" as UC_Administrator_Zooniverse_19_1_1_1_1
+}
+
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+User --> UC_User_4
+User --> UC_User_5
+User --> UC_User_6
+User --> UC_User_7
+User --> UC_User_8
+User --> UC_User_9
+User --> UC_User_10
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+Administrator --> UC_Administrator_5
+Administrator --> UC_Administrator_6
+Administrator --> UC_Administrator_7
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_1
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_2
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_3
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_4
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_5
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_6
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_7
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_8
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_9
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_10
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_11
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_12
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_13
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_14
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_15
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_16
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_17
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_18
+Administrator_Zooniverse --> UC_Administrator_Zooniverse_19
+
+UC_User_1 ..> UC_User_1_1 : <<include>>
+UC_User_1 ..> UC_User_1_2 : <<include>>
+UC_User_1 ..> UC_User_1_3 : <<include>>
+UC_User_1 ..> UC_User_1_4 : <<include>>
+UC_User_1 ..> UC_User_1_5 : <<include>>
+UC_User_1 ..> UC_User_1_6 : <<include>>
+UC_User_1_1 ..> UC_User_1_1_1 : <<extend>>
+UC_User_1_2 ..> UC_User_1_1_1 : <<extend>>
+UC_User_1_3 ..> UC_User_1_1_1 : <<extend>>
+UC_User_1_4 ..> UC_User_1_1_1 : <<extend>>
+UC_User_1_5 ..> UC_User_1_1_1 : <<extend>>
+UC_User_1_6 ..> UC_User_1_1_1 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<include>>
+UC_User_2 ..> UC_User_2_2 : <<include>>
+UC_User_2_1 ..> UC_User_2_1_1 : <<include>>
+UC_User_2_2 ..> UC_User_2_1_1 : <<include>>
+UC_User_2_1_1 ..> UC_User_2_1_1_1 : <<include>>
+UC_User_2_1_1 ..> UC_User_2_1_1_2 : <<include>>
+UC_User_2_1_1 ..> UC_User_2_1_1_3 : <<include>>
+UC_User_2_1_1_1 ..> UC_User_2_1_1_1_1 : <<include>>
+UC_User_2_1_1_2 ..> UC_User_2_1_1_1_1 : <<include>>
+UC_User_2_1_1_3 ..> UC_User_2_1_1_1_1 : <<include>>
+UC_User_3 ..> UC_User_3_1 : <<include>>
+UC_User_3_1 ..> UC_User_3_1_1 : <<include>>
+UC_User_3_1_1 ..> UC_User_3_1_1_1 : <<include>>
+UC_User_4 ..> UC_User_4_1 : <<include>>
+UC_User_5 ..> UC_User_5_1 : <<include>>
+UC_User_5_1 ..> UC_User_5_1_1 : <<include>>
+UC_User_5_1_1 ..> UC_User_5_1_1_1 : <<extend>>
+UC_User_5_1_1 ..> UC_User_5_1_1_2 : <<extend>>
+UC_User_5_1_1 ..> UC_User_5_1_1_3 : <<extend>>
+UC_User_5_1_1 ..> UC_User_5_1_1_4 : <<extend>>
+UC_User_6 ..> UC_User_6_1 : <<include>>
+UC_User_6 ..> UC_User_6_2 : <<include>>
+UC_User_7 ..> UC_User_7_1 : <<include>>
+UC_User_7 ..> UC_User_7_2 : <<include>>
+UC_User_7 ..> UC_User_7_3 : <<include>>
+UC_User_7 ..> UC_User_7_4 : <<include>>
+UC_User_7_1 ..> UC_User_7_1_1 : <<extend>>
+UC_User_7_2 ..> UC_User_7_1_1 : <<extend>>
+UC_User_7_3 ..> UC_User_7_1_1 : <<extend>>
+UC_User_7_4 ..> UC_User_7_1_1 : <<extend>>
+UC_User_8 ..> UC_User_8_1 : <<include>>
+UC_User_8 ..> UC_User_8_2 : <<include>>
+UC_User_8_1 ..> UC_User_8_1_1 : <<include>>
+UC_User_8_2 ..> UC_User_8_1_1 : <<include>>
+UC_User_8_1_1 ..> UC_User_8_1_1_1 : <<extend>>
+UC_User_8_1_1 ..> UC_User_8_1_1_2 : <<extend>>
+UC_User_9 ..> UC_User_9_1 : <<include>>
+UC_User_9 ..> UC_User_9_2 : <<include>>
+UC_User_9_1 ..> UC_User_9_1_1 : <<include>>
+UC_User_9_2 ..> UC_User_9_1_1 : <<include>>
+UC_User_9_1_1 ..> UC_User_9_1_1_1 : <<include>>
+UC_User_9_1_1 ..> UC_User_9_1_1_2 : <<include>>
+UC_User_9_1_1 ..> UC_User_9_1_1_3 : <<include>>
+UC_User_10 ..> UC_User_10_1 : <<include>>
+UC_Administrator_1 ..> UC_Administrator_1_1 : <<include>>
+UC_Administrator_1 ..> UC_Administrator_1_2 : <<include>>
+UC_Administrator_1 ..> UC_Administrator_1_3 : <<include>>
+UC_Administrator_2 ..> UC_Administrator_2_1 : <<include>>
+UC_Administrator_3 ..> UC_Administrator_3_1 : <<include>>
+UC_Administrator_4 ..> UC_Administrator_4_1 : <<include>>
+UC_Administrator_5 ..> UC_Administrator_5_1 : <<include>>
+UC_Administrator_5 ..> UC_Administrator_5_2 : <<include>>
+UC_Administrator_5 ..> UC_Administrator_5_3 : <<include>>
+UC_Administrator_5_3 ..> UC_Administrator_5_3_1 : <<include>>
+UC_Administrator_7 ..> UC_Administrator_7_1 : <<include>>
+UC_Administrator_Zooniverse_1 ..> UC_Administrator_Zooniverse_1_1 : <<include>>
+UC_Administrator_Zooniverse_1 ..> UC_Administrator_Zooniverse_1_2 : <<include>>
+UC_Administrator_Zooniverse_1 ..> UC_Administrator_Zooniverse_1_3 : <<include>>
+UC_Administrator_Zooniverse_1_1 ..> UC_Administrator_Zooniverse_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_1_2 ..> UC_Administrator_Zooniverse_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_1_3 ..> UC_Administrator_Zooniverse_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_1_1_1 ..> UC_Administrator_Zooniverse_1_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_1_1_1 ..> UC_Administrator_Zooniverse_1_1_1_2 : <<include>>
+UC_Administrator_Zooniverse_1_1_1 ..> UC_Administrator_Zooniverse_1_1_1_3 : <<include>>
+UC_Administrator_Zooniverse_2 ..> UC_Administrator_Zooniverse_2_1 : <<include>>
+UC_Administrator_Zooniverse_2_1 ..> UC_Administrator_Zooniverse_2_1_1 : <<include>>
+UC_Administrator_Zooniverse_2_1 ..> UC_Administrator_Zooniverse_2_1_2 : <<include>>
+UC_Administrator_Zooniverse_2_1_1 ..> UC_Administrator_Zooniverse_2_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_2_1_2 ..> UC_Administrator_Zooniverse_2_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_4 ..> UC_Administrator_Zooniverse_4_1 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_1 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_2 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_3 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_4 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_5 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_6 : <<include>>
+UC_Administrator_Zooniverse_6 ..> UC_Administrator_Zooniverse_6_7 : <<include>>
+UC_Administrator_Zooniverse_7 ..> UC_Administrator_Zooniverse_7_1 : <<include>>
+UC_Administrator_Zooniverse_7 ..> UC_Administrator_Zooniverse_7_2 : <<include>>
+UC_Administrator_Zooniverse_7 ..> UC_Administrator_Zooniverse_7_3 : <<include>>
+UC_Administrator_Zooniverse_8 ..> UC_Administrator_Zooniverse_8_1 : <<include>>
+UC_Administrator_Zooniverse_8_1 ..> UC_Administrator_Zooniverse_8_1_1 : <<include>>
+UC_Administrator_Zooniverse_9 ..> UC_Administrator_Zooniverse_9_1 : <<include>>
+UC_Administrator_Zooniverse_9 ..> UC_Administrator_Zooniverse_9_2 : <<include>>
+UC_Administrator_Zooniverse_9 ..> UC_Administrator_Zooniverse_9_3 : <<include>>
+UC_Administrator_Zooniverse_9 ..> UC_Administrator_Zooniverse_9_4 : <<include>>
+UC_Administrator_Zooniverse_9_1 ..> UC_Administrator_Zooniverse_9_1_1 : <<include>>
+UC_Administrator_Zooniverse_9_2 ..> UC_Administrator_Zooniverse_9_1_1 : <<include>>
+UC_Administrator_Zooniverse_9_3 ..> UC_Administrator_Zooniverse_9_1_1 : <<include>>
+UC_Administrator_Zooniverse_9_4 ..> UC_Administrator_Zooniverse_9_1_1 : <<include>>
+UC_Administrator_Zooniverse_11 ..> UC_Administrator_Zooniverse_11_1 : <<include>>
+UC_Administrator_Zooniverse_11_1 ..> UC_Administrator_Zooniverse_11_1_1 : <<include>>
+UC_Administrator_Zooniverse_11_1 ..> UC_Administrator_Zooniverse_11_1_2 : <<include>>
+UC_Administrator_Zooniverse_12 ..> UC_Administrator_Zooniverse_12_1 : <<include>>
+UC_Administrator_Zooniverse_12 ..> UC_Administrator_Zooniverse_12_2 : <<include>>
+UC_Administrator_Zooniverse_13 ..> UC_Administrator_Zooniverse_13_1 : <<include>>
+UC_Administrator_Zooniverse_13 ..> UC_Administrator_Zooniverse_13_2 : <<include>>
+UC_Administrator_Zooniverse_14 ..> UC_Administrator_Zooniverse_14_1 : <<include>>
+UC_Administrator_Zooniverse_14_1 ..> UC_Administrator_Zooniverse_14_1_1 : <<include>>
+UC_Administrator_Zooniverse_15 ..> UC_Administrator_Zooniverse_15_1 : <<include>>
+UC_Administrator_Zooniverse_15_1 ..> UC_Administrator_Zooniverse_15_1_1 : <<include>>
+UC_Administrator_Zooniverse_16 ..> UC_Administrator_Zooniverse_16_1 : <<include>>
+UC_Administrator_Zooniverse_16_1 ..> UC_Administrator_Zooniverse_16_1_1 : <<extend>>
+UC_Administrator_Zooniverse_16_1 ..> UC_Administrator_Zooniverse_16_1_2 : <<extend>>
+UC_Administrator_Zooniverse_16_1 ..> UC_Administrator_Zooniverse_16_1_3 : <<extend>>
+UC_Administrator_Zooniverse_16 ..> UC_Administrator_Zooniverse_16_2 : <<include>>
+UC_Administrator_Zooniverse_16_2 ..> UC_Administrator_Zooniverse_16_2_1 : <<extend>>
+UC_Administrator_Zooniverse_16_2 ..> UC_Administrator_Zooniverse_16_2_2 : <<extend>>
+UC_Administrator_Zooniverse_16_2 ..> UC_Administrator_Zooniverse_16_2_3 : <<extend>>
+UC_Administrator_Zooniverse_16_2 ..> UC_Administrator_Zooniverse_16_2_4 : <<extend>>
+UC_Administrator_Zooniverse_16 ..> UC_Administrator_Zooniverse_16_3 : <<include>>
+UC_Administrator_Zooniverse_16_3 ..> UC_Administrator_Zooniverse_16_3_1 : <<extend>>
+UC_Administrator_Zooniverse_17 ..> UC_Administrator_Zooniverse_17_1 : <<include>>
+UC_Administrator_Zooniverse_17 ..> UC_Administrator_Zooniverse_17_2 : <<include>>
+UC_Administrator_Zooniverse_17 ..> UC_Administrator_Zooniverse_17_3 : <<include>>
+UC_Administrator_Zooniverse_19 ..> UC_Administrator_Zooniverse_19_1 : <<include>>
+UC_Administrator_Zooniverse_19_1 ..> UC_Administrator_Zooniverse_19_1_1 : <<include>>
+UC_Administrator_Zooniverse_19_1_1 ..> UC_Administrator_Zooniverse_19_1_1_1 : <<include>>
+UC_Administrator_Zooniverse_19_1_1_1 ..> UC_Administrator_Zooniverse_19_1_1_1_1 : <<include>>
+
+@enduml

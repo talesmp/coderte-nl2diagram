@@ -1,0 +1,70 @@
+@startuml
+
+class administrator {
+  +User
+  +password
+  +administrator()
+  +assign_rights()
+  +assign_users()
+  +create_Group()
+  +create_User()
+  +assign_roles()
+  +enable_credentials()
+  +restrict_data()
+}
+
+class archivero {
+  +User
+  +password
+  +archivero()
+  +list_inventories()
+  +view_inventory()
+  +manage_prestamos()
+  +escanear()
+  +edit_escaneos()
+  +upload_files()
+  +search_files()
+  +search_images()
+  +restrict_files()
+  +read_metadata()
+  +define_Time_restriccion()
+}
+
+class Attendee {
+  +User
+  +password
+  +Attendee()
+  +upload_data()
+  +list_downloads()
+  +view_forms()
+  +upload_documents()
+}
+
+class researcher {
+  +User
+  +password
+  +researcher()
+  +reset_password()
+  +search_File()
+  +abrir_File()
+  +request_analogicos()
+  +create_Group()
+  +create_report()
+  +share_report()
+}
+
+class representante {
+  +User
+  +password
+  +representante()
+  +create_collection()
+  +list_downloads()
+}
+
+administrator -- archivero
+administrator -- Attendee
+archivero -- Attendee
+administrator -- researcher
+researcher -- representante
+
+@enduml

@@ -1,0 +1,150 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "Capacitador" as Capacitador
+actor "Editor" as Editor
+actor "Empresa" as Empresa
+actor "Coach" as Coach
+actor "Formador" as Formador
+actor "Reclutador" as Reclutador
+actor "Practicante" as Practicante
+actor "Member" as Member
+actor "Visitor" as Visitor
+
+rectangle "System" {
+  usecase "View clases pendientes" as UC_Administrator_1
+  usecase "Approve announcement" as UC_Administrator_2
+  usecase "Edit announcement" as UC_Administrator_2_1
+  usecase "Delete announcement" as UC_Administrator_2_2
+  usecase "Edit profile of member" as UC_Administrator_3
+  usecase "Trasladar members" as UC_Administrator_3_1
+  usecase "Read solicitudes of practica" as UC_Administrator_4
+  usecase "Approve" as UC_Administrator_4_1
+  usecase "Reject" as UC_Administrator_4_2
+  usecase "View results of Coach" as UC_Administrator_5
+  usecase "View promedio of a Class" as UC_Administrator_6
+  usecase "Create course or event" as UC_Administrator_7
+  usecase "Set tarifas" as UC_Administrator_7_1
+  usecase "Create course or event" as UC_Capacitador_1
+  usecase "Update course or event" as UC_Capacitador_1_1
+  usecase "Change course to event and viceversa" as UC_Capacitador_1_1_1
+  usecase "Delete course or event" as UC_Capacitador_1_2
+  usecase "Enumerar clases" as UC_Capacitador_2
+  usecase "Include details in profile" as UC_Capacitador_3
+  usecase "Display calificacion" as UC_Capacitador_3_1
+  usecase "Create article" as UC_Editor_1
+  usecase "Assign prioridad" as UC_Editor_1_1
+  usecase "Include adelanto" as UC_Editor_1_2
+  usecase "Exclusivo of entrenadores" as UC_Editor_1_1
+  usecase "Set dates of start of publication" as UC_Editor_2
+  usecase "Assign page of start" as UC_Editor_3
+  usecase "Announcements especiales" as UC_Editor_3_1
+  usecase "Edit email of bienvenida" as UC_Editor_4
+  usecase "Update course or event" as UC_Editor_5
+  usecase "Create account" as UC_Empresa_1
+  usecase "Membresia corporativa" as UC_Empresa_1_1
+  usecase "Read exclusivas" as UC_Coach_1
+  usecase "Load excel" as UC_Coach_1_1
+  usecase "Create course" as UC_Formador_1
+  usecase "Create plantilla" as UC_Formador_1_1
+  usecase "View encuentas" as UC_Formador_2
+  usecase "Create announcement" as UC_Reclutador_1
+  usecase "Extender announcement" as UC_Reclutador_1_1
+  usecase "Write article" as UC_Practicante_1
+  usecase "Create profile" as UC_Practicante_2
+  usecase "Update profile" as UC_Practicante_2_1
+  usecase "View avance of article" as UC_Member_1
+  usecase "Access to news item" as UC_Member_1_1
+  usecase "News item antigua" as UC_Member_1_1_1
+  usecase "Search of body complete" as UC_Member_1_1_2
+  usecase "View FAQS" as UC_Member_2
+  usecase "Publish comments" as UC_Member_3
+  usecase "Suscribir to source RSS" as UC_Member_4
+  usecase "Articles" as UC_Member_4_1
+  usecase "Events" as UC_Member_4_2
+  usecase "Courses" as UC_Member_4_3
+  usecase "List" as UC_Member_4_1_1
+  usecase "Search article" as UC_Member_5
+  usecase "Search avanzada" as UC_Member_5_1
+  usecase "View calificaciones" as UC_Member_6
+  usecase "List Scrum Master" as UC_Member_7
+  usecase "Download presentaciones" as UC_Member_8
+  usecase "Search profile" as UC_Visitor_1
+  usecase "View profile" as UC_Visitor_1_1
+  usecase "Request" as UC_Visitor_2
+  usecase "Practicante certificado" as UC_Visitor_2_1
+  usecase "Download files" as UC_Visitor_3
+  usecase "Suscribir canal RSS" as UC_Visitor_4
+  usecase "List works" as UC_Visitor_4_1
+  usecase "Create profile" as UC_Visitor_5
+  usecase "Change privacidad" as UC_Visitor_5_1
+  usecase "Define email" as UC_Visitor_5_2
+  usecase "Reset password" as UC_Visitor_6
+}
+
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+Administrator --> UC_Administrator_5
+Administrator --> UC_Administrator_6
+Administrator --> UC_Administrator_7
+Capacitador --> UC_Capacitador_1
+Capacitador --> UC_Capacitador_2
+Capacitador --> UC_Capacitador_3
+Editor --> UC_Editor_1
+Editor --> UC_Editor_2
+Editor --> UC_Editor_3
+Editor --> UC_Editor_4
+Editor --> UC_Editor_5
+Empresa --> UC_Empresa_1
+Coach --> UC_Coach_1
+Formador --> UC_Formador_1
+Formador --> UC_Formador_2
+Reclutador --> UC_Reclutador_1
+Practicante --> UC_Practicante_1
+Practicante --> UC_Practicante_2
+Member --> UC_Member_1
+Member --> UC_Member_2
+Member --> UC_Member_3
+Member --> UC_Member_4
+Member --> UC_Member_5
+Member --> UC_Member_6
+Member --> UC_Member_7
+Member --> UC_Member_8
+Visitor --> UC_Visitor_1
+Visitor --> UC_Visitor_2
+Visitor --> UC_Visitor_3
+Visitor --> UC_Visitor_4
+Visitor --> UC_Visitor_5
+Visitor --> UC_Visitor_6
+
+UC_Administrator_2 ..> UC_Administrator_2_1 : <<extend>>
+UC_Administrator_2 ..> UC_Administrator_2_2 : <<extend>>
+UC_Administrator_3 ..> UC_Administrator_3_1 : <<extend>>
+UC_Administrator_4 ..> UC_Administrator_4_1 : <<extend>>
+UC_Administrator_4 ..> UC_Administrator_4_2 : <<extend>>
+UC_Administrator_7 ..> UC_Administrator_7_1 : <<extend>>
+UC_Capacitador_1 ..> UC_Capacitador_1_1 : <<extend>>
+UC_Capacitador_1_1 ..> UC_Capacitador_1_1_1 : <<extend>>
+UC_Capacitador_1 ..> UC_Capacitador_1_2 : <<extend>>
+UC_Capacitador_3 ..> UC_Capacitador_3_1 : <<extend>>
+UC_Editor_1 ..> UC_Editor_1_1 : <<include>>
+UC_Editor_1 ..> UC_Editor_1_2 : <<include>>
+UC_Editor_3 ..> UC_Editor_3_1 : <<extend>>
+UC_Empresa_1 ..> UC_Empresa_1_1 : <<extend>>
+UC_Formador_1 ..> UC_Formador_1_1 : <<extend>>
+UC_Reclutador_1 ..> UC_Reclutador_1_1 : <<extend>>
+UC_Practicante_2 ..> UC_Practicante_2_1 : <<extend>>
+UC_Member_1 ..> UC_Member_1_1 : <<extend>>
+UC_Member_4 ..> UC_Member_4_1 : <<extend>>
+UC_Member_4_1 ..> UC_Member_4_1_1 : <<extend>>
+UC_Member_5 ..> UC_Member_5_1 : <<extend>>
+UC_Visitor_1 ..> UC_Visitor_1_1 : <<extend>>
+UC_Visitor_2 ..> UC_Visitor_2_1 : <<extend>>
+UC_Visitor_4 ..> UC_Visitor_4_1 : <<extend>>
+UC_Visitor_5 ..> UC_Visitor_5_1 : <<extend>>
+UC_Visitor_5 ..> UC_Visitor_5_2 : <<include>>
+UC_Visitor_5_1 ..> UC_Visitor_5_2 : <<extend>>
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+
+class doctor {
+  +User
+  +doctor()
+  +perform_videollamada()
+  +ubicar_User()
+  +view_summary()
+  +view_constantes()
+  +viewificar_medications()
+}
+
+class Informal_Caregiver {
+  +User
+  +informal_caregiver()
+  +select_game()
+}
+
+class person_mayor {
+  +User
+  +Person_mayor()
+  +register_meeting()
+  +register_meeting()
+  +perform_videollamada()
+  +perform_llamada()
+  +perform_compra()
+  +configure_preferences()
+  +help_transport()
+  +view_List_compra()
+  +view_performance()
+  +view_constantes()
+  +viewificar_medications()
+  +view_recommendations()
+  +remember_elements()
+}
+
+class Developer {
+  +User
+  +Developer()
+  +read_Sensors()
+}
+
+class Social_Caregiver {
+  +User
+  +Social_caregiver()
+  +contar_steps()
+  +evaluate_estres()
+}
+
+doctor o-- Person_mayor
+Informal_Caregiver o-- Person_mayor
+Developer o-- Person_mayor
+Social_caregiver o-- Person_mayor
+
+@enduml

@@ -1,0 +1,95 @@
+@startuml
+
+class User_registered {
+  +User
+  +User_registered()
+  +perform_Payment()
+  +update_data()
+  +send_session()
+  +view_works()
+}
+
+class User_anonimo {
+  +User
+  +User_anonimo()
+  +view_schedules()
+  +view_sillas()
+  +view_Information()
+  +view_patrocinadores()
+  +view_Cumbres()
+  +record()
+}
+
+class Attendee {
+  +User
+  +Attendee()
+  +detail_event()
+  +register_silla()
+}
+
+class Coordinator_Cumbre {
+  +User
+  +Coordinator_Cumbre()
+  +list_asistentes()
+  +list_patrocinadores()
+  +view_agenda()
+}
+
+class Coordinator_entretenimiento {
+  +User
+  +Type_method()
+  +list_estudiantes()
+}
+
+class Sponsor {
+  +usuario:
+  +Sponsor()
+  +view_cumbres()
+  +personalizar_page()
+  +anadir_ofertas()
+}
+
+class Coordinator_training {
+  +User
+  +Coordiandor_Training()
+  +define_Date_limit()
+  +contactar_Capacitadores()
+  +viewificar_Attendee()
+}
+
+class Administrator {
+  +User
+  +Administrator()
+  +approve_Session()
+  +close_session()
+  +reembolsar()
+  +assign_patrocinadores()
+  +assign_site()
+}
+
+class Capacitador {
+  +User
+  +Capacitador()
+  +list_asistentes()
+  +anadir_asistentes()
+  +edit_training()
+}
+
+class Aprendiz {
+  +User
+  +Aprendiz()
+  +aceptar_Terminos()
+  +schedule_Event()
+}
+
+User_registered -- User_anonimo
+Attendee -- User_anonimo
+Attendee o-- Coordinator_cumbre
+Coordinator_cumbre o-- Coordinator_training
+administrator o-- Sponsor
+administrator o-- Coordinator_training
+Coordinator_training o-- Capacitador
+aprendiz o-- Capacitador
+aprendiz -- User_registered
+
+@enduml

@@ -1,0 +1,66 @@
+@startuml
+
+actor "Planner" as Planner
+
+rectangle "System" {
+  usecase "Model solutions" as UC_Planner_1
+  usecase "Model roundabouts" as UC_Planner_1_1
+  usecase "Model traffic lights" as UC_Planner_1_2
+  usecase "Simulate crisis" as UC_Planner_2
+  usecase "View histories of traffic" as UC_Planner_3
+  usecase "Review levels of traffic" as UC_Planner_4
+  usecase "Close road" as UC_Planner_5
+  usecase "Notice" as UC_Planner_5_1
+  usecase "of congestion" as UC_Planner_5_1_1
+  usecase "of impact" as UC_Planner_5_1_2
+  usecase "Estimate" as UC_Planner_5_2
+  usecase "Cost of measurement" as UC_Planner_5_2_1
+  usecase "Indicators of pollution" as UC_Planner_5_2_2
+  usecase "Emissions" as UC_Planner_5_2_3
+  usecase "Increase traffic" as UC_Planner_6
+  usecase "Change limits of speed" as UC_Planner_7
+  usecase "Change direction of lane" as UC_Planner_8
+  usecase "Estimate levels of noise" as UC_Planner_9
+  usecase "View suggestions of solution" as UC_Planner_10
+  usecase "Make report" as UC_Planner_11
+  usecase "of equity" as UC_Planner_11_1
+  usecase "of cost" as UC_Planner_11_2
+  usecase "Summary executive of solution" as UC_Planner_11_3
+  usecase "Detailed of solution" as UC_Planner_11_4
+  usecase "of pollution" as UC_Planner_11_5
+}
+
+Planner --> UC_Planner_1
+Planner --> UC_Planner_2
+Planner --> UC_Planner_3
+Planner --> UC_Planner_4
+Planner --> UC_Planner_5
+Planner --> UC_Planner_6
+Planner --> UC_Planner_7
+Planner --> UC_Planner_8
+Planner --> UC_Planner_9
+Planner --> UC_Planner_10
+Planner --> UC_Planner_11
+
+UC_Planner_1 ..> UC_Planner_1_1 : <<extend>>
+UC_Planner_1 ..> UC_Planner_1_2 : <<extend>>
+UC_Planner_5 ..> UC_Planner_5_1 : <<extend>>
+UC_Planner_5_1 ..> UC_Planner_5_1_1 : <<extend>>
+UC_Planner_5_1 ..> UC_Planner_5_1_2 : <<extend>>
+UC_Planner_5 ..> UC_Planner_5_2 : <<extend>>
+UC_Planner_5_2 ..> UC_Planner_5_2_1 : <<extend>>
+UC_Planner_5_2 ..> UC_Planner_5_2_2 : <<extend>>
+UC_Planner_5_2 ..> UC_Planner_5_2_3 : <<extend>>
+UC_Planner_6 ..> UC_Planner_5_1 : <<extend>>
+UC_Planner_6 ..> UC_Planner_5_2 : <<extend>>
+UC_Planner_7 ..> UC_Planner_5_1 : <<extend>>
+UC_Planner_7 ..> UC_Planner_5_2 : <<extend>>
+UC_Planner_8 ..> UC_Planner_5_1 : <<extend>>
+UC_Planner_8 ..> UC_Planner_5_2 : <<extend>>
+UC_Planner_11 ..> UC_Planner_11_1 : <<extend>>
+UC_Planner_11 ..> UC_Planner_11_2 : <<extend>>
+UC_Planner_11 ..> UC_Planner_11_3 : <<extend>>
+UC_Planner_11 ..> UC_Planner_11_4 : <<extend>>
+UC_Planner_11 ..> UC_Planner_11_5 : <<extend>>
+
+@enduml

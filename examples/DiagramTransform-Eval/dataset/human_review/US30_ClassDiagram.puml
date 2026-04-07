@@ -1,0 +1,120 @@
+@startuml
+
+class Room {
+  +reservations
+  +dar_reservations()
+}
+
+class Administrator_facilities {
+}
+
+class Member_Department_legal {
+}
+
+class Member_Staff {
+}
+
+class Appointment {
+  +Date
+  +Reason
+  +view_room()
+  +view_date()
+  +view_reason()
+}
+
+class Member_Staff_administrativo {
+  +view_rooms_reservadas()
+  +view_beds_ocupadas()
+}
+
+class Receptionist {
+  +Programs_appointment()
+  +reschedule_appointment()
+  +view_calendar()
+}
+
+class Calendar_appointments {
+  +description
+  +dar_description()
+  +dar_dates_available()
+}
+
+class Hospital {
+  +view_doctors_available()
+  +view_availability()
+}
+
+class Member_Staff_doctor {
+  +search_bed_patient()
+  +view_schedule_rooms()
+  +view_appointments()
+}
+
+class doctor {
+  +reservations
+  +dar_reservations()
+}
+
+class Enfermero {
+}
+
+class Bed {
+  +occupied
+  +send_alert()
+}
+
+class EMR {
+  +data
+  +view_data()
+  +add_data()
+}
+
+class Device_doctor {
+  +data_collected
+  +view_data()
+  +add_data()
+}
+
+class Patient {
+  +information_general
+  +schedule_appointment()
+  +edit_information_general()
+  +reschedule_appointment()
+  +delete_information()
+  +view_information_collected()
+}
+
+class Department {
+}
+
+Room -- Administrator_facilities
+Room -- Appointment
+Member_Staff <|-- Member_Department_legal
+Member_Staff <|-- Member_Staff_administrativo
+Member_Staff <|-- Member_Staff_doctor
+Member_Staff_administrativo <|-- Administrator_facilities
+Member_Staff_administrativo -- Room
+Member_Staff_administrativo -- Bed
+Appointment -- Patient
+Appointment -- doctor
+Receptionist -- Calendar_appointments
+Calendar_appointments -- Appointment
+Hospital -- Calendar_appointments
+Hospital -- doctor
+Hospital -- Patient
+Member_Staff_doctor -- Room
+Member_Staff_doctor -- Patient
+Member_Staff_doctor -- Bed
+Member_Staff_doctor -- Device_doctor
+Member_Staff_doctor <|-- doctor
+Member_Staff_doctor <|-- Enfermero
+doctor -- EMR
+doctor -- Enfermero
+EMR -- Enfermero
+Enfermero -- Bed
+EMR -- Device_doctor
+EMR -- Patient
+Bed -- Patient
+Department -- Patient
+
+@enduml

@@ -1,0 +1,196 @@
+@startuml
+
+class Package_data {
+  +Type_package
+  +Size
+  +Vigencia
+  +Timeout
+  +DataPoint
+  +analyze()
+  +visualize()
+}
+
+class Data_packaged {
+  +Pipeline
+  +integrate()
+}
+
+class Set_data {
+  +DataPoint
+  +Autocompletar()
+  +Traducir()
+  +import()
+  +store()
+  +Referenciar()
+  +add()
+  +Mapear()
+}
+
+class Developer {
+  +get_paq_datosNode()
+  +get_paq_datosPython()
+  +get_paq_datosClojure()
+  +get_paq_datosJulia()
+  +get_paq_datosCmas()
+  +set_complementoJquery()
+  +analyze_datosExploR()
+  +integrate_Elasticsearch()
+  +integrate_SPSS()
+  +integrate_EPrints()
+  +integrate_mongo()
+  +integrate_DAT()
+  +integrate_DSpace()
+  +integrate_Feather()
+  +integrate_HDF5()
+  +connect_datosRepositorio()
+  +Personalizar_asistenteExistente()
+  +create_protocol_conexionWeb()
+}
+
+class Researcher {
+  +get_paq_datosR()
+  +get_paq_datosExcel()
+  +get_paq_datosSPSS()
+  +get_paq_datosSTATA()
+  +get_paq_datosJulia()
+  +get_paq_data_L_O_Office()
+  +save_nuevasVisualizaciones()
+  +Traducir_conjuntoDatos()
+  +include_hojaCalculo_Excel()
+  +Referenciar_vocabularioControl()
+  +integrate_microsoftBI()
+  +integrate_NetCDF()
+  +integrate_dataMendeley()
+  +generate_estadisticasBasicas()
+  +generate_puntoFinalAPI()
+  +create_paquetesDatos_proxy()
+}
+
+class Editor {
+  +add_information()
+  +provide_visualization()
+  +integrate_openRefine()
+  +integrate_excel()
+  +store_datosLinea()
+  +check_ActualizacionDatos()
+  +Incrustar_vistaPrevia()
+  +Incrustar_btnVistaPrevia()
+  +getNum_users_vistaPrevia()
+  +add_conjuntoDatos()
+  +package_PasosReproducibles()
+  +viewificar_persistenciaDatos()
+}
+
+class ReseacherPublisher {
+  +adjust_Profile_PaqDatos()
+  +Comprender_datosInvalidos()
+  +integrate_zenodo()
+  +publish_paqueteDatosCKAN()
+  +validate_data()
+}
+
+class experto_aprendizaje_automatic {
+  +package_conjuntosDatos()
+}
+
+class Person {
+  +Name
+  +ID
+  +Sex
+  +Height
+  +date_birth
+  +User
+  +Password
+}
+
+class Activista_tecnologia_civica {
+  +facilitate_evaluacionCalidadDatos()
+}
+
+class DeveloperDataWrangler {
+  +store_paqDatosGithub()
+}
+
+class DeveloperPublisher {
+  +create_resumenDatos()
+}
+
+class RepositoryManagerResearcher {
+  +Emparejar_paqueteDatos()
+}
+
+class Researcher_editor {
+  +Especificar_financiacion()
+  +add_DOI_conjuntoDatos()
+}
+
+class Editor_gobierno {
+  +facilitate_pruebaDatos()
+}
+
+class Developer_Wrangler {
+  +allow_metValidarDatos()
+}
+
+class Administrator_repositorios {
+  +add_metadatosBasicos()
+}
+
+class ResearcherDeveloper {
+  +import_SQL()
+  +export_SQL()
+}
+
+class Editor_researcherGovernment {
+  +add_datosReferencia()
+  +add_NombresPaises()
+  +add_referenciaInflacion()
+  +Mapear_lineasConjuntoDatos()
+}
+
+Package_data *-- Developer
+Package_data *-- Researcher
+Package_data *-- Editor
+Package_data *-- ResearcherPublisher
+Package_data *-- DeveloperDataWrangler
+Data_packaged *-- Researcher
+Data_packaged *-- Editor
+Data_packaged *-- ResearcherPublisher
+Data_packaged *-- Developer
+Set_data *-- Developer
+Set_data *-- Package_data
+Set_data *-- Experto_aprendizaje_automatic
+Set_data *-- DeveloperDataWrangler
+Set_data *-- Editor_researcherGovernment
+Set_data *-- Researcher
+Set_data *-- Editor
+Set_data *-- ResearcherPublisher
+Researcher ..> paqueteDatos_proxy
+Researcher ..> statistics_basicas
+Researcher ..> point_end_API
+Editor ..> VistaPrevia
+Editor ..> Persistencia
+Activista_tecnologia_civica o-- Editor_gobierno
+DeveloperPublisher ..> Summary_data
+RepositoryManagerResearcher ..> Service_emparejamiento
+Researcher_editor o-- Set_data
+DeveloperWrangler ..> Online_comando
+Administrator_repositorios ..> Researcher_users
+ResearcherDeveloper ..> Package_data
+ResearcherPublisher <|-- Person
+Experto_aprendizaje_automatic <|-- Person
+Editor <|-- Person
+Researcher <|-- Person
+Developer <|-- Person
+Activista_tecnologia_civica <|-- Person
+DeveloperDataWrangler <|-- Person
+DeveloperPublisher <|-- Person
+Repository_Manager_Researcher <|-- Person
+Researcher_editor <|-- Person
+edit_gobierno <|-- Person
+DeveloperWrangler <|-- Person
+Administrator_repositorios <|-- Person
+ResearcherDeveloper <|-- Person
+Editor_researchGovernment <|-- Person
+
+@enduml

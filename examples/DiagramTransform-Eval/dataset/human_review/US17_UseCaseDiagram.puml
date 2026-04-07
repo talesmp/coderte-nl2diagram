@@ -1,0 +1,115 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "Administrator_applications" as Administrator_applications
+actor "Administrator_Repository" as Administrator_Repository
+actor "Administrator_Systems" as Administrator_Systems
+actor "Especialista_migration" as Especialista_migration
+actor "Researcher" as Researcher
+actor "User" as User
+actor "User_Basic_Data_Entry" as User_Basic_Data_Entry
+actor "User_Readonly" as User_Readonly
+actor "Archivero" as Archivero
+
+rectangle "System" {
+  usecase "Create account for new user" as UC_Administrator_1
+  usecase "Reset password of users" as UC_Administrator_applications_1
+  usecase "Set URL center help" as UC_Administrator_applications_2
+  usecase "Verify permissions" as UC_Administrator_applications_3
+  usecase "Create record in Repository" as UC_Administrator_Repository_1
+  usecase "Update record in Repository" as UC_Administrator_Repository_1_1
+  usecase "Delete record in Repository" as UC_Administrator_Repository_1_2
+  usecase "Create description in Repository" as UC_Administrator_Repository_2
+  usecase "Update description in Repository" as UC_Administrator_Repository_2_1
+  usecase "Delete description in Repository" as UC_Administrator_Repository_2_2
+  usecase "Assign roles" as UC_Administrator_Systems_1
+  usecase "Store ID of record" as UC_Especialista_migration_1
+  usecase "AT" as UC_Especialista_migration_1_1
+  usecase "Archon" as UC_Especialista_migration_1_2
+  usecase "Perform search" as UC_Researcher_1
+  usecase "Collection" as UC_Researcher_1_1
+  usecase "Resource" as UC_Researcher_1_2
+  usecase "Authenticate through LDAP" as UC_User_1
+  usecase "Create account" as UC_User_2
+  usecase "Start session" as UC_User_2_1
+  usecase "Add property to Repository" as UC_User_3
+  usecase "Create information basica" as UC_User_Basic_Data_Entry_1
+  usecase "Update information basica" as UC_User_Basic_Data_Entry_1_1
+  usecase "View descripciones" as UC_User_Readonly_1
+  usecase "Import files" as UC_Archivero_1
+  usecase "MARCXML" as UC_Archivero_1_1
+  usecase "CSV" as UC_Archivero_1_2
+  usecase "EAD" as UC_Archivero_1_3
+  usecase "Archon" as UC_Archivero_1_3_1
+  usecase "Archivists Toolkit" as UC_Archivero_1_3_2
+  usecase "Assign ID to component" as UC_Archivero_2
+  usecase "Associate to encabezado of asunto" as UC_Archivero_2_1
+  usecase "Import information" as UC_Archivero_3
+  usecase "EAC-CPF" as UC_Archivero_3_1
+  usecase "Export records" as UC_Archivero_4
+  usecase "EAC-CPF" as UC_Archivero_4_1
+  usecase "Access in a Repository" as UC_Archivero_5
+  usecase "Add notes" as UC_Archivero_5_1
+  usecase "Search in a Repository" as UC_Archivero_5_2
+  usecase "Create record" as UC_Archivero_6
+  usecase "Edit record" as UC_Archivero_6_1
+  usecase "Reorganizar jerarquia" as UC_Archivero_7
+  usecase "Resource" as UC_Archivero_7_1
+  usecase "Agent" as UC_Archivero_7_2
+  usecase "Export files" as UC_Archivero_8
+  usecase "EAD" as UC_Archivero_8_1
+  usecase "Create declaracion of rights" as UC_Archivero_9
+  usecase "Edit declaracion of rights" as UC_Archivero_9_1
+}
+
+Administrator --> UC_Administrator_1
+Administrator_applications --> UC_Administrator_applications_1
+Administrator_applications --> UC_Administrator_applications_2
+Administrator_applications --> UC_Administrator_applications_3
+Administrator_Repository --> UC_Administrator_Repository_1
+Administrator_Repository --> UC_Administrator_Repository_2
+Administrator_Systems --> UC_Administrator_Systems_1
+Especialista_migration --> UC_Especialista_migration_1
+Researcher --> UC_Researcher_1
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+User_Basic_Data_Entry --> UC_User_Basic_Data_Entry_1
+User_Readonly --> UC_User_Readonly_1
+Archivero --> UC_Archivero_1
+Archivero --> UC_Archivero_2
+Archivero --> UC_Archivero_3
+Archivero --> UC_Archivero_4
+Archivero --> UC_Archivero_5
+Archivero --> UC_Archivero_6
+Archivero --> UC_Archivero_7
+Archivero --> UC_Archivero_8
+Archivero --> UC_Archivero_9
+
+UC_Administrator_Repository_1 ..> UC_Administrator_Repository_1_1 : <<extend>>
+UC_Administrator_Repository_1 ..> UC_Administrator_Repository_1_2 : <<extend>>
+UC_Administrator_Repository_2 ..> UC_Administrator_Repository_2_1 : <<extend>>
+UC_Administrator_Repository_2 ..> UC_Administrator_Repository_2_2 : <<extend>>
+UC_Especialista_migration_1 ..> UC_Especialista_migration_1_1 : <<extend>>
+UC_Especialista_migration_1 ..> UC_Especialista_migration_1_2 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_1 : <<extend>>
+UC_Researcher_1 ..> UC_Researcher_1_2 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<extend>>
+UC_User_Basic_Data_Entry_1 ..> UC_User_Basic_Data_Entry_1_1 : <<extend>>
+UC_Archivero_1 ..> UC_Archivero_1_1 : <<extend>>
+UC_Archivero_1 ..> UC_Archivero_1_2 : <<extend>>
+UC_Archivero_1 ..> UC_Archivero_1_3 : <<extend>>
+UC_Archivero_1_3 ..> UC_Archivero_1_3_1 : <<extend>>
+UC_Archivero_1_3 ..> UC_Archivero_1_3_2 : <<extend>>
+UC_Archivero_2 ..> UC_Archivero_2_1 : <<extend>>
+UC_Archivero_3 ..> UC_Archivero_3_1 : <<extend>>
+UC_Archivero_4 ..> UC_Archivero_3_1 : <<extend>>
+UC_Archivero_5 ..> UC_Archivero_5_1 : <<extend>>
+UC_Archivero_5 ..> UC_Archivero_5_2 : <<extend>>
+UC_Archivero_6 ..> UC_Archivero_6_1 : <<extend>>
+UC_Archivero_7 ..> UC_Archivero_7_1 : <<extend>>
+UC_Archivero_7 ..> UC_Archivero_7_2 : <<extend>>
+UC_Archivero_8 ..> UC_Archivero_8_1 : <<extend>>
+UC_Archivero_9 ..> UC_Archivero_9_1 : <<extend>>
+
+@enduml

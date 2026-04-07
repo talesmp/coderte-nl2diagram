@@ -1,0 +1,56 @@
+@startuml
+
+class Visitor {
+  +account
+  +Visitor()
+  +create_Account()
+}
+
+class Consumidor {
+  +Client
+  +Consumidor()
+  +search()
+  +load_packages()
+  +download_package()
+}
+
+class Analyst {
+  +Client
+  +Analyst()
+  +update_Package()
+  +descagar_Package()
+}
+
+class Editor {
+  +Client
+  +Editor()
+  +create_Package()
+  +tag_Package()
+  +delete_Package()
+  +restore_Package()
+  +create_Account()
+}
+
+class Administrator {
+  +password
+  +Administrator()
+  +view_Metrics()
+  +invite_Contribute()
+  +configure_Precio()
+}
+
+class Owner {
+  +Client
+  +Owner()
+  +inviteEditor()
+  +promover_User()
+  +list_Organizacion()
+}
+
+Visitor -- Consumidor
+Consumidor o-- Editor
+Analyst o-- Editor
+Owner o-- Editor
+Administrator o-- Owner
+
+@enduml

@@ -1,0 +1,175 @@
+@startuml
+
+class Document {
+  +date_issue
+  +author
+  +signature
+  +name_patient
+  +document()
+  +get_date_issue()
+  +get_author()
+  +get_signature()
+  +get_name_patient()
+}
+
+class Test_Results {
+  +resutado
+  +conclusion
+  +Test_Results()
+  +get_result()
+  +get_conclusion()
+}
+
+class prescription {
+  +date_limit
+  +medication
+  +prescription()
+  +get_date_limit()
+  +get_medication()
+}
+
+class Nurse {
+  +name
+  +last_name
+  +phone
+  +id_number
+  +Nurse()
+  +get_name()
+  +get_last_name()
+  +get_phone()
+  +get_id_number()
+  +view_history_doctor()
+  +view_Data_personal()
+  +take_note_patient()
+}
+
+class Patient {
+  +name
+  +last_name
+  +health_insurance
+  +id_number
+  +symptoms
+  +phone
+  +date_appointment
+  +patient()
+  +get_name()
+  +get_last_name()
+  +get_health_insurance()
+  +get_id_number()
+  +get_symptoms()
+  +get_phone()
+  +get_date_appointment()
+  +view_results_test()
+  +schedule_appointment()
+  +request_prescription()
+  +edit_data_personal()
+  +view_EMR()
+  +access_components()
+}
+
+class Farmaceutico {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +location
+  +farmaceutico()
+  +get_name()
+  +get_last_name()
+  +get_id_number()
+  +get_phone()
+  +view_prescription()
+}
+
+class doctor {
+  +name
+  +last_name
+  +phone
+  +id_number
+  +salary
+  +area
+  +title
+  +doctor()
+  +get_name()
+  +get_last_name()
+  +get_phone()
+  +get_id_number()
+  +get_salary()
+  +get_area()
+  +get_title()
+  +write_prescription()
+  +view_history_doctor()
+  +view_data_personal()
+  +transfer_prescription()
+}
+
+class Receptionist {
+  +name
+  +last_name
+  +phone
+  +id_number
+  +Receptionist()
+  +get_name()
+  +get_last_name()
+  +get_phone()
+  +get_id_number()
+  +schedule_appointment()
+  +view_EMR_patient()
+}
+
+class administrator {
+  +name
+  +last_name
+  +password
+  +User
+  +id_number
+  +phone
+  +administrator()
+  +get_name()
+  +get_last_name()
+  +get_User()
+  +get_password()
+  +get_id_number()
+  +get_phone()
+  +grant_Level_access()
+  +restrict_components()
+  +integrate_EMR()
+  +store_data()
+}
+
+class Analyst {
+  +name
+  +last_name
+  +phone
+  +id_number
+  +User
+  +password
+  +Analyst()
+  +get_name()
+  +get_last_name()
+  +get_id_number()
+  +get_phone()
+  +get_User()
+  +get_password()
+  +view_schedule_rooms()
+  +view_data_clinical()
+  +view_rate_occupancy_beds()
+  +view_schedule_employees()
+  +register_date_appointment()
+}
+
+administrator -- Analyst
+administrator -- doctor
+Analyst -- Receptionist
+Receptionist -- Patient
+Farmaceutico o-- prescription
+Farmaceutico o-- Patient
+doctor -- Patient
+doctor *-- prescription
+Nurse -- Patient
+Patient o-- Test_Results
+Patient o-- prescription
+Document <|-- Test_Results
+Document <|-- prescription
+
+@enduml

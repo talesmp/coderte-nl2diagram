@@ -1,0 +1,80 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "Analyst" as Analyst
+actor "Nurse" as Nurse
+actor "Receptionist" as Receptionist
+actor "Farmaceutico" as Farmaceutico
+actor "doctor" as doctor
+actor "Patient" as Patient
+
+rectangle "System" {
+  usecase "Grant levels of access" as UC_Administrator_1
+  usecase "Restrict components" as UC_Administrator_2
+  usecase "Integrate EMR" as UC_Administrator_3
+  usecase "Store data" as UC_Administrator_4
+  usecase "View data clinical" as UC_Administrator_4_1
+  usecase "View schedule of rooms" as UC_Analyst_1
+  usecase "View data clinical" as UC_Analyst_2
+  usecase "View rate of occupancy of beds" as UC_Analyst_3
+  usecase "View schedule of employees" as UC_Analyst_4
+  usecase "Register date of appointment" as UC_Analyst_5
+  usecase "Schedule appointment" as UC_Analyst_5_1
+  usecase "View history doctor of patient" as UC_Nurse_1
+  usecase "View data personal" as UC_Nurse_1_1
+  usecase "Take note of patient" as UC_Nurse_2
+  usecase "Schedule appointment" as UC_Receptionist_1
+  usecase "View EMR of patient" as UC_Receptionist_2
+  usecase "View prescription" as UC_Farmaceutico_1
+  usecase "Write prescription" as UC_Farmaceutico_1_1
+  usecase "Write prescription" as UC_doctor_1
+  usecase "View history doctor of patient" as UC_doctor_2
+  usecase "View data personal" as UC_doctor_2_1
+  usecase "Transfer prescription" as UC_doctor_3
+  usecase "View results of test" as UC_Patient_1
+  usecase "Schedule appointment" as UC_Patient_2
+  usecase "Request prescriptions" as UC_Patient_2_1
+  usecase "in online" as UC_Patient_2_1_1
+  usecase "Mobile" as UC_Patient_2_1_2
+  usecase "Edit data personal" as UC_Patient_3
+  usecase "View EMR in mobile" as UC_Patient_4
+  usecase "View EMR in mobile" as UC_Patient_4_1
+  usecase "View prescriptions" as UC_Patient_5
+  usecase "Write prescription" as UC_Patient_5_1
+}
+
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+Analyst --> UC_Analyst_1
+Analyst --> UC_Analyst_2
+Analyst --> UC_Analyst_3
+Analyst --> UC_Analyst_4
+Analyst --> UC_Analyst_5
+Nurse --> UC_Nurse_1
+Nurse --> UC_Nurse_2
+Receptionist --> UC_Receptionist_1
+Receptionist --> UC_Receptionist_2
+Farmaceutico --> UC_Farmaceutico_1
+doctor --> UC_doctor_1
+doctor --> UC_doctor_2
+doctor --> UC_doctor_3
+Patient --> UC_Patient_1
+Patient --> UC_Patient_2
+Patient --> UC_Patient_3
+Patient --> UC_Patient_4
+Patient --> UC_Patient_5
+
+UC_Administrator_4 ..> UC_Administrator_4_1 : <<extend>>
+UC_Analyst_5 ..> UC_Analyst_5_1 : <<extend>>
+UC_Nurse_1 ..> UC_Nurse_1_1 : <<include>>
+UC_Farmaceutico_1 ..> UC_Farmaceutico_1_1 : <<extend>>
+UC_doctor_2 ..> UC_doctor_2_1 : <<include>>
+UC_Patient_2 ..> UC_Patient_2_1 : <<extend>>
+UC_Patient_2_1 ..> UC_Patient_2_1_1 : <<extend>>
+UC_Patient_2_1 ..> UC_Patient_2_1_2 : <<extend>>
+UC_Patient_4 ..> UC_Patient_4_1 : <<extend>>
+UC_Patient_5 ..> UC_Patient_5_1 : <<extend>>
+
+@enduml

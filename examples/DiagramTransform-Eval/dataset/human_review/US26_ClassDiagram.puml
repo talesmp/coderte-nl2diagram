@@ -1,0 +1,187 @@
+@startuml
+
+class New_team {
+  +name
+  +crest
+  +Venue
+  +league
+  +division
+  +player
+  +Coach
+  +administrator
+  +new_team()
+  +register_team()
+}
+
+class IFA {
+  +Director
+  +treasurer
+  +administration
+  +resource
+  +IFA()
+  +get_Director()
+  +get_treasurer()
+  +get_administration()
+  +get_resource()
+  +view_budget_team()
+  +restrict_access()
+  +view_record_team()
+  +view_event()
+  +display_information()
+  +modify_schedule()
+  +update_information_game()
+  +generate_Statistic()
+  +recruit_referee()
+  +generate_calendar()
+}
+
+class manager {
+  +area
+  +manager()
+  +get_area()
+  +connect_System()
+}
+
+class Referee {
+  +contract
+  +referee()
+  +notify_change_calendar()
+  +report_preference_time()
+}
+
+class Referee_central {
+  +location
+  +referee_central()
+  +inform_events()
+}
+
+class Referee_lateral {
+  +location
+  +referee_lateral()
+  +inform_events()
+}
+
+class Statistic {
+  +data
+  +Statistic()
+  +get_data()
+}
+
+class Information {
+  +date_subida
+  +status
+  +information()
+  +get_date_subida()
+  +get_status()
+}
+
+class game {
+  +teams
+  +game()
+  +get_game()
+}
+
+class Result {
+  +scoreboard
+  +result()
+  +get_result()
+}
+
+class team {
+  +players
+  +coaching_staff
+  +team()
+  +get_players()
+  +get_body_tecnico()
+}
+
+class Individuo {
+  +name
+  +last_name
+  +date_birth
+  +email
+  +password
+  +User
+  +id_number
+  +id
+  +individuo()
+  +get_name()
+  +get_last_name()
+  +get_date_birth()
+  +get_email()
+  +get_password()
+  +get_User()
+  +get_id_number()
+  +get_id()
+}
+
+class Director {
+  +team
+  +Director()
+  +get_team()
+  +add_player()
+  +edit_player()
+  +delete_data_player()
+}
+
+class player {
+  +team
+  +player()
+  +get_team()
+  +create_profile()
+  +update_profile()
+}
+
+class User {
+  +name
+  +User()
+  +get_name_User()
+}
+
+class guest_user {
+  +guest_user()
+  +view_information()
+  +generate_statistics()
+}
+
+class User_registered {
+  +notifications
+  +User_registered()
+  +get_notifications()
+  +follow_team()
+  +follow_player()
+  +follow_game()
+}
+
+class journalist {
+  +platform
+  +journalist()
+  +export_information()
+}
+
+IFA o-- New_team
+IFA o-- Referee
+IFA -- Information
+IFA o-- Statistic
+IFA o-- User
+manager o-- IFA
+Referee <|-- Referee_central
+Referee <|-- Referee_lateral
+Individuo <|-- Referee
+Individuo <|-- manager
+Individuo <|-- User
+Individuo <|-- journalist
+Individuo <|-- player
+Individuo <|-- Director
+User <|-- guest_user
+User <|-- User_registered
+User -- Statistic
+Information <|-- Statistic
+User -- Information
+Information <|-- game
+Information <|-- result
+Information <|-- team
+team o-- player
+Director -- team
+
+@enduml

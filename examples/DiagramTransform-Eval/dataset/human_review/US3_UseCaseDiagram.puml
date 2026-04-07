@@ -1,0 +1,86 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "center_reciclaje" as center_reciclaje
+actor "Contador" as Contador
+actor "Executive" as Executive
+actor "Employee" as Employee
+actor "RRHH" as RRHH
+actor "Representante" as Representante
+actor "Superusuario" as Superusuario
+actor "User" as User
+
+rectangle "System" {
+  usecase "Add information about facilities" as UC_Administrator_1
+  usecase "Delete information about facilities" as UC_Administrator_1_1
+  usecase "Read comments and quejas" as UC_Administrator_2
+  usecase "View history of errors of a user" as UC_Administrator_2_1
+  usecase "Bloquear user" as UC_Administrator_3
+  usecase "IP" as UC_Administrator_3_1
+  usecase "View dashboard of statistics" as UC_Administrator_4
+  usecase "Communicate with facilities" as UC_Administrator_5
+  usecase "Communicate with administrator" as UC_center_reciclaje_1
+  usecase "View tarifas of activities" as UC_Contador_1
+  usecase "Access to data of the empresa" as UC_Executive_1
+  usecase "View planning of rutas" as UC_Employee_1
+  usecase "List employees of the empresa" as UC_RRHH_1
+  usecase "Update information" as UC_Representante_1
+  usecase "Access to schedules" as UC_Representante_2
+  usecase "Access to statistics" as UC_Representante_3
+  usecase "Update information" as UC_Superusuario_1
+  usecase "Responder comments" as UC_Superusuario_2
+  usecase "View statistics users" as UC_Superusuario_3
+  usecase "View direction" as UC_User_1
+  usecase "Enter code postal" as UC_User_2
+  usecase "List facilities cercanas" as UC_User_2_1
+  usecase "Add to favoritos" as UC_User_2_1_1
+  usecase "View schedule" as UC_User_2_1_2
+  usecase "Escoger schedule of recogida" as UC_User_2_1_3
+  usecase "Select types of reciclables" as UC_User_3
+  usecase "View map of contenedores cercanos" as UC_User_4
+  usecase "View map of sitios of entregas especiales cercanos" as UC_User_5
+  usecase "View events of deletion segura cercanos" as UC_User_6
+  usecase "View documentation" as UC_User_7
+  usecase "Create account" as UC_User_8
+  usecase "Link email" as UC_User_8_1
+  usecase "Publish comment" as UC_User_9
+  usecase "List facilities" as UC_User_10
+}
+
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+Administrator --> UC_Administrator_5
+center_reciclaje --> UC_center_reciclaje_1
+Contador --> UC_Contador_1
+Executive --> UC_Executive_1
+Employee --> UC_Employee_1
+RRHH --> UC_RRHH_1
+Representante --> UC_Representante_1
+Representante --> UC_Representante_2
+Representante --> UC_Representante_3
+Superusuario --> UC_Superusuario_1
+Superusuario --> UC_Superusuario_2
+Superusuario --> UC_Superusuario_3
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+User --> UC_User_4
+User --> UC_User_5
+User --> UC_User_6
+User --> UC_User_7
+User --> UC_User_8
+User --> UC_User_9
+User --> UC_User_10
+
+UC_Administrator_1 ..> UC_Administrator_1_1 : <<extend>>
+UC_Administrator_2 ..> UC_Administrator_2_1 : <<extend>>
+UC_Administrator_3 ..> UC_Administrator_3_1 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<extend>>
+UC_User_2_1 ..> UC_User_2_1_1 : <<extend>>
+UC_User_2_1 ..> UC_User_2_1_2 : <<extend>>
+UC_User_2_1 ..> UC_User_2_1_3 : <<extend>>
+UC_User_8 ..> UC_User_8_1 : <<extend>>
+
+@enduml

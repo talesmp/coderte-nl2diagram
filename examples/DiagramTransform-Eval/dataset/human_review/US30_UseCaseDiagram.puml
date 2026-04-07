@@ -1,0 +1,110 @@
+@startuml
+
+actor "Administrator_facilities" as Administrator_facilities
+actor "Patient" as Patient
+actor "Receptionist" as Receptionist
+actor "doctor" as doctor
+actor "Enfermero" as Enfermero
+actor "Hospital" as Hospital
+actor "Staff_doctor" as Staff_doctor
+actor "Device_doctor" as Device_doctor
+actor "Member_Staff" as Member_Staff
+actor "Member_Department_legal" as Member_Department_legal
+actor "Member_Staff_doctor" as Member_Staff_doctor
+actor "Device_portatil" as Device_portatil
+
+rectangle "System" {
+  usecase "Alertar" as UC_Administrator_facilities_1
+  usecase "Request appointment" as UC_Patient_1
+  usecase "Ir to casa" as UC_Patient_2
+  usecase "Alertar" as UC_Patient_2_1
+  usecase "Enter information general" as UC_Patient_3
+  usecase "Edit information general" as UC_Patient_4
+  usecase "Create appointment" as UC_Patient_5
+  usecase "Enter reason" as UC_Patient_5_1
+  usecase "View doctors available" as UC_Patient_5_2
+  usecase "Select doctor" as UC_Patient_5_2_1
+  usecase "View schedules available" as UC_Patient_5_3
+  usecase "Reschedule appointment" as UC_Patient_6
+  usecase "View appointment" as UC_Patient_7
+  usecase "View room assigned" as UC_Patient_7_1
+  usecase "View data collected" as UC_Patient_8
+  usecase "Request deletion data" as UC_Patient_9
+  usecase "Schedule appointment" as UC_Receptionist_1
+  usecase "Reschedule appointment" as UC_Receptionist_2
+  usecase "View schedule appointments" as UC_Receptionist_3
+  usecase "Access EMR patient" as UC_doctor_1
+  usecase "Access EMR patient" as UC_Enfermero_1
+  usecase "View doctor asaignado" as UC_Enfermero_2
+  usecase "Collect data patient" as UC_Hospital_1
+  usecase "Delete data patient" as UC_Hospital_2
+  usecase "View data collected device" as UC_Staff_doctor_1
+  usecase "Collect data" as UC_Device_doctor_1
+  usecase "Add data EMR patient" as UC_Device_doctor_2
+  usecase "Verify consistency EMR" as UC_Member_Staff_1
+  usecase "View permission access data" as UC_Member_Department_legal_1
+  usecase "View appointments" as UC_Member_Staff_doctor_1
+  usecase "View details appointment" as UC_Member_Staff_doctor_2
+  usecase "View patient assigned" as UC_Member_Staff_doctor_3
+  usecase "View reason appointment" as UC_Member_Staff_doctor_4
+  usecase "View rooms" as UC_Member_Staff_doctor_5
+  usecase "Select room" as UC_Member_Staff_doctor_6
+  usecase "View reservations room" as UC_Member_Staff_doctor_7
+  usecase "Search bed patient" as UC_Member_Staff_doctor_8
+  usecase "View appointments" as UC_Device_portatil_1
+  usecase "View details appointment" as UC_Device_portatil_2
+  usecase "View patient assigned" as UC_Device_portatil_3
+  usecase "View reason appointment" as UC_Device_portatil_4
+  usecase "View rooms" as UC_Device_portatil_5
+  usecase "Select room" as UC_Device_portatil_6
+  usecase "View reservations room" as UC_Device_portatil_7
+}
+
+Administrator_facilities --> UC_Administrator_facilities_1
+Patient --> UC_Patient_1
+Patient --> UC_Patient_2
+Patient --> UC_Patient_3
+Patient --> UC_Patient_4
+Patient --> UC_Patient_5
+Patient --> UC_Patient_6
+Patient --> UC_Patient_7
+Patient --> UC_Patient_8
+Patient --> UC_Patient_9
+Receptionist --> UC_Receptionist_1
+Receptionist --> UC_Receptionist_2
+Receptionist --> UC_Receptionist_3
+doctor --> UC_doctor_1
+Enfermero --> UC_Enfermero_1
+Enfermero --> UC_Enfermero_2
+Hospital --> UC_Hospital_1
+Hospital --> UC_Hospital_2
+Staff_doctor --> UC_Staff_doctor_1
+Device_doctor --> UC_Device_doctor_1
+Device_doctor --> UC_Device_doctor_2
+Member_Staff --> UC_Member_Staff_1
+Member_Department_legal --> UC_Member_Department_legal_1
+Member_Staff_doctor --> UC_Member_Staff_doctor_1
+Member_Staff_doctor --> UC_Member_Staff_doctor_2
+Member_Staff_doctor --> UC_Member_Staff_doctor_3
+Member_Staff_doctor --> UC_Member_Staff_doctor_4
+Member_Staff_doctor --> UC_Member_Staff_doctor_5
+Member_Staff_doctor --> UC_Member_Staff_doctor_6
+Member_Staff_doctor --> UC_Member_Staff_doctor_7
+Member_Staff_doctor --> UC_Member_Staff_doctor_8
+Device_portatil --> UC_Device_portatil_1
+Device_portatil --> UC_Device_portatil_2
+Device_portatil --> UC_Device_portatil_3
+Device_portatil --> UC_Device_portatil_4
+Device_portatil --> UC_Device_portatil_5
+Device_portatil --> UC_Device_portatil_6
+Device_portatil --> UC_Device_portatil_7
+
+UC_Patient_2 ..> UC_Patient_2_1 : <<include>>
+UC_Patient_3 ..> UC_Patient_4 : <<extend>>
+UC_Patient_5 ..> UC_Patient_5_1 : <<extend>>
+UC_Patient_5 ..> UC_Patient_5_2 : <<extend>>
+UC_Patient_5_2 ..> UC_Patient_5_2_1 : <<extend>>
+UC_Patient_6 ..> UC_Patient_5_3 : <<extend>>
+UC_Patient_7 ..> UC_Patient_7_1 : <<extend>>
+
+@enduml

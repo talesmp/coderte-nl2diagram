@@ -1,0 +1,125 @@
+@startuml
+
+actor "Developer" as Developer
+actor "UI_Designer" as UI_Designer
+actor "Owner" as Owner
+actor "team_agents" as team_agents
+actor "Runners_Team" as Runners_Team
+actor "Tester" as Tester
+actor "User_Broker" as User_Broker
+actor "Data_User" as Data_User
+actor "FABS_User" as FABS_User
+actor "Agency_User" as Agency_User
+actor "Web_User" as Web_User
+actor "User" as User
+
+rectangle "System" {
+  usecase "Update data FABS" as UC_Developer_1
+  usecase "Delete FAC" as UC_Developer_1_1
+  usecase "Update rules of validation" as UC_Developer_2
+  usecase "Add data to the database" as UC_Developer_3
+  usecase "Correct records" as UC_Developer_3_1
+  usecase "Delete records" as UC_Developer_3_2
+  usecase "Avoid duplicate of records" as UC_Developer_4
+  usecase "Start session" as UC_Developer_5
+  usecase "Solve problems" as UC_Developer_5_1
+  usecase "Load data" as UC_Developer_5_2
+  usecase "Create groups" as UC_Developer_6
+  usecase "Perform tests" as UC_UI_Designer_1
+  usecase "Inform to agencies" as UC_UI_Designer_1_1
+  usecase "Pass second round of edition" as UC_UI_Designer_2
+  usecase "Page DABS" as UC_UI_Designer_2_1
+  usecase "Page FABS" as UC_UI_Designer_2_2
+  usecase "Page help" as UC_UI_Designer_2_3
+  usecase "Page start" as UC_UI_Designer_2_4
+  usecase "Design schedule" as UC_Owner_1
+  usecase "Design audit" as UC_Owner_1_1
+  usecase "Reset the environment" as UC_Owner_1_2
+  usecase "Add cases to logic of derivation" as UC_team_agents_1
+  usecase "Derive FAC" as UC_Runners_Team_1
+  usecase "Verify update of resources" as UC_Runners_Team_2
+  usecase "Update codes SQL" as UC_Runners_Team_3
+  usecase "Access to versions of test" as UC_Tester_1
+  usecase "Verify derivation FABS" as UC_Tester_2
+  usecase "Perform report of tests" as UC_Tester_3
+  usecase "Create mockups of content" as UC_User_Broker_1
+  usecase "Send record" as UC_User_Broker_2
+  usecase "Receive updates" as UC_Data_User_1
+  usecase "View names of offices" as UC_Data_User_2
+  usecase "Download file FABS" as UC_FABS_User_1
+  usecase "Send PPoPZIP" as UC_FABS_User_2
+  usecase "Link file of Sample" as UC_FABS_User_3
+  usecase "Perform validations" as UC_FABS_User_4
+  usecase "Include fields flexible" as UC_Agency_User_1
+  usecase "FPDS" as UC_Agency_User_2
+  usecase "View date and time of update" as UC_Agency_User_3
+  usecase "Assign FAO" as UC_Agency_User_4
+  usecase "View details of submission" as UC_Agency_User_5
+  usecase "Send data" as UC_Agency_User_6
+  usecase "Know periods of submission" as UC_Agency_User_7
+  usecase "Use schema v1.1" as UC_Agency_User_8
+  usecase "View data updated" as UC_Web_User_1
+  usecase "View files FABS published" as UC_Web_User_2
+  usecase "View files published by agency" as UC_User_1
+  usecase "Generate files D" as UC_User_2
+  usecase "FPDS" as UC_User_2_1
+  usecase "Validate files D" as UC_User_3
+  usecase "FABS" as UC_User_3_1
+  usecase "View information of rows by publish" as UC_User_4
+}
+
+Developer --> UC_Developer_1
+Developer --> UC_Developer_2
+Developer --> UC_Developer_3
+Developer --> UC_Developer_4
+Developer --> UC_Developer_5
+Developer --> UC_Developer_6
+UI_Designer --> UC_UI_Designer_1
+UI_Designer --> UC_UI_Designer_2
+Owner --> UC_Owner_1
+team_agents --> UC_team_agents_1
+Runners_Team --> UC_Runners_Team_1
+Runners_Team --> UC_Runners_Team_2
+Runners_Team --> UC_Runners_Team_3
+Tester --> UC_Tester_1
+Tester --> UC_Tester_2
+Tester --> UC_Tester_3
+User_Broker --> UC_User_Broker_1
+User_Broker --> UC_User_Broker_2
+Data_User --> UC_Data_User_1
+Data_User --> UC_Data_User_2
+FABS_User --> UC_FABS_User_1
+FABS_User --> UC_FABS_User_2
+FABS_User --> UC_FABS_User_3
+FABS_User --> UC_FABS_User_4
+Agency_User --> UC_Agency_User_1
+Agency_User --> UC_Agency_User_2
+Agency_User --> UC_Agency_User_3
+Agency_User --> UC_Agency_User_4
+Agency_User --> UC_Agency_User_5
+Agency_User --> UC_Agency_User_6
+Agency_User --> UC_Agency_User_7
+Agency_User --> UC_Agency_User_8
+Web_User --> UC_Web_User_1
+Web_User --> UC_Web_User_2
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+User --> UC_User_4
+
+UC_Developer_1 ..> UC_Developer_1_1 : <<extend>>
+UC_Developer_3 ..> UC_Developer_3_1 : <<extend>>
+UC_Developer_3 ..> UC_Developer_3_2 : <<extend>>
+UC_Developer_5 ..> UC_Developer_5_1 : <<extend>>
+UC_Developer_5 ..> UC_Developer_5_2 : <<extend>>
+UC_UI_Designer_1 ..> UC_UI_Designer_1_1 : <<include>>
+UC_UI_Designer_2 ..> UC_UI_Designer_2_1 : <<extend>>
+UC_UI_Designer_2 ..> UC_UI_Designer_2_2 : <<extend>>
+UC_UI_Designer_2 ..> UC_UI_Designer_2_3 : <<extend>>
+UC_UI_Designer_2 ..> UC_UI_Designer_2_4 : <<extend>>
+UC_Owner_1 ..> UC_Owner_1_1 : <<extend>>
+UC_Owner_1 ..> UC_Owner_1_2 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<include>>
+UC_User_3 ..> UC_User_3_1 : <<include>>
+
+@enduml

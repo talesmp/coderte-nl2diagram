@@ -1,0 +1,118 @@
+@startuml
+
+actor "IFA" as IFA
+actor "Referee" as Referee
+actor "Referee_Central" as Referee_Central
+actor "Referee_Lateral" as Referee_Lateral
+actor "Manager" as Manager
+actor "Director" as Director
+actor "Player" as Player
+actor "New_team" as New_team
+actor "Registered" as Registered
+actor "Invitado" as Invitado
+actor "journalist" as journalist
+
+rectangle "System" {
+  usecase "View budget of team" as UC_IFA_1
+  usecase "Restrict access" as UC_IFA_1_1
+  usecase "View records of team" as UC_IFA_2
+  usecase "Transfers of players" as UC_IFA_2_1
+  usecase "Events" as UC_IFA_2_2
+  usecase "View information" as UC_IFA_3
+  usecase "Display information" as UC_IFA_3_1
+  usecase "Games" as UC_IFA_3_1_1
+  usecase "Results" as UC_IFA_3_1_2
+  usecase "Teams" as UC_IFA_3_1_3
+  usecase "Modify schedules" as UC_IFA_3_2
+  usecase "Pedir review" as UC_IFA_3_2_1
+  usecase "Update information of games actuales" as UC_IFA_4
+  usecase "Generate statistics" as UC_IFA_4_1
+  usecase "Recruit referee" as UC_IFA_5
+  usecase "View profile" as UC_IFA_5_1
+  usecase "Review schedules" as UC_IFA_5_2
+  usecase "Generate calendar" as UC_IFA_6
+  usecase "Notice modification of calendar" as UC_Referee_1
+  usecase "Report preferences of schedule" as UC_Referee_2
+  usecase "Inform events" as UC_Referee_Central_1
+  usecase "Inform events" as UC_Referee_Lateral_1
+  usecase "Connect system" as UC_Manager_1
+  usecase "IFA" as UC_Manager_1_1
+  usecase "Add player" as UC_Director_1
+  usecase "Edit data" as UC_Director_1_1
+  usecase "Delete data" as UC_Director_1_2
+  usecase "Create profile" as UC_Player_1
+  usecase "Update" as UC_Player_1_1
+  usecase "Register team" as UC_New_team_1
+  usecase "Follow" as UC_Registered_1
+  usecase "Player" as UC_Registered_1_1
+  usecase "Team" as UC_Registered_1_2
+  usecase "Game" as UC_Registered_1_3
+  usecase "Receive notification" as UC_Registered_1_3_1
+  usecase "View notification" as UC_Registered_2
+  usecase "Games" as UC_Registered_2_1
+  usecase "Results" as UC_Registered_2_2
+  usecase "Teams" as UC_Registered_2_3
+  usecase "Generate statistics" as UC_Registered_2_4
+  usecase "View notification" as UC_Invitado_1
+  usecase "Games" as UC_Invitado_1_1
+  usecase "Results" as UC_Invitado_1_2
+  usecase "Teams" as UC_Invitado_1_3
+  usecase "Generate statistics" as UC_Invitado_1_4
+  usecase "Export information" as UC_journalist_1
+  usecase "Player" as UC_journalist_1_1
+  usecase "Team" as UC_journalist_1_2
+  usecase "Game" as UC_journalist_1_3
+}
+
+IFA --> UC_IFA_1
+IFA --> UC_IFA_2
+IFA --> UC_IFA_3
+IFA --> UC_IFA_4
+IFA --> UC_IFA_5
+IFA --> UC_IFA_6
+Referee --> UC_Referee_1
+Referee --> UC_Referee_2
+Referee_Central --> UC_Referee_Central_1
+Referee_Lateral --> UC_Referee_Lateral_1
+Manager --> UC_Manager_1
+Director --> UC_Director_1
+Player --> UC_Player_1
+New_team --> UC_New_team_1
+Registered --> UC_Registered_1
+Registered --> UC_Registered_2
+Invitado --> UC_Invitado_1
+journalist --> UC_journalist_1
+
+UC_IFA_1 ..> UC_IFA_1_1 : <<include>>
+UC_IFA_2 ..> UC_IFA_2_1 : <<extend>>
+UC_IFA_2 ..> UC_IFA_2_2 : <<extend>>
+UC_IFA_3 ..> UC_IFA_3_1 : <<extend>>
+UC_IFA_3_1 ..> UC_IFA_3_1_1 : <<extend>>
+UC_IFA_3_1 ..> UC_IFA_3_1_2 : <<extend>>
+UC_IFA_3_1 ..> UC_IFA_3_1_3 : <<extend>>
+UC_IFA_3 ..> UC_IFA_3_2 : <<extend>>
+UC_IFA_3_2 ..> UC_IFA_3_2_1 : <<extend>>
+UC_IFA_4 ..> UC_IFA_4_1 : <<include>>
+UC_IFA_5 ..> UC_IFA_5_1 : <<include>>
+UC_IFA_5 ..> UC_IFA_5_2 : <<include>>
+UC_Manager_1 ..> UC_Manager_1_1 : <<extend>>
+UC_Director_1 ..> UC_Director_1_1 : <<extend>>
+UC_Director_1 ..> UC_Director_1_2 : <<extend>>
+UC_Player_1 ..> UC_Player_1_1 : <<extend>>
+UC_Registered_1 ..> UC_Registered_1_1 : <<extend>>
+UC_Registered_1 ..> UC_Registered_1_2 : <<extend>>
+UC_Registered_1 ..> UC_Registered_1_3 : <<extend>>
+UC_Registered_1_3 ..> UC_Registered_1_3_1 : <<include>>
+UC_Registered_2 ..> UC_Registered_2_1 : <<extend>>
+UC_Registered_2 ..> UC_Registered_2_2 : <<extend>>
+UC_Registered_2 ..> UC_Registered_2_3 : <<extend>>
+UC_Registered_2 ..> UC_Registered_2_4 : <<extend>>
+UC_Invitado_1 ..> UC_Invitado_1_1 : <<extend>>
+UC_Invitado_1 ..> UC_Invitado_1_2 : <<extend>>
+UC_Invitado_1 ..> UC_Invitado_1_3 : <<extend>>
+UC_Invitado_1 ..> UC_Invitado_1_4 : <<extend>>
+UC_journalist_1 ..> UC_journalist_1_1 : <<extend>>
+UC_journalist_1 ..> UC_journalist_1_2 : <<extend>>
+UC_journalist_1 ..> UC_journalist_1_3 : <<extend>>
+
+@enduml

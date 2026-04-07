@@ -1,0 +1,122 @@
+@startuml
+
+class Capacitador {
+  +User
+  +Password
+  +capacitador()
+  +create_course()
+  +create_event()
+  +update_activity()
+  +delete_activity()
+  +list_clases()
+  +update_profile()
+  +display_calificacion()
+}
+
+class Administrator {
+  +User
+  +Password
+  +administrator()
+  +view_pendientes()
+  +approve_announcements()
+  +edit_announcements()
+  +delete_announcements()
+  +edit_User()
+  +trasladar_members()
+  +approve_Request()
+  +reject_Request()
+  +view_Coach()
+  +create_event()
+  +create_course()
+  +define_tarifa()
+}
+
+class Editor {
+  +User
+  +Password
+  +Attendee()
+  +upload_data()
+  +list_downloads()
+  +view_forms()
+  +upload_documents()
+}
+
+class Visitor {
+  +User
+  +Password
+  +Visitor()
+  +reset_password()
+  +search_File()
+  +abrir_File()
+  +request_analogos()
+  +create_Group()
+  +create_report()
+  +share_report()
+}
+
+class Member {
+  +User
+  +Password
+  +Member()
+  +view_news item()
+  +view_faqs()
+  +publish_comment()
+  +suscribir()
+  +search_article()
+  +list_scrum_master()
+  +download_presentacion()
+}
+
+class Empresa {
+  +User
+  +Password
+  +empresa()
+  +create_account()
+  +adquirir_membresia()
+}
+
+class Coach {
+  +User
+  +Password
+  +Coach()
+  +load_excel()
+  +view_exclusivas()
+}
+
+class Formador {
+  +User
+  +Password
+  +formador()
+  +view_encuesta()
+  +create_course()
+  +create_plantilla()
+}
+
+class Reclutador {
+  +User
+  +Password
+  +reclutador()
+  +create_announcement()
+  +extender_announcement()
+}
+
+class Practicante {
+  +User
+  +Password
+  +practicante()
+  +write_article()
+  +edit_profile()
+}
+
+Member <|-- Empresa
+Member <|-- Coach
+Member <|-- Formador
+Member <|-- Reclutador
+Member <|-- Practicante
+Member -- Administrator
+Visitor -- Administrator
+Editor -- Administrator
+Capacitador -- Administrator
+Editor -- Capacitador
+
+@enduml

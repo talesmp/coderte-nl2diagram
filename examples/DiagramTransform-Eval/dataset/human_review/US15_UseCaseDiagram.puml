@@ -1,0 +1,116 @@
+@startuml
+
+actor "Aprendiz" as Aprendiz
+actor "Attendee" as Attendee
+actor "Coordinator_Cumbre" as Coordinator_Cumbre
+actor "Coordinator_Training" as Coordinator_Training
+actor "Capacitador" as Capacitador
+actor "Sponsor" as Sponsor
+actor "User_Registered" as User_Registered
+actor "User_Anonimo" as User_Anonimo
+actor "Administrator" as Administrator
+
+rectangle "System" {
+  usecase "Aceptar terminos" as UC_Aprendiz_1
+  usecase "Limit record" as UC_Aprendiz_2
+  usecase "Add to mi agenda" as UC_Aprendiz_3
+  usecase "View capacitaciones inscritas" as UC_Aprendiz_3_1
+  usecase "Get details of events" as UC_Attendee_1
+  usecase "View map of the salones" as UC_Attendee_1_1
+  usecase "Register asiento in cumbre" as UC_Attendee_2
+  usecase "View information of the cumbre" as UC_Coordinator_Cumbre_1
+  usecase "View List of patrocinadores" as UC_Coordinator_Cumbre_2
+  usecase "View agenda" as UC_Coordinator_Cumbre_3
+  usecase "View List of asistentes" as UC_Coordinator_Cumbre_4
+  usecase "Verify status of Attendee" as UC_Coordinator_Training_1
+  usecase "Send email electronico to capacitadores" as UC_Coordinator_Training_2
+  usecase "Define date limit of cancelacion" as UC_Coordinator_Training_3
+  usecase "Edit training" as UC_Capacitador_1
+  usecase "Add Attendee to List of espera" as UC_Capacitador_2
+  usecase "View information asistentes" as UC_Capacitador_3
+  usecase "View tematica of the cumbres" as UC_Sponsor_1
+  usecase "Publish ofertas of work" as UC_Sponsor_2
+  usecase "Personalizar page of sponsorship" as UC_Sponsor_3
+  usecase "Link asistentes to page of sponsorship" as UC_Sponsor_4
+  usecase "Enter data" as UC_User_Registered_1
+  usecase "Perform Payment" as UC_User_Registered_1_1
+  usecase "View page of bolsa of work" as UC_User_Registered_2
+  usecase "Update information" as UC_User_Registered_3
+  usecase "Send session" as UC_User_Registered_4
+  usecase "Edit profile" as UC_User_Registered_5
+  usecase "View options of sponsorship individual" as UC_User_Registered_6
+  usecase "View link to page of sponsorships" as UC_User_Registered_7
+  usecase "View List all the cumbres" as UC_User_Anonimo_1
+  usecase "Know levels of sponsorship" as UC_User_Anonimo_2
+  usecase "Fill form of record" as UC_User_Anonimo_3
+  usecase "View sesiones aprobadas" as UC_User_Anonimo_3_1
+  usecase "Contactar Sponsor" as UC_User_Anonimo_4
+  usecase "View blog" as UC_User_Anonimo_5
+  usecase "View schedules" as UC_User_Anonimo_6
+  usecase "View information of session" as UC_User_Anonimo_7
+  usecase "View asientos available" as UC_User_Anonimo_7_1
+  usecase "View patrocinadores" as UC_User_Anonimo_8
+  usecase "View cumbres of a Sponsor" as UC_User_Anonimo_8_1
+  usecase "View asistententes asociados" as UC_User_Anonimo_8_2
+  usecase "Approve sesiones" as UC_Administrator_1
+  usecase "Close sesiones" as UC_Administrator_2
+  usecase "Create Cumbre" as UC_Administrator_3
+  usecase "Assign patrocionadores" as UC_Administrator_3_1
+  usecase "Assign room" as UC_Administrator_3_2
+  usecase "Create publication" as UC_Administrator_3_3
+  usecase "Tag publication" as UC_Administrator_3_3_1
+  usecase "Create venues" as UC_Administrator_3_4
+  usecase "Reembolsar to patrocinadores" as UC_Administrator_4
+}
+
+Aprendiz --> UC_Aprendiz_1
+Aprendiz --> UC_Aprendiz_2
+Aprendiz --> UC_Aprendiz_3
+Attendee --> UC_Attendee_1
+Attendee --> UC_Attendee_2
+Coordinator_Cumbre --> UC_Coordinator_Cumbre_1
+Coordinator_Cumbre --> UC_Coordinator_Cumbre_2
+Coordinator_Cumbre --> UC_Coordinator_Cumbre_3
+Coordinator_Cumbre --> UC_Coordinator_Cumbre_4
+Coordinator_Training --> UC_Coordinator_Training_1
+Coordinator_Training --> UC_Coordinator_Training_2
+Coordinator_Training --> UC_Coordinator_Training_3
+Capacitador --> UC_Capacitador_1
+Capacitador --> UC_Capacitador_2
+Capacitador --> UC_Capacitador_3
+Sponsor --> UC_Sponsor_1
+Sponsor --> UC_Sponsor_2
+Sponsor --> UC_Sponsor_3
+Sponsor --> UC_Sponsor_4
+User_Registered --> UC_User_Registered_1
+User_Registered --> UC_User_Registered_2
+User_Registered --> UC_User_Registered_3
+User_Registered --> UC_User_Registered_4
+User_Registered --> UC_User_Registered_5
+User_Registered --> UC_User_Registered_6
+User_Registered --> UC_User_Registered_7
+User_Anonimo --> UC_User_Anonimo_1
+User_Anonimo --> UC_User_Anonimo_2
+User_Anonimo --> UC_User_Anonimo_3
+User_Anonimo --> UC_User_Anonimo_4
+User_Anonimo --> UC_User_Anonimo_5
+User_Anonimo --> UC_User_Anonimo_6
+User_Anonimo --> UC_User_Anonimo_7
+User_Anonimo --> UC_User_Anonimo_8
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+
+UC_Aprendiz_3 ..> UC_Aprendiz_3_1 : <<extend>>
+UC_Attendee_1 ..> UC_Attendee_1_1 : <<include>>
+UC_User_Registered_1 ..> UC_User_Registered_1_1 : <<include>>
+UC_User_Anonimo_3 ..> UC_User_Anonimo_3_1 : <<include>>
+UC_User_Anonimo_8 ..> UC_User_Anonimo_8_1 : <<include>>
+UC_Administrator_3 ..> UC_Administrator_3_1 : <<include>>
+UC_Administrator_3 ..> UC_Administrator_3_2 : <<include>>
+UC_Administrator_3 ..> UC_Administrator_3_3 : <<include>>
+UC_Administrator_3_3 ..> UC_Administrator_3_3_1 : <<extend>>
+UC_Administrator_3 ..> UC_Administrator_3_4 : <<include>>
+
+@enduml

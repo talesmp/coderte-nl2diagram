@@ -1,0 +1,125 @@
+@startuml
+
+actor "Member_NSF" as Member_NSF
+actor "Researcher_users" as Researcher_users
+actor "Member" as Member
+actor "Administrator_site" as Administrator_site
+actor "author" as author
+actor "Developer" as Developer
+actor "Designer" as Designer
+actor "Designer_content" as Designer_content
+actor "Editor_content" as Editor_content
+actor "Manager_recruitment" as Manager_recruitment
+actor "Researcher" as Researcher
+actor "Administrator_CMS" as Administrator_CMS
+actor "User" as User
+actor "Interesado" as Interesado
+actor "Participant" as Participant
+actor "Employee_NSF" as Employee_NSF
+
+rectangle "System" {
+  usecase "Review reports and documentation" as UC_Member_NSF_1
+  usecase "Recruit plan of research" as UC_Researcher_users_1
+  usecase "Probar plan of research" as UC_Researcher_users_1_1
+  usecase "Have script of tasks" as UC_Researcher_users_2
+  usecase "Identify participants" as UC_Researcher_users_3
+  usecase "Configure recruitment" as UC_Researcher_users_4
+  usecase "Have prototipo of WIG" as UC_Researcher_users_5
+  usecase "Schedule entrevistas" as UC_Researcher_users_6
+  usecase "Have List of candidatos" as UC_Researcher_users_7
+  usecase "View version beta" as UC_Member_1
+  usecase "Prioritize elements" as UC_Member_2
+  usecase "Create schedule of espacios of coworking" as UC_Member_3
+  usecase "Determine direction end" as UC_Member_4
+  usecase "Create meeting of requirements" as UC_Member_5
+  usecase "Determine as debe view the MVP" as UC_Member_6
+  usecase "Create sheet of ruta" as UC_Member_7
+  usecase "Define point medio" as UC_Member_7_1
+  usecase "Know date of reuniones" as UC_Member_7_2
+  usecase "Define tasks visuales necesarias in the sprint" as UC_Member_7_3
+  usecase "View primera hipotesis" as UC_Member_8
+  usecase "Create prototipos" as UC_Member_9
+  usecase "Create sangria" as UC_author_1
+  usecase "Cancel sangria" as UC_author_1_1
+  usecase "Configure subdominio" as UC_Developer_1
+  usecase "View hipotesis" as UC_Developer_2
+  usecase "View indicaciones" as UC_Designer_1
+  usecase "View structure" as UC_Designer_2
+  usecase "View guias" as UC_Designer_3
+  usecase "Comprender plan NSF" as UC_Designer_content_1
+  usecase "Demonstrate importance of the design" as UC_Designer_content_2
+  usecase "Find content editable" as UC_Editor_content_1
+  usecase "Add videos" as UC_Editor_content_2
+  usecase "Verify operation of reclutador" as UC_Manager_recruitment_1
+  usecase "Science360.gov" as UC_Manager_recruitment_1_1
+  usecase "Develop protocol of research" as UC_Researcher_1
+  usecase "Recruit" as UC_Researcher_2
+  usecase "Assign roles" as UC_Administrator_CMS_1
+  usecase "Add video" as UC_User_1
+  usecase "View results of research" as UC_Interesado_1
+  usecase "Create summary" as UC_Participant_1
+  usecase "View summary of hallazgos" as UC_Participant_2
+  usecase "Change plan of alojamiento" as UC_Employee_NSF_1
+  usecase "Limit options of CMS" as UC_Employee_NSF_2
+  usecase "Have taller end" as UC_Employee_NSF_3
+  usecase "Create account GitHub" as UC_Employee_NSF_4
+  usecase "View form of recruitment" as UC_Employee_NSF_5
+  usecase "View information of meeting" as UC_Employee_NSF_6
+  usecase "Receive recommendations" as UC_Employee_NSF_7
+  usecase "Know about pautas of marca" as UC_Employee_NSF_8
+  usecase "Schedule records" as UC_Employee_NSF_9
+}
+
+Member_NSF --> UC_Member_NSF_1
+Researcher_users --> UC_Researcher_users_1
+Researcher_users --> UC_Researcher_users_2
+Researcher_users --> UC_Researcher_users_3
+Researcher_users --> UC_Researcher_users_4
+Researcher_users --> UC_Researcher_users_5
+Researcher_users --> UC_Researcher_users_6
+Researcher_users --> UC_Researcher_users_7
+Member --> UC_Member_1
+Member --> UC_Member_2
+Member --> UC_Member_3
+Member --> UC_Member_4
+Member --> UC_Member_5
+Member --> UC_Member_6
+Member --> UC_Member_7
+Member --> UC_Member_8
+Member --> UC_Member_9
+author --> UC_author_1
+Developer --> UC_Developer_1
+Developer --> UC_Developer_2
+Designer --> UC_Designer_1
+Designer --> UC_Designer_2
+Designer --> UC_Designer_3
+Designer_content --> UC_Designer_content_1
+Designer_content --> UC_Designer_content_2
+Editor_content --> UC_Editor_content_1
+Editor_content --> UC_Editor_content_2
+Manager_recruitment --> UC_Manager_recruitment_1
+Researcher --> UC_Researcher_1
+Researcher --> UC_Researcher_2
+Administrator_CMS --> UC_Administrator_CMS_1
+User --> UC_User_1
+Interesado --> UC_Interesado_1
+Participant --> UC_Participant_1
+Participant --> UC_Participant_2
+Employee_NSF --> UC_Employee_NSF_1
+Employee_NSF --> UC_Employee_NSF_2
+Employee_NSF --> UC_Employee_NSF_3
+Employee_NSF --> UC_Employee_NSF_4
+Employee_NSF --> UC_Employee_NSF_5
+Employee_NSF --> UC_Employee_NSF_6
+Employee_NSF --> UC_Employee_NSF_7
+Employee_NSF --> UC_Employee_NSF_8
+Employee_NSF --> UC_Employee_NSF_9
+
+UC_Researcher_users_1 ..> UC_Researcher_users_1_1 : <<extend>>
+UC_Member_7 ..> UC_Member_7_1 : <<extend>>
+UC_Member_7 ..> UC_Member_7_2 : <<extend>>
+UC_Member_7 ..> UC_Member_7_3 : <<extend>>
+UC_author_1 ..> UC_author_1_1 : <<extend>>
+UC_Manager_recruitment_1 ..> UC_Manager_recruitment_1_1 : <<include>>
+
+@enduml

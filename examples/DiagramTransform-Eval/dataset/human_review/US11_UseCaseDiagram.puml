@@ -1,0 +1,444 @@
+@startuml
+
+actor "Curator_collections" as Curator_collections
+actor "Curator_collection" as Curator_collection
+actor "Administrator_Repository" as Administrator_Repository
+actor "Member_facultad" as Member_facultad
+actor "Developer" as Developer
+actor "DPC" as DPC
+actor "Repoadmin" as Repoadmin
+actor "Archivista_DigitalRecords" as Archivista_DigitalRecords
+actor "Visitor" as Visitor
+actor "depositor" as depositor
+actor "Remitente_batches" as Remitente_batches
+actor "Owner_collection" as Owner_collection
+actor "Superusuario" as Superusuario
+actor "Researcher" as Researcher
+
+rectangle "System" {
+  usecase "Set date" as UC_Curator_collections_1
+  usecase "Delete data" as UC_Curator_collections_1_1
+  usecase "Caducar data" as UC_Curator_collections_1_2
+  usecase "Mapear elements" as UC_Curator_collections_1_1_1
+  usecase "Belong to other collections" as UC_Curator_collections_1_1_1_1
+  usecase "Belong to collection" as UC_Curator_collections_1_1_1_2
+  usecase "Have summary statuses replicacion" as UC_Curator_collections_2
+  usecase "Lift embargo object" as UC_Curator_collections_3
+  usecase "Create forms" as UC_Curator_collections_4
+  usecase "Select deposit specific collection" as UC_Curator_collections_4_1
+  usecase "Use tool" as UC_Curator_collections_5
+  usecase "Control autoridad author" as UC_Curator_collections_5_1
+  usecase "Move elements collection" as UC_Curator_collections_6
+  usecase "Open widget" as UC_Curator_collections_7
+  usecase "View widget" as UC_Curator_collections_7_1
+  usecase "Display summary envios" as UC_Curator_collections_7_1_1
+  usecase "Perform changes metadata" as UC_Curator_collections_8
+  usecase "Assign elements DOI to the Repository" as UC_Curator_collections_8_1
+  usecase "Propagar elements to the EZID" as UC_Curator_collections_8_1_1
+  usecase "Create groups of user" as UC_Curator_collections_9
+  usecase "Manage permissions Repository" as UC_Curator_collections_9_1
+  usecase "Restrict access" as UC_Curator_collections_10
+  usecase "Communicate users" as UC_Curator_collections_11
+  usecase "Request access objects restricted" as UC_Curator_collections_11_1
+  usecase "Change permissions" as UC_Curator_collections_12
+  usecase "Select elements" as UC_Curator_collections_12_1
+  usecase "Sincronizar elements" as UC_Curator_collections_12_1_1
+  usecase "Access objects" as UC_Curator_collections_13
+  usecase "Authenticate" as UC_Curator_collections_13_1
+  usecase "Validate IP List blanca" as UC_Curator_collections_13_1_1
+  usecase "View permissions objects" as UC_Curator_collections_14
+  usecase "Display date deletion records" as UC_Curator_collection_1
+  usecase "Display pages elements" as UC_Curator_collection_1_1
+  usecase "Display pages components" as UC_Curator_collection_1_2
+  usecase "Put collection in queue" as UC_Curator_collection_2
+  usecase "Replicate in storage remote" as UC_Curator_collection_2_1
+  usecase "Display status replicacion remote" as UC_Curator_collection_2_1_1
+  usecase "Display element" as UC_Curator_collection_2_1_1_1
+  usecase "Display component" as UC_Curator_collection_2_1_1_2
+  usecase "View Interface personal" as UC_Curator_collection_2_1_1_1_1
+  usecase "Encriptar collection" as UC_Curator_collection_3
+  usecase "Generate Password server" as UC_Curator_collection_3_1
+  usecase "Generate file encriptado" as UC_Curator_collection_3_1_1
+  usecase "Store file encriptado" as UC_Curator_collection_3_1_1_1
+  usecase "Replicate file to the server" as UC_Curator_collection_3_1_1_1_1
+  usecase "Set elements available" as UC_Curator_collection_4
+  usecase "Configure permissions" as UC_Curator_collection_4_1
+  usecase "Reach date embargo" as UC_Curator_collection_4_1_1
+  usecase "View metadata article" as UC_Curator_collection_5
+  usecase "Embargar article" as UC_Curator_collection_5_1
+  usecase "Allow element" as UC_Curator_collection_6
+  usecase "Set permissions access" as UC_Curator_collection_6_1
+  usecase "Reach data embargo" as UC_Curator_collection_6_1_1
+  usecase "Identify roles articles" as UC_Curator_collection_7
+  usecase "Identify creadores articles" as UC_Curator_collection_7_1
+  usecase "Identify autores articles" as UC_Curator_collection_7_2
+  usecase "Enter ID" as UC_Curator_collection_7_1_1
+  usecase "View works y/o publicaciones" as UC_Curator_collection_7_1_1_1
+  usecase "View referentes visitantes" as UC_Curator_collection_8
+  usecase "Extraer link resolutor" as UC_Curator_collection_8_1
+  usecase "Use link" as UC_Curator_collection_8_1_1
+  usecase "Visualize article" as UC_Curator_collection_8_1_1_1
+  usecase "Make tracking financial" as UC_Administrator_Repository_1
+  usecase "Create person contact" as UC_Administrator_Repository_1_1
+  usecase "Assign responsable elements Repository" as UC_Administrator_Repository_1_1_1
+  usecase "Execute report" as UC_Administrator_Repository_2
+  usecase "Display storage contact" as UC_Administrator_Repository_2_1
+  usecase "Especificar policy replicacion remote" as UC_Administrator_Repository_3
+  usecase "View users" as UC_Administrator_Repository_4
+  usecase "View users active" as UC_Administrator_Repository_4_1
+  usecase "View users authenticated" as UC_Administrator_Repository_4_2
+  usecase "View users anonymous" as UC_Administrator_Repository_4_3
+  usecase "Schedule message users" as UC_Administrator_Repository_5
+  usecase "Display pages Repository" as UC_Administrator_Repository_5_1
+  usecase "Select time" as UC_Administrator_Repository_5_1_1
+  usecase "Send notification" as UC_Administrator_Repository_5_1_1_1
+  usecase "Detect errors duplicate" as UC_Administrator_Repository_6
+  usecase "Display in screen" as UC_Administrator_Repository_6_1
+  usecase "View dashboard statistics size collections" as UC_Administrator_Repository_7
+  usecase "Have List collections" as UC_Administrator_Repository_7_1
+  usecase "Have number elements" as UC_Administrator_Repository_7_2
+  usecase "Have number components" as UC_Administrator_Repository_7_3
+  usecase "Have storage total collections" as UC_Administrator_Repository_7_4
+  usecase "Have visualization activities" as UC_Administrator_Repository_7_5
+  usecase "Update indice Repository" as UC_Administrator_Repository_8
+  usecase "View versions available object" as UC_Administrator_Repository_9
+  usecase "Access to Interface personal" as UC_Administrator_Repository_9_1
+  usecase "Restore version object" as UC_Administrator_Repository_9_1_1
+  usecase "Add delimitador date" as UC_Member_facultad_1
+  usecase "Limit chain search" as UC_Member_facultad_1_1
+  usecase "Return results" as UC_Member_facultad_1_1_1
+  usecase "Return results dates previous" as UC_Member_facultad_1_1_1_1
+  usecase "Return results dates later" as UC_Member_facultad_1_1_1_2
+  usecase "Return results between dates" as UC_Member_facultad_1_1_1_3
+  usecase "Open dashboard control" as UC_Member_facultad_2
+  usecase "Manage members Class" as UC_Member_facultad_2_1
+  usecase "Grant permissions submission" as UC_Member_facultad_2_2
+  usecase "Paste List NetID" as UC_Member_facultad_2_2_1
+  usecase "View confirmaciones DDR" as UC_Member_facultad_2_3
+  usecase "Delete permissions" as UC_Member_facultad_2_4
+  usecase "Configure dates" as UC_Member_facultad_2_5
+  usecase "Configure dates start" as UC_Member_facultad_2_5_1
+  usecase "Configure dates fin" as UC_Member_facultad_2_5_2
+  usecase "View window submission" as UC_Member_facultad_2_5_1_1
+  usecase "Ilustrar screen status" as UC_Member_facultad_2_5_1_1_1
+  usecase "View envios" as UC_Member_facultad_2_5_1_1_1_1
+  usecase "View not envios" as UC_Member_facultad_2_5_1_1_1_2
+  usecase "Determine services audit" as UC_Developer_1
+  usecase "Use services audit" as UC_Developer_1_1
+  usecase "Integrate events fedora 4" as UC_Developer_1_1_1
+  usecase "Update fedora 4" as UC_Developer_2
+  usecase "Migrate applications and data" as UC_Developer_2_1
+  usecase "Create events" as UC_DPC_1
+  usecase "View publicaciones" as UC_DPC_1_1
+  usecase "View not publicaciones" as UC_DPC_1_2
+  usecase "Determine author" as UC_DPC_1_1_1
+  usecase "Comentar publication" as UC_DPC_1_1_1_1
+  usecase "Register publication" as UC_DPC_1_1_1_1_1
+  usecase "Verify availability" as UC_DPC_1_1_1_1_1_1
+  usecase "Communicate S.E bidirectionally with DDR" as UC_Repoadmin_1
+  usecase "Integrate S.E bidirectionally with DDR" as UC_Repoadmin_1_1
+  usecase "Provide conector" as UC_Repoadmin_1_1_1
+  usecase "Provide conector fedora" as UC_Repoadmin_1_1_1_1
+  usecase "Provide conector emory" as UC_Repoadmin_1_1_1_2
+  usecase "Use instance" as UC_Repoadmin_1_1_1_1_1
+  usecase "Collect object" as UC_Repoadmin_1_1_1_1_1_1
+  usecase "Attend license" as UC_Repoadmin_2
+  usecase "Select license" as UC_Repoadmin_2_1
+  usecase "Aceptar license" as UC_Repoadmin_2_1_1
+  usecase "Approve license" as UC_Repoadmin_2_1_1_1
+  usecase "Reject license" as UC_Repoadmin_2_1_2
+  usecase "Denegar deposit" as UC_Repoadmin_2_1_2_1
+  usecase "Register license metadata" as UC_Repoadmin_3
+  usecase "Display license element" as UC_Repoadmin_3_1
+  usecase "Expose content Repository" as UC_Repoadmin_4
+  usecase "Recolectar records OAIPMH" as UC_Repoadmin_4_1
+  usecase "Verify server" as UC_Repoadmin_5
+  usecase "Maintain server asset" as UC_Repoadmin_5_1
+  usecase "Maintain server inactivo" as UC_Repoadmin_5_2
+  usecase "Provide access Repository" as UC_Repoadmin_5_1_1
+  usecase "Provide SLA server" as UC_Repoadmin_6
+  usecase "Provide Interface data" as UC_Repoadmin_7
+  usecase "Link data Repository" as UC_Repoadmin_7_1
+  usecase "Have elements simpleticos" as UC_Repoadmin_8
+  usecase "Communicate bidirectionally with Repository" as UC_Repoadmin_8_1
+  usecase "Create method" as UC_Archivista_DigitalRecords_1
+  usecase "Process by batches ETD" as UC_Archivista_DigitalRecords_1_1
+  usecase "Receive ETD of proquets" as UC_Archivista_DigitalRecords_1_1_1
+  usecase "Implement tool intake by batches" as UC_Archivista_DigitalRecords_2
+  usecase "Reconocer embargoes" as UC_Archivista_DigitalRecords_2_1
+  usecase "Set embargoes" as UC_Archivista_DigitalRecords_2_2
+  usecase "Embargar elements" as UC_Archivista_DigitalRecords_2_1_1
+  usecase "Grant permissions" as UC_Archivista_DigitalRecords_2_1_1_1
+  usecase "Allow visibilidad metadata" as UC_Archivista_DigitalRecords_2_1_1_1_1
+  usecase "Download files" as UC_Archivista_DigitalRecords_2_1_1_1_1_1
+  usecase "Access to the Repository" as UC_Archivista_DigitalRecords_3
+  usecase "Lift embargoes date launch" as UC_Archivista_DigitalRecords_3_1
+  usecase "Set controls access" as UC_Archivista_DigitalRecords_3_1_1
+  usecase "Configure article date establecida" as UC_Archivista_DigitalRecords_3_1_1_1
+  usecase "Implement method people" as UC_Archivista_DigitalRecords_4
+  usecase "Add people" as UC_Archivista_DigitalRecords_4_1
+  usecase "Delete people" as UC_Archivista_DigitalRecords_4_2
+  usecase "Deposit groups collections specific" as UC_Archivista_DigitalRecords_4_1_1
+  usecase "Set date closing window deposit" as UC_Archivista_DigitalRecords_4_1_1_1
+  usecase "Grant permissions depositors" as UC_Archivista_DigitalRecords_4_1_1_2
+  usecase "Expose record descriptivo" as UC_Archivista_DigitalRecords_5
+  usecase "Select element ETD" as UC_Archivista_DigitalRecords_5_1
+  usecase "Reuse externally to fedora" as UC_Archivista_DigitalRecords_5_1_1
+  usecase "Grant permissions embargo" as UC_Archivista_DigitalRecords_6
+  usecase "Consult groups of deposit" as UC_Archivista_DigitalRecords_7
+  usecase "Implement method people individual" as UC_Archivista_DigitalRecords_7_1
+  usecase "Add people individual" as UC_Archivista_DigitalRecords_7_1_1
+  usecase "Delete people individual" as UC_Archivista_DigitalRecords_7_1_2
+  usecase "Edit duration embargoes" as UC_Archivista_DigitalRecords_8
+  usecase "Resumir metadata embargoes" as UC_Archivista_DigitalRecords_9
+  usecase "View metadata embargo" as UC_Archivista_DigitalRecords_9_1
+  usecase "Download metadata embargo" as UC_Archivista_DigitalRecords_9_1_1
+  usecase "View status embargo" as UC_Visitor_1
+  usecase "Display date launch" as UC_Visitor_1_1
+  usecase "Highlight results" as UC_Visitor_1_1_1
+  usecase "Validate formation formats" as UC_depositor_1
+  usecase "Adjust especificacion format" as UC_depositor_1_1
+  usecase "Send files" as UC_depositor_1_1_1
+  usecase "Warn intake files" as UC_depositor_1_1_1_1
+  usecase "Receive comments" as UC_depositor_1_1_1_1_1
+  usecase "Classify aceptacion cosas Repository" as UC_depositor_2
+  usecase "View aceptacion cosas Repository" as UC_depositor_2_1
+  usecase "Aceptar formats" as UC_depositor_2_1_1
+  usecase "Recomendar formats" as UC_depositor_2_1_2
+  usecase "Find information" as UC_depositor_3
+  usecase "Classify data assignment DOI" as UC_depositor_3_1
+  usecase "Get DOI" as UC_depositor_3_1_1
+  usecase "Request metadata" as UC_depositor_3_1_2
+  usecase "Provide data and metadata" as UC_Remitente_batches_1
+  usecase "Use format simple" as UC_Remitente_batches_1_1
+  usecase "Documentar format simple" as UC_Remitente_batches_1_1_1
+  usecase "Enter to the Repository" as UC_Remitente_batches_1_1_1_1
+  usecase "Access documentation" as UC_Remitente_batches_2
+  usecase "Describe proceso intake" as UC_Remitente_batches_2_1
+  usecase "Set collection" as UC_Owner_collection_1
+  usecase "Restrict permissions elements" as UC_Owner_collection_2
+  usecase "View remitente" as UC_Owner_collection_3
+  usecase "Enter ambito superusuario" as UC_Superusuario_1
+  usecase "Exit ambito superusuario" as UC_Superusuario_2
+  usecase "Assign permission" as UC_Researcher_1
+  usecase "Edit metadata" as UC_Researcher_2
+  usecase "Describe team and objects" as UC_Researcher_3
+  usecase "Deposit data Repository" as UC_Researcher_4
+}
+
+Curator_collections --> UC_Curator_collections_1
+Curator_collections --> UC_Curator_collections_2
+Curator_collections --> UC_Curator_collections_3
+Curator_collections --> UC_Curator_collections_4
+Curator_collections --> UC_Curator_collections_5
+Curator_collections --> UC_Curator_collections_6
+Curator_collections --> UC_Curator_collections_7
+Curator_collections --> UC_Curator_collections_8
+Curator_collections --> UC_Curator_collections_9
+Curator_collections --> UC_Curator_collections_10
+Curator_collections --> UC_Curator_collections_11
+Curator_collections --> UC_Curator_collections_12
+Curator_collections --> UC_Curator_collections_13
+Curator_collections --> UC_Curator_collections_14
+Curator_collection --> UC_Curator_collection_1
+Curator_collection --> UC_Curator_collection_2
+Curator_collection --> UC_Curator_collection_3
+Curator_collection --> UC_Curator_collection_4
+Curator_collection --> UC_Curator_collection_5
+Curator_collection --> UC_Curator_collection_6
+Curator_collection --> UC_Curator_collection_7
+Curator_collection --> UC_Curator_collection_8
+Administrator_Repository --> UC_Administrator_Repository_1
+Administrator_Repository --> UC_Administrator_Repository_2
+Administrator_Repository --> UC_Administrator_Repository_3
+Administrator_Repository --> UC_Administrator_Repository_4
+Administrator_Repository --> UC_Administrator_Repository_5
+Administrator_Repository --> UC_Administrator_Repository_6
+Administrator_Repository --> UC_Administrator_Repository_7
+Administrator_Repository --> UC_Administrator_Repository_8
+Administrator_Repository --> UC_Administrator_Repository_9
+Member_facultad --> UC_Member_facultad_1
+Member_facultad --> UC_Member_facultad_2
+Developer --> UC_Developer_1
+Developer --> UC_Developer_2
+DPC --> UC_DPC_1
+Repoadmin --> UC_Repoadmin_1
+Repoadmin --> UC_Repoadmin_2
+Repoadmin --> UC_Repoadmin_3
+Repoadmin --> UC_Repoadmin_4
+Repoadmin --> UC_Repoadmin_5
+Repoadmin --> UC_Repoadmin_6
+Repoadmin --> UC_Repoadmin_7
+Repoadmin --> UC_Repoadmin_8
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_1
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_2
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_3
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_4
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_5
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_6
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_7
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_8
+Archivista_DigitalRecords --> UC_Archivista_DigitalRecords_9
+Visitor --> UC_Visitor_1
+depositor --> UC_depositor_1
+depositor --> UC_depositor_2
+depositor --> UC_depositor_3
+Remitente_batches --> UC_Remitente_batches_1
+Remitente_batches --> UC_Remitente_batches_2
+Owner_collection --> UC_Owner_collection_1
+Owner_collection --> UC_Owner_collection_2
+Owner_collection --> UC_Owner_collection_3
+Superusuario --> UC_Superusuario_1
+Superusuario --> UC_Superusuario_2
+Researcher --> UC_Researcher_1
+Researcher --> UC_Researcher_2
+Researcher --> UC_Researcher_3
+Researcher --> UC_Researcher_4
+
+UC_Curator_collections_1 ..> UC_Curator_collections_1_1 : <<include>>
+UC_Curator_collections_1 ..> UC_Curator_collections_1_2 : <<include>>
+UC_Curator_collections_1_1 ..> UC_Curator_collections_1_1_1 : <<include>>
+UC_Curator_collections_1_2 ..> UC_Curator_collections_1_1_1 : <<include>>
+UC_Curator_collections_1_1_1 ..> UC_Curator_collections_1_1_1_1 : <<extend>>
+UC_Curator_collections_1_1_1 ..> UC_Curator_collections_1_1_1_2 : <<extend>>
+UC_Curator_collections_4 ..> UC_Curator_collections_4_1 : <<include>>
+UC_Curator_collections_5 ..> UC_Curator_collections_5_1 : <<include>>
+UC_Curator_collections_7 ..> UC_Curator_collections_7_1 : <<include>>
+UC_Curator_collections_7_1 ..> UC_Curator_collections_7_1_1 : <<include>>
+UC_Curator_collections_8 ..> UC_Curator_collections_8_1 : <<include>>
+UC_Curator_collections_8_1 ..> UC_Curator_collections_8_1_1 : <<include>>
+UC_Curator_collections_9 ..> UC_Curator_collections_9_1 : <<include>>
+UC_Curator_collections_11 ..> UC_Curator_collections_11_1 : <<include>>
+UC_Curator_collections_12 ..> UC_Curator_collections_12_1 : <<include>>
+UC_Curator_collections_12_1 ..> UC_Curator_collections_12_1_1 : <<include>>
+UC_Curator_collections_13 ..> UC_Curator_collections_13_1 : <<include>>
+UC_Curator_collections_13_1 ..> UC_Curator_collections_13_1_1 : <<include>>
+UC_Curator_collection_1 ..> UC_Curator_collection_1_1 : <<extend>>
+UC_Curator_collection_1 ..> UC_Curator_collection_1_2 : <<extend>>
+UC_Curator_collection_2 ..> UC_Curator_collection_2_1 : <<include>>
+UC_Curator_collection_2_1 ..> UC_Curator_collection_2_1_1 : <<include>>
+UC_Curator_collection_2_1_1 ..> UC_Curator_collection_2_1_1_1 : <<extend>>
+UC_Curator_collection_2_1_1 ..> UC_Curator_collection_2_1_1_2 : <<extend>>
+UC_Curator_collection_2_1_1_1 ..> UC_Curator_collection_2_1_1_1_1 : <<include>>
+UC_Curator_collection_3 ..> UC_Curator_collection_3_1 : <<include>>
+UC_Curator_collection_3_1 ..> UC_Curator_collection_3_1_1 : <<include>>
+UC_Curator_collection_3_1_1 ..> UC_Curator_collection_3_1_1_1 : <<include>>
+UC_Curator_collection_3_1_1_1 ..> UC_Curator_collection_3_1_1_1_1 : <<include>>
+UC_Curator_collection_4 ..> UC_Curator_collection_4_1 : <<include>>
+UC_Curator_collection_4_1 ..> UC_Curator_collection_4_1_1 : <<include>>
+UC_Curator_collection_5 ..> UC_Curator_collection_5_1 : <<include>>
+UC_Curator_collection_6 ..> UC_Curator_collection_6_1 : <<include>>
+UC_Curator_collection_6_1 ..> UC_Curator_collection_6_1_1 : <<include>>
+UC_Curator_collection_7 ..> UC_Curator_collection_7_1 : <<extend>>
+UC_Curator_collection_7 ..> UC_Curator_collection_7_2 : <<extend>>
+UC_Curator_collection_7_1 ..> UC_Curator_collection_7_1_1 : <<include>>
+UC_Curator_collection_7_2 ..> UC_Curator_collection_7_1_1 : <<include>>
+UC_Curator_collection_7_1_1 ..> UC_Curator_collection_7_1_1_1 : <<include>>
+UC_Curator_collection_8 ..> UC_Curator_collection_8_1 : <<include>>
+UC_Curator_collection_8_1 ..> UC_Curator_collection_8_1_1 : <<include>>
+UC_Curator_collection_8_1_1 ..> UC_Curator_collection_8_1_1_1 : <<include>>
+UC_Administrator_Repository_1 ..> UC_Administrator_Repository_1_1 : <<include>>
+UC_Administrator_Repository_1_1 ..> UC_Administrator_Repository_1_1_1 : <<include>>
+UC_Administrator_Repository_2 ..> UC_Administrator_Repository_2_1 : <<include>>
+UC_Administrator_Repository_4 ..> UC_Administrator_Repository_4_1 : <<extend>>
+UC_Administrator_Repository_4 ..> UC_Administrator_Repository_4_2 : <<extend>>
+UC_Administrator_Repository_4 ..> UC_Administrator_Repository_4_3 : <<extend>>
+UC_Administrator_Repository_5 ..> UC_Administrator_Repository_5_1 : <<include>>
+UC_Administrator_Repository_5_1 ..> UC_Administrator_Repository_5_1_1 : <<include>>
+UC_Administrator_Repository_5_1_1 ..> UC_Administrator_Repository_5_1_1_1 : <<include>>
+UC_Administrator_Repository_6 ..> UC_Administrator_Repository_6_1 : <<include>>
+UC_Administrator_Repository_7 ..> UC_Administrator_Repository_7_1 : <<include>>
+UC_Administrator_Repository_7 ..> UC_Administrator_Repository_7_2 : <<include>>
+UC_Administrator_Repository_7 ..> UC_Administrator_Repository_7_3 : <<include>>
+UC_Administrator_Repository_7 ..> UC_Administrator_Repository_7_4 : <<include>>
+UC_Administrator_Repository_7 ..> UC_Administrator_Repository_7_5 : <<include>>
+UC_Administrator_Repository_9 ..> UC_Administrator_Repository_9_1 : <<include>>
+UC_Administrator_Repository_9_1 ..> UC_Administrator_Repository_9_1_1 : <<include>>
+UC_Member_facultad_1 ..> UC_Member_facultad_1_1 : <<include>>
+UC_Member_facultad_1_1 ..> UC_Member_facultad_1_1_1 : <<include>>
+UC_Member_facultad_1_1_1 ..> UC_Member_facultad_1_1_1_1 : <<extend>>
+UC_Member_facultad_1_1_1 ..> UC_Member_facultad_1_1_1_2 : <<extend>>
+UC_Member_facultad_1_1_1 ..> UC_Member_facultad_1_1_1_3 : <<extend>>
+UC_Member_facultad_2 ..> UC_Member_facultad_2_1 : <<include>>
+UC_Member_facultad_2 ..> UC_Member_facultad_2_2 : <<include>>
+UC_Member_facultad_2 ..> UC_Member_facultad_2_3 : <<include>>
+UC_Member_facultad_2 ..> UC_Member_facultad_2_4 : <<include>>
+UC_Member_facultad_2 ..> UC_Member_facultad_2_5 : <<include>>
+UC_Member_facultad_2_2 ..> UC_Member_facultad_2_2_1 : <<include>>
+UC_Member_facultad_2_5 ..> UC_Member_facultad_2_5_1 : <<extend>>
+UC_Member_facultad_2_5 ..> UC_Member_facultad_2_5_2 : <<extend>>
+UC_Member_facultad_2_5_1 ..> UC_Member_facultad_2_5_1_1 : <<include>>
+UC_Member_facultad_2_5_2 ..> UC_Member_facultad_2_5_1_1 : <<include>>
+UC_Member_facultad_2_5_1_1 ..> UC_Member_facultad_2_5_1_1_1 : <<include>>
+UC_Member_facultad_2_5_1_1_1 ..> UC_Member_facultad_2_5_1_1_1_1 : <<include>>
+UC_Member_facultad_2_5_1_1_1 ..> UC_Member_facultad_2_5_1_1_1_2 : <<include>>
+UC_Developer_1 ..> UC_Developer_1_1 : <<include>>
+UC_Developer_1_1 ..> UC_Developer_1_1_1 : <<include>>
+UC_Developer_2 ..> UC_Developer_2_1 : <<include>>
+UC_DPC_1 ..> UC_DPC_1_1 : <<include>>
+UC_DPC_1 ..> UC_DPC_1_2 : <<include>>
+UC_DPC_1_1 ..> UC_DPC_1_1_1 : <<include>>
+UC_DPC_1_2 ..> UC_DPC_1_1_1 : <<include>>
+UC_DPC_1_1_1 ..> UC_DPC_1_1_1_1 : <<include>>
+UC_DPC_1_1_1_1 ..> UC_DPC_1_1_1_1_1 : <<include>>
+UC_DPC_1_1_1_1_1 ..> UC_DPC_1_1_1_1_1_1 : <<include>>
+UC_Repoadmin_1 ..> UC_Repoadmin_1_1 : <<include>>
+UC_Repoadmin_1_1 ..> UC_Repoadmin_1_1_1 : <<include>>
+UC_Repoadmin_1_1_1 ..> UC_Repoadmin_1_1_1_1 : <<extend>>
+UC_Repoadmin_1_1_1 ..> UC_Repoadmin_1_1_1_2 : <<extend>>
+UC_Repoadmin_2 ..> UC_Repoadmin_2_1 : <<include>>
+UC_Repoadmin_2_1 ..> UC_Repoadmin_2_1_1 : <<extend>>
+UC_Repoadmin_2_1 ..> UC_Repoadmin_2_1_2 : <<extend>>
+UC_Repoadmin_2_1_1 ..> UC_Repoadmin_2_1_1_1 : <<include>>
+UC_Repoadmin_2_1_2 ..> UC_Repoadmin_2_1_2_1 : <<include>>
+UC_Repoadmin_3 ..> UC_Repoadmin_3_1 : <<include>>
+UC_Repoadmin_4 ..> UC_Repoadmin_4_1 : <<include>>
+UC_Repoadmin_5 ..> UC_Repoadmin_5_1 : <<include>>
+UC_Repoadmin_5 ..> UC_Repoadmin_5_2 : <<include>>
+UC_Repoadmin_5_1 ..> UC_Repoadmin_5_1_1 : <<include>>
+UC_Repoadmin_5_2 ..> UC_Repoadmin_5_1_1 : <<include>>
+UC_Repoadmin_7 ..> UC_Repoadmin_7_1 : <<include>>
+UC_Repoadmin_8 ..> UC_Repoadmin_8_1 : <<include>>
+UC_Archivista_DigitalRecords_1 ..> UC_Archivista_DigitalRecords_1_1 : <<include>>
+UC_Archivista_DigitalRecords_1_1 ..> UC_Archivista_DigitalRecords_1_1_1 : <<include>>
+UC_Archivista_DigitalRecords_2 ..> UC_Archivista_DigitalRecords_2_1 : <<include>>
+UC_Archivista_DigitalRecords_2 ..> UC_Archivista_DigitalRecords_2_2 : <<include>>
+UC_Archivista_DigitalRecords_2_1 ..> UC_Archivista_DigitalRecords_2_1_1 : <<include>>
+UC_Archivista_DigitalRecords_2_2 ..> UC_Archivista_DigitalRecords_2_1_1 : <<include>>
+UC_Archivista_DigitalRecords_2_1_1 ..> UC_Archivista_DigitalRecords_2_1_1_1 : <<include>>
+UC_Archivista_DigitalRecords_2_1_1_1 ..> UC_Archivista_DigitalRecords_2_1_1_1_1 : <<include>>
+UC_Archivista_DigitalRecords_2_1_1_1_1 ..> UC_Archivista_DigitalRecords_2_1_1_1_1_1 : <<include>>
+UC_Archivista_DigitalRecords_3 ..> UC_Archivista_DigitalRecords_3_1 : <<include>>
+UC_Archivista_DigitalRecords_3_1 ..> UC_Archivista_DigitalRecords_3_1_1 : <<include>>
+UC_Archivista_DigitalRecords_3_1_1 ..> UC_Archivista_DigitalRecords_3_1_1_1 : <<include>>
+UC_Archivista_DigitalRecords_4 ..> UC_Archivista_DigitalRecords_4_1 : <<extend>>
+UC_Archivista_DigitalRecords_4 ..> UC_Archivista_DigitalRecords_4_2 : <<extend>>
+UC_Archivista_DigitalRecords_4_1 ..> UC_Archivista_DigitalRecords_4_1_1 : <<include>>
+UC_Archivista_DigitalRecords_4_2 ..> UC_Archivista_DigitalRecords_4_1_1 : <<include>>
+UC_Archivista_DigitalRecords_4_1_1 ..> UC_Archivista_DigitalRecords_4_1_1_1 : <<include>>
+UC_Archivista_DigitalRecords_4_1_1 ..> UC_Archivista_DigitalRecords_4_1_1_2 : <<include>>
+UC_Archivista_DigitalRecords_5 ..> UC_Archivista_DigitalRecords_5_1 : <<include>>
+UC_Archivista_DigitalRecords_5_1 ..> UC_Archivista_DigitalRecords_5_1_1 : <<include>>
+UC_Archivista_DigitalRecords_7 ..> UC_Archivista_DigitalRecords_7_1 : <<include>>
+UC_Archivista_DigitalRecords_7_1 ..> UC_Archivista_DigitalRecords_7_1_1 : <<extend>>
+UC_Archivista_DigitalRecords_7_1 ..> UC_Archivista_DigitalRecords_7_1_2 : <<extend>>
+UC_Archivista_DigitalRecords_9 ..> UC_Archivista_DigitalRecords_9_1 : <<include>>
+UC_Archivista_DigitalRecords_9_1 ..> UC_Archivista_DigitalRecords_9_1_1 : <<include>>
+UC_Visitor_1 ..> UC_Visitor_1_1 : <<include>>
+UC_Visitor_1_1 ..> UC_Visitor_1_1_1 : <<include>>
+UC_depositor_1 ..> UC_depositor_1_1 : <<include>>
+UC_depositor_1_1 ..> UC_depositor_1_1_1 : <<include>>
+UC_depositor_1_1_1 ..> UC_depositor_1_1_1_1 : <<include>>
+UC_depositor_1_1_1_1 ..> UC_depositor_1_1_1_1_1 : <<include>>
+UC_depositor_2 ..> UC_depositor_2_1 : <<include>>
+UC_depositor_2_1 ..> UC_depositor_2_1_1 : <<include>>
+UC_depositor_2_1 ..> UC_depositor_2_1_2 : <<include>>
+UC_depositor_3 ..> UC_depositor_3_1 : <<include>>
+UC_depositor_3_1 ..> UC_depositor_3_1_1 : <<include>>
+UC_depositor_3_1 ..> UC_depositor_3_1_2 : <<include>>
+UC_Remitente_batches_1 ..> UC_Remitente_batches_1_1 : <<include>>
+UC_Remitente_batches_1_1 ..> UC_Remitente_batches_1_1_1 : <<include>>
+UC_Remitente_batches_1_1_1 ..> UC_Remitente_batches_1_1_1_1 : <<include>>
+UC_Remitente_batches_2 ..> UC_Remitente_batches_2_1 : <<include>>
+
+@enduml

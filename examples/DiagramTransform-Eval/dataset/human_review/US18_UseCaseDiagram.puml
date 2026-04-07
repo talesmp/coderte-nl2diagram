@@ -1,0 +1,119 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "depositor" as depositor
+actor "Service_UnivIT" as Service_UnivIT
+actor "Colaborador_external" as Colaborador_external
+actor "Coordinator_external" as Coordinator_external
+actor "Developer" as Developer
+actor "Editor" as Editor
+actor "Entidad_financiera" as Entidad_financiera
+actor "Manager_information" as Manager_information
+actor "Reutilizador_de_data" as Reutilizador_de_data
+
+rectangle "System" {
+  usecase "Approve deletion of data" as UC_Administrator_1
+  usecase "Consult files" as UC_Administrator_2
+  usecase "Import data" as UC_Administrator_3
+  usecase "Perform comprobaciones" as UC_Administrator_4
+  usecase "Deposit data" as UC_depositor_1
+  usecase "Associate DOI" as UC_depositor_1_1
+  usecase "Give permissions especiales" as UC_depositor_1_2
+  usecase "Associate metadata" as UC_depositor_1_3
+  usecase "Apply license" as UC_depositor_1_4
+  usecase "Embargar data" as UC_depositor_1_5
+  usecase "Maintain data" as UC_depositor_2
+  usecase "PURE" as UC_depositor_2_1
+  usecase "Interface web" as UC_depositor_2_2
+  usecase "Entornos of research" as UC_depositor_2_3
+  usecase "Link data" as UC_depositor_3
+  usecase "OPUS" as UC_depositor_3_1
+  usecase "Repository external" as UC_depositor_3_2
+  usecase "DMP" as UC_depositor_3_3
+  usecase "Follow interacciones" as UC_depositor_4
+  usecase "Appointments" as UC_depositor_4_1
+  usecase "Downloads" as UC_depositor_4_2
+  usecase "Store data" as UC_Service_UnivIT_1
+  usecase "Export data" as UC_Service_UnivIT_1_1
+  usecase "System existente" as UC_Service_UnivIT_1_2
+  usecase "HCP" as UC_Service_UnivIT_1_1
+  usecase "Integrate file" as UC_Service_UnivIT_2
+  usecase "Access to projects" as UC_Colaborador_external_1
+  usecase "Access to data of colaboradores" as UC_Coordinator_external_1
+  usecase "Define licenses" as UC_Coordinator_external_1
+  usecase "Deposit data" as UC_Developer_1
+  usecase "API" as UC_Developer_1_1
+  usecase "Create enlaces" as UC_Editor_1
+  usecase "View planes of investigadores" as UC_Entidad_financiera_1
+  usecase "Link sets to metadata" as UC_Manager_information_1
+  usecase "Download statistics" as UC_Manager_information_1_1
+  usecase "Sector" as UC_Manager_information_1_1_1
+  usecase "Pais" as UC_Manager_information_1_1_2
+  usecase "Recontar appointments" as UC_Manager_information_2
+  usecase "Integrate file" as UC_Manager_information_3
+  usecase "CRIS" as UC_Manager_information_3_1
+  usecase "View appointment ejemplo" as UC_Reutilizador_de_data_1
+  usecase "Examinar file" as UC_Reutilizador_de_data_2
+  usecase "View versions" as UC_Reutilizador_de_data_2_1
+  usecase "Share file" as UC_Reutilizador_de_data_2_2
+  usecase "DOI" as UC_Reutilizador_de_data_2_2_1
+  usecase "URL" as UC_Reutilizador_de_data_2_2_2
+  usecase "Search file" as UC_Reutilizador_de_data_3
+  usecase "PRIMO" as UC_Reutilizador_de_data_3_1
+  usecase "Web" as UC_Reutilizador_de_data_3_2
+  usecase "Modify language" as UC_Reutilizador_de_data_4
+}
+
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+depositor --> UC_depositor_1
+depositor --> UC_depositor_2
+depositor --> UC_depositor_3
+depositor --> UC_depositor_4
+Service_UnivIT --> UC_Service_UnivIT_1
+Service_UnivIT --> UC_Service_UnivIT_2
+Colaborador_external --> UC_Colaborador_external_1
+Coordinator_external --> UC_Coordinator_external_1
+Coordinator_external --> UC_Coordinator_external_1
+Developer --> UC_Developer_1
+Editor --> UC_Editor_1
+Entidad_financiera --> UC_Entidad_financiera_1
+Manager_information --> UC_Manager_information_1
+Manager_information --> UC_Manager_information_2
+Manager_information --> UC_Manager_information_3
+Reutilizador_de_data --> UC_Reutilizador_de_data_1
+Reutilizador_de_data --> UC_Reutilizador_de_data_2
+Reutilizador_de_data --> UC_Reutilizador_de_data_3
+Reutilizador_de_data --> UC_Reutilizador_de_data_4
+
+UC_depositor_1 ..> UC_depositor_1_1 : <<include>>
+UC_depositor_1 ..> UC_depositor_1_2 : <<include>>
+UC_depositor_1 ..> UC_depositor_1_3 : <<include>>
+UC_depositor_1 ..> UC_depositor_1_4 : <<include>>
+UC_depositor_1 ..> UC_depositor_1_5 : <<include>>
+UC_depositor_2 ..> UC_depositor_2_1 : <<extend>>
+UC_depositor_2 ..> UC_depositor_2_2 : <<extend>>
+UC_depositor_2 ..> UC_depositor_2_3 : <<extend>>
+UC_depositor_3 ..> UC_depositor_3_1 : <<extend>>
+UC_depositor_3 ..> UC_depositor_3_2 : <<extend>>
+UC_depositor_3 ..> UC_depositor_3_3 : <<extend>>
+UC_depositor_4 ..> UC_depositor_4_1 : <<extend>>
+UC_depositor_4 ..> UC_depositor_4_2 : <<extend>>
+UC_Service_UnivIT_1 ..> UC_Service_UnivIT_1_1 : <<extend>>
+UC_Service_UnivIT_1 ..> UC_Service_UnivIT_1_1 : <<extend>>
+UC_Service_UnivIT_1 ..> UC_Service_UnivIT_1_2 : <<extend>>
+UC_Developer_1 ..> UC_Developer_1_1 : <<extend>>
+UC_Manager_information_1 ..> UC_Manager_information_1_1 : <<include>>
+UC_Manager_information_1_1 ..> UC_Manager_information_1_1_1 : <<extend>>
+UC_Manager_information_1_1 ..> UC_Manager_information_1_1_2 : <<extend>>
+UC_Manager_information_3 ..> UC_Manager_information_3_1 : <<extend>>
+UC_Reutilizador_de_data_2 ..> UC_Reutilizador_de_data_2_1 : <<extend>>
+UC_Reutilizador_de_data_2 ..> UC_Reutilizador_de_data_2_2 : <<extend>>
+UC_Reutilizador_de_data_2_2 ..> UC_Reutilizador_de_data_2_2_1 : <<extend>>
+UC_Reutilizador_de_data_2_2 ..> UC_Reutilizador_de_data_2_2_2 : <<extend>>
+UC_Reutilizador_de_data_3 ..> UC_Reutilizador_de_data_3_1 : <<extend>>
+UC_Reutilizador_de_data_3 ..> UC_Reutilizador_de_data_3_2 : <<extend>>
+
+@enduml

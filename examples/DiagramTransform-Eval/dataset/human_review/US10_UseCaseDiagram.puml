@@ -1,0 +1,129 @@
+@startuml
+
+actor "Consumidor" as Consumidor
+actor "Analyst" as Analyst
+actor "Record" as Record
+actor "Administrator" as Administrator
+actor "Editor" as Editor
+actor "Owner" as Owner
+
+rectangle "System" {
+  usecase "Search package of data" as UC_Consumidor_1
+  usecase "Palabras Password" as UC_Consumidor_1_1
+  usecase "Editor" as UC_Consumidor_1_2
+  usecase "Search editor" as UC_Consumidor_2
+  usecase "View profile" as UC_Consumidor_2_1
+  usecase "View their packages" as UC_Consumidor_2_1_1
+  usecase "Load package of data" as UC_Consumidor_3
+  usecase "Use package of data even if modifique" as UC_Consumidor_3_1
+  usecase "View information of the package" as UC_Consumidor_3_2
+  usecase "Consult ultima modification" as UC_Consumidor_3_2_1
+  usecase "View number of downloads" as UC_Consumidor_3_2_2
+  usecase "View data" as UC_Consumidor_4
+  usecase "in online" as UC_Consumidor_4_1
+  usecase "Particular" as UC_Consumidor_4_2
+  usecase "be notificado of changes" as UC_Consumidor_5
+  usecase "Know details of changes" as UC_Consumidor_5_1
+  usecase "Download package of data" as UC_Consumidor_6
+  usecase "in file" as UC_Consumidor_6_1
+  usecase "SQLite" as UC_Consumidor_6_2
+  usecase "Particular" as UC_Consumidor_6_3
+  usecase "Update a package" as UC_Analyst_1
+  usecase "Compare versions of package" as UC_Analyst_1_1
+  usecase "Download a package" as UC_Analyst_2
+  usecase "Google" as UC_Record_1
+  usecase "GitHub" as UC_Record_2
+  usecase "View metrics of usage" as UC_Administrator_1
+  usecase "Downloads" as UC_Administrator_1_1
+  usecase "Uses of API" as UC_Administrator_1_2
+  usecase "Users" as UC_Administrator_1_3
+  usecase "Invite to third party to contribute" as UC_Administrator_2
+  usecase "Define Configuration of the site" as UC_Administrator_3
+  usecase "Define precios" as UC_Administrator_3_1
+  usecase "Access to version previous of the package" as UC_Editor_1
+  usecase "Import package" as UC_Editor_2
+  usecase "Configure Client" as UC_Editor_3
+  usecase "Create package of data" as UC_Editor_3_1
+  usecase "Publish package" as UC_Editor_3_1_1
+  usecase "Publico" as UC_Editor_3_1_1_1
+  usecase "Privado" as UC_Editor_3_1_1_2
+  usecase "Cancel publication" as UC_Editor_3_1_1_1_1
+  usecase "Sobreescribir package" as UC_Editor_3_1_2
+  usecase "Delete package" as UC_Editor_3_1_3
+  usecase "Restore package" as UC_Editor_3_1_3_1
+  usecase "Tag package" as UC_Editor_3_1_4
+  usecase "View previous" as UC_Editor_3_1_5
+  usecase "Create account" as UC_Editor_4
+  usecase "Consult precios" as UC_Editor_5
+  usecase "Suscribir" as UC_Editor_5_1
+  usecase "Ascender user" as UC_Owner_1
+  usecase "Descender user" as UC_Owner_1_1
+  usecase "Edit profile" as UC_Owner_2
+  usecase "Invite editor" as UC_Owner_3
+  usecase "User new" as UC_Owner_3_1
+  usecase "User existente" as UC_Owner_3_2
+  usecase "Delete editor" as UC_Owner_3_1_1
+  usecase "List organizacion" as UC_Owner_4
+}
+
+Consumidor --> UC_Consumidor_1
+Consumidor --> UC_Consumidor_2
+Consumidor --> UC_Consumidor_3
+Consumidor --> UC_Consumidor_4
+Consumidor --> UC_Consumidor_5
+Consumidor --> UC_Consumidor_6
+Analyst --> UC_Analyst_1
+Analyst --> UC_Analyst_2
+Record --> UC_Record_1
+Record --> UC_Record_2
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Editor --> UC_Editor_1
+Editor --> UC_Editor_2
+Editor --> UC_Editor_3
+Editor --> UC_Editor_4
+Editor --> UC_Editor_5
+Owner --> UC_Owner_1
+Owner --> UC_Owner_2
+Owner --> UC_Owner_3
+Owner --> UC_Owner_4
+
+UC_Consumidor_1 ..> UC_Consumidor_1_1 : <<extend>>
+UC_Consumidor_1 ..> UC_Consumidor_1_2 : <<extend>>
+UC_Consumidor_2 ..> UC_Consumidor_2_1 : <<extend>>
+UC_Consumidor_2_1 ..> UC_Consumidor_2_1_1 : <<extend>>
+UC_Consumidor_3 ..> UC_Consumidor_3_1 : <<extend>>
+UC_Consumidor_3 ..> UC_Consumidor_3_2 : <<extend>>
+UC_Consumidor_3_2 ..> UC_Consumidor_3_2_1 : <<extend>>
+UC_Consumidor_3_2 ..> UC_Consumidor_3_2_2 : <<extend>>
+UC_Consumidor_4 ..> UC_Consumidor_4_1 : <<extend>>
+UC_Consumidor_4 ..> UC_Consumidor_4_2 : <<extend>>
+UC_Consumidor_5 ..> UC_Consumidor_5_1 : <<extend>>
+UC_Consumidor_6 ..> UC_Consumidor_6_1 : <<extend>>
+UC_Consumidor_6 ..> UC_Consumidor_6_2 : <<extend>>
+UC_Consumidor_6 ..> UC_Consumidor_6_3 : <<extend>>
+UC_Analyst_1 ..> UC_Analyst_1_1 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_1 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_2 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_3 : <<extend>>
+UC_Administrator_3 ..> UC_Administrator_3_1 : <<include>>
+UC_Editor_3 ..> UC_Editor_3_1 : <<include>>
+UC_Editor_3_1 ..> UC_Editor_3_1_1 : <<extend>>
+UC_Editor_3_1_1 ..> UC_Editor_3_1_1_1 : <<extend>>
+UC_Editor_3_1_1 ..> UC_Editor_3_1_1_2 : <<extend>>
+UC_Editor_3_1_1_1 ..> UC_Editor_3_1_1_1_1 : <<extend>>
+UC_Editor_3_1_1_2 ..> UC_Editor_3_1_1_1_1 : <<extend>>
+UC_Editor_3_1 ..> UC_Editor_3_1_2 : <<extend>>
+UC_Editor_3_1 ..> UC_Editor_3_1_3 : <<extend>>
+UC_Editor_3_1_3 ..> UC_Editor_3_1_3_1 : <<extend>>
+UC_Editor_3_1 ..> UC_Editor_3_1_4 : <<extend>>
+UC_Editor_3_1 ..> UC_Editor_3_1_5 : <<extend>>
+UC_Editor_5 ..> UC_Editor_5_1 : <<include>>
+UC_Owner_1 ..> UC_Owner_1_1 : <<extend>>
+UC_Owner_3 ..> UC_Owner_3_1 : <<extend>>
+UC_Owner_3 ..> UC_Owner_3_2 : <<extend>>
+UC_Owner_3_1 ..> UC_Owner_3_1_1 : <<extend>>
+UC_Owner_3_2 ..> UC_Owner_3_1_1 : <<extend>>
+
+@enduml

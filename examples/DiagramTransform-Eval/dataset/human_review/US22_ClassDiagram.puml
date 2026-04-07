@@ -1,0 +1,190 @@
+@startuml
+
+class person {
+  +name
+  +id
+  +Sex
+  +Height
+  +date_birth
+}
+
+class id_number_content {
+  +name
+  +title
+  +description
+}
+
+class User {
+  +login
+  +Password
+  +huella_dactilar
+  +id_content
+  +Product
+  +logotipo
+  +marca
+  +search_music()
+  +search_music_profile()
+  +search_music_User_similar()
+  +search_similitud_content()
+  +find_artista()
+  +find_new_genero()
+  +upload_videos_etiquetados()
+  +view_secuencias_miniatura()
+  +get_information_element_video()
+  +get_information_element_video_per()
+  +receive_content_perfiles()
+  +receive_content_events_area()
+  +identify_people_videos()
+  +receive_information_people()
+  +identify_productos_videos()
+  +receive_infor_productos()
+  +identify_logotipos_videos()
+  +receive_information_logotipos()
+  +identify_marcas_videos()
+  +receive_information_marcas()
+  +upload_foto()
+  +access_content_map_geografico()
+  +search_element_voz()
+}
+
+class metadata {
+  +name_artista
+  +title_cancion
+  +title_album
+  +date_launch
+  +name_compositor
+  +productor_musical
+  +sello_discografico
+  +genero
+  +add()
+  +modify()
+}
+
+class administrator {
+  +login_administrator
+  +Password
+  +view_segmentation_videos()
+  +validate_segmentation_videos()
+  +edit_segmentation_videos()
+  +anotar_segmentos_videos()
+  +extraer_topic_segmento()
+  +filter_videos_a_v()
+  +classify_videos_a_v()
+  +get_evaluation()
+  +filter_content_desnudos()
+  +filter_search_bajo_Level()
+  +validate_content_rights_author()
+  +filter_search_alto_Level()
+  +view_summary_articles()
+}
+
+class administrator_zooniverse {
+  +login_administrator
+  +Password
+  +evaluate_content()
+  +detect_talk()
+  +identify_volunteers()
+  +preclasificar_images_zoo()
+  +detect_images_snapshot()
+  +perform_deteccion_automatic_images()
+  +perform_pre-classification_automatic_especie()
+  +perform_pre-classification_attribute_animal()
+  +detect_automatic_number_animal()
+  +segmentar_auto_plankton()
+  +detect_automatic_Image_plankton()
+  +detect_automatic_size_plankton()
+  +preclasificar_automatic_especie_plankton()
+  +analysis_automatic_mov_gusano()
+  +detect_automatic_hour_WWL()
+  +features_Image_satelite()
+  +evaluate_probabilidad()
+  +filtrado_previous()
+  +detect_Object_mov()
+  +delete_noise()
+  +agrupar_whales()
+  +identify_Quantity_whales()
+  +interrumpir_Volunteer()
+  +saber_interrumpir_volun()
+  +educar_Volunteer()
+  +saber_educar_volun()
+  +Type_edu_Volunteer()
+  +comment_Volunteer_interes()
+  +comentar_zoonibot()
+  +zoonibot_Volunteer()
+  +agrupar_por_similitud()
+}
+
+class Volunteer {
+  +id_Volunteer
+}
+
+class music {
+  +title
+  +Tag
+  +duration
+  +playlist
+  +artista
+  +genero
+  +album
+  +colaborador
+  +pausar()
+  +reproducir()
+  +adelantar()
+  +retroceder()
+  +repetir()
+  +modify()
+}
+
+class profile {
+  +name
+  +description
+  +playlist
+  +number_playlist
+  +edit()
+  +configure()
+  +modify()
+  +delete()
+  +update()
+  +search()
+  +explorar()
+}
+
+class video {
+  +title
+  +Tag
+  +duration
+  +speed_data
+  +pausar()
+  +reproducir()
+  +adelantar()
+  +retroceder()
+  +repetir()
+}
+
+class Image {
+  +title
+  +Tag
+  +alto
+  +ancho
+  +resolucion
+}
+
+person <|-- User
+person <|-- administrator
+person <|-- administrator_zooniverse
+person <|-- Volunteer
+User *-- id_number_content
+music ..> User
+profile ..> User
+video ..> User
+profile o-- music
+video o-- profile
+Image o-- profile
+Image o-- User
+administrator *-- video
+Image o-- administrator_zooniverse
+User o-- metadata
+administrator o-- metadata
+Volunteer *-- administrator_zooniverse
+
+@enduml

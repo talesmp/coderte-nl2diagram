@@ -1,0 +1,131 @@
+@startuml
+
+class Aficionado {
+  +team_followed
+  +balance
+  +language
+  +currency
+  +aficionado()
+  +register()
+  +add_team()
+  +set_team_followed()
+  +change_language()
+  +change_currency()
+}
+
+class Individuo {
+  +Name
+  +LastName
+  +date_birth
+  +email
+  +password
+  +User
+  +id_number
+  +Id
+  +individuo()
+  +get_Name()
+  +get_LastName()
+  +get_date_birth()
+  +get_email()
+  +get_password()
+  +get_User()
+  +get_id_number()
+  +get_Id()
+}
+
+class Organizacion {
+  +Name
+  +LastName
+  +Venue
+  +organizacion()
+  +get_Name()
+  +get_LastName()
+  +get_Venue()
+}
+
+class Fan {
+  +player_followed
+  +fan()
+  +start_session()
+  +follow_player()
+  +view_schedule()
+  +receive_notifications()
+  +view_events()
+}
+
+class Event {
+  +schedule
+  +Name
+  +participants
+  +event()
+  +get_schedule()
+  +get_Name()
+  +get_participants()
+}
+
+class Schedule {
+  +day
+  +month
+  +year
+  +hour
+  +schedule()
+  +get_day()
+  +get_month()
+  +get_year()
+  +get_hour()
+}
+
+class Referee {
+  +contract
+  +events_registered
+  +referee()
+  +register_event()
+  +configure_schedules()
+  +communicate()
+}
+
+class IFA {
+  +Director
+  +treasurer
+  +administration
+  +resource
+  +IFA()
+  +define_policy()
+  +modify_policy()
+  +assign_referee()
+  +record_event()
+  +view_usage_resource()
+  +communicate()
+}
+
+class team {
+  +league
+  +division
+  +player
+  +Coach
+  +administrator
+  +team()
+  +manage_resources()
+  +create_networks_social_player()
+  +create_networks_social_Coach()
+  +search_player()
+  +register_transaction()
+  +assign_administrator()
+  +communicate()
+}
+
+Individuo <|-- Aficionado
+Individuo <|-- Fan
+Individuo <|-- Referee
+Fan o-- Event
+Fan o-- Schedule
+Referee *-- Event
+Referee *-- Schedule
+IFA o-- Referee
+IFA o-- team
+team o-- Aficionado
+Organizacion <|-- IFA
+Organizacion <|-- team
+Organizacion o-- Individuo
+
+@enduml

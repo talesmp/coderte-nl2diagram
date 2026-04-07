@@ -1,0 +1,187 @@
+@startuml
+
+class Developer {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +Developer()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +personalizar_name()
+  +personalizar_icono()
+}
+
+class User {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +User
+  +User()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +get_User()
+  +create_account()
+  +define_name_User()
+}
+
+class Administrator {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +User
+  +administrator()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +get_User()
+  +view_data_published()
+  +delete_set_data()
+  +ocultar_set_data()
+  +modo_visor()
+}
+
+class User_API {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +User
+  +User_API()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +get_User()
+  +personalizar_view()
+  +normalizar_measurements()
+  +consult_region()
+  +view_zone_limitrofe()
+  +view_Type_User()
+  +get_CSV()
+  +request_proligonos()
+  +get_multiples_data()
+  +get_multiples_metadata()
+}
+
+class DataPoint {
+  +Date
+  +Ultima_edition
+  +Content
+  +author
+  +DataPoint()
+  +get_Date()
+  +get_Ultima_edition()
+  +get_Content()
+  +get_author()
+}
+
+class User_Publication {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +User
+  +User_Publication()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +get_User()
+  +modo_oculto()
+  +add_set_data()
+  +import_modelo_data()
+  +edit_modelo_DataPoint()
+  +create_set_data()
+  +ocultar_set_data()
+  +delete_set_data()
+  +view_set_Data()
+}
+
+class Data_User {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +User
+  +Data_User()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +get_User()
+  +search_set_data()
+  +change_measurements_monetarias()
+  +generate_status_views()
+  +share_Image()
+  +share_url()
+  +download_CSV()
+  +view_description()
+  +create_set_data()
+}
+
+class Member {
+  +Name
+  +LastName
+  +Email
+  +Password
+  +Member()
+  +get_Name()
+  +get_LastName()
+  +get_Email()
+  +get_Password()
+  +view_ejemplos_data()
+  +view_blog_projects()
+}
+
+class Modelo_DataPoint {
+  +Name
+  +Extension
+  +modelo_DataPoint()
+  +get_Name()
+  +get_Extension()
+}
+
+class JSON {
+  +Agrupacion
+  +json()
+  +get_Agrupacion()
+}
+
+class Google_Sheets {
+  +Url
+  +Google_sheets()
+  +get_Url()
+}
+
+class Excel {
+  +row
+  +Columna
+  +Celda
+  +excel()
+  +get_row()
+  +get_Columna()
+  +get_Celda()
+}
+
+Modelo_DataPoint <|-- JSON
+Modelo_DataPoint <|-- Google_Sheets
+Modelo_DataPoint <|-- Excel
+User_Publication o-- Modelo_DataPoint
+User_Publication o-- DataPoint
+Data_User o-- DataPoint
+Member o-- DataPoint
+Administrator o-- DataPoint
+User_API o-- DataPoint
+User_API o-- Administrator
+Developer -- Administrator
+User -- Developer
+
+@enduml

@@ -1,0 +1,55 @@
+@startuml
+
+class Developer_Application {
+  +Client
+  +Developer_Application()
+  +create_set()
+  +new_viewsion()
+  +viewificar_viewsion()
+  +create_dependencia()
+  +modify_instance()
+  +share_Set()
+  +instanaciar_Set()
+}
+
+class User {
+  +Client
+  +User()
+  +create_canalizacion()
+  +create_schema()
+  +select_Set()
+  +migrate_data()
+}
+
+class Developer_canal {
+  +Client
+  +Developer_canal()
+  +edit_set()
+}
+
+class Developer_sets {
+  +Client
+  +Developer_set()
+  +create_Set()
+  +assign_viewsion()
+  +create_viewsion()
+  +delete_viewsion()
+  +enumerar_Estancias()
+  +separar_Interface()
+  +migrate_set()
+  +update_set()
+  +desconectar_set()
+}
+
+class Developer_complemento {
+  +Client
+  +Developer_complemento()
+  +use_data()
+}
+
+Developer_Application o-- User
+desarrollado_canal o-- User
+Developer_sets o-- User
+Developer_complemento o-- User
+
+@enduml

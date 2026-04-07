@@ -1,0 +1,117 @@
+@startuml
+
+class Planner {
+  +name
+  +last_name
+  +phone
+  +email
+  +salary
+  +id_number
+  +Planner()
+  +search_problems()
+  +search_solution()
+  +model_roundabouts()
+  +model_traffic lights()
+  +simulate_crisis()
+  +estimate()
+  +visualize_history_traffic()
+  +visualize_Level_traffic()
+  +search_road()
+  +close_road()
+  +notify_condition()
+  +increase_traffic()
+  +hacer_report()
+  +modify_limits_speed()
+  +change_address_lane()
+}
+
+class report {
+  +start
+  +objective_general
+  +objective_specific
+  +introduction
+  +body
+  +conclusion
+  +report()
+  +get_start()
+  +get_objective_general()
+  +get_objective_specific()
+  +get_introduction()
+  +get_body()
+  +get_conclusion()
+}
+
+class pollution {
+  +area_affected
+  +number_victims
+  +pollution()
+  +get_area_affected()
+  +get_number_victims()
+}
+
+class equity {
+  +number_beneficiaries
+  +locality
+  +equity()
+  +get_number_beneficiaries()
+  +get_locality()
+}
+
+class cost {
+  +budget
+  +cost_extra
+  +cost()
+  +get_budget()
+  +get_cost_extra()
+}
+
+class executive_summary {
+  +date
+  +id_meeting
+  +executive_summary()
+  +get_date()
+  +get_id_meeting()
+}
+
+class detailed_solution {
+  +solution
+  +detailed_solution()
+  +get_solution()
+}
+
+class estimation {
+  +reason
+  +reason()
+  +get_reason()
+}
+
+class Level_noise {
+  +escala
+  +Level_noise()
+  +get_escala()
+}
+
+class measure_cost {
+  +cost
+  +measure_cost()
+  +get_cost()
+}
+
+class pollution_indicator {
+  +area_contaminated
+  +pollution_indicator()
+  +get_area_contaminated()
+}
+
+Report <|-- pollution
+Report <|-- equity
+Report <|-- cost
+Report <|-- executive_summary
+Report <|-- detailed_solution
+estimation <|-- Level_noise
+estimation <|-- measure_cost
+estimation <|-- pollution_indicator
+planning -- report
+planning -- estimation
+
+@enduml

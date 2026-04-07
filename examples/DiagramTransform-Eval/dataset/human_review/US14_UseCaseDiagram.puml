@@ -1,0 +1,159 @@
+@startuml
+
+actor "doctor" as doctor
+actor "Developer" as Developer
+actor "System" as System
+actor "Informal_Caregiver" as Informal_Caregiver
+actor "Person_mayor" as Person_mayor
+actor "Social_Caregiver" as Social_Caregiver
+
+rectangle "System" {
+  usecase "Use videollamada" as UC_doctor_1
+  usecase "Evaluate ejercicio of user" as UC_doctor_2
+  usecase "Give feedback corrective" as UC_doctor_2_1
+  usecase "Verify medications of user" as UC_doctor_3
+  usecase "View location of user" as UC_doctor_4
+  usecase "View constantes" as UC_doctor_5
+  usecase "Frecuencia cardiaca" as UC_doctor_5_1
+  usecase "Presion arterial" as UC_doctor_5_2
+  usecase "Temperatura corporal" as UC_doctor_5_3
+  usecase "Frecuencia respiratoria" as UC_doctor_5_4
+  usecase "View activity of user" as UC_doctor_6
+  usecase "View summary periodico" as UC_doctor_7
+  usecase "View comments of the users" as UC_Developer_1
+  usecase "Determine precios of application" as UC_Developer_2
+  usecase "View message error" as UC_Developer_3
+  usecase "Read sensors of health" as UC_Developer_4
+  usecase "Proponer games mentales" as UC_System_1
+  usecase "Promover pensamiento complejo" as UC_System_2
+  usecase "Proponer ejercicios musculares" as UC_System_3
+  usecase "Detect caidas" as UC_System_4
+  usecase "Send emergency" as UC_System_4_1
+  usecase "Remember postura" as UC_System_5
+  usecase "Verify health in the morning" as UC_System_6
+  usecase "Select game mental" as UC_Informal_Caregiver_1
+  usecase "Use activacion by voz" as UC_Person_mayor_1
+  usecase "Register reuniones" as UC_Person_mayor_2
+  usecase "Receive response by voz" as UC_Person_mayor_3
+  usecase "Use videollamada" as UC_Person_mayor_4
+  usecase "View questions" as UC_Person_mayor_5
+  usecase "Monitor Weight corporal" as UC_Person_mayor_6
+  usecase "Verify medications of user" as UC_Person_mayor_7
+  usecase "View constantes" as UC_Person_mayor_8
+  usecase "Frecuencia cardiaca" as UC_Person_mayor_8_1
+  usecase "Presion arterial" as UC_Person_mayor_8_2
+  usecase "Temperatura corporal" as UC_Person_mayor_8_3
+  usecase "Frecuencia respiratoria" as UC_Person_mayor_8_4
+  usecase "Perform compras" as UC_Person_mayor_9
+  usecase "Perform pagos" as UC_Person_mayor_9_1
+  usecase "Configure privacidad" as UC_Person_mayor_10
+  usecase "Configure preferences" as UC_Person_mayor_11
+  usecase "Configure topics of questions" as UC_Person_mayor_11_1
+  usecase "Know if Nurse cerca" as UC_Person_mayor_12
+  usecase "Receive help for transport" as UC_Person_mayor_13
+  usecase "Taxi" as UC_Person_mayor_13_1
+  usecase "Transport publico" as UC_Person_mayor_13_2
+  usecase "View List of cosas to the exit" as UC_Person_mayor_14
+  usecase "Jugar in online" as UC_Person_mayor_15
+  usecase "Determine duration of the game" as UC_Person_mayor_15_1
+  usecase "Ampliar content in screen" as UC_Person_mayor_16
+  usecase "View performance" as UC_Person_mayor_17
+  usecase "View mi location" as UC_Person_mayor_18
+  usecase "Perform llamadas" as UC_Person_mayor_19
+  usecase "View recommendations" as UC_Person_mayor_20
+  usecase "Arte and museos" as UC_Person_mayor_20_1
+  usecase "Activities social" as UC_Person_mayor_20_2
+  usecase "Improve health" as UC_Person_mayor_20_3
+  usecase "Tours tourist" as UC_Person_mayor_20_4
+  usecase "View prescriptions saludables" as UC_Person_mayor_20_5
+  usecase "View ejercicios sugeridos" as UC_Person_mayor_20_6
+  usecase "Clases locales" as UC_Person_mayor_20_6_1
+  usecase "View news" as UC_Person_mayor_21
+  usecase "Control electrodomesticos" as UC_Person_mayor_22
+  usecase "Termostato" as UC_Person_mayor_22_1
+  usecase "Luces" as UC_Person_mayor_22_2
+  usecase "Television" as UC_Person_mayor_22_3
+  usecase "Phone" as UC_Person_mayor_22_4
+  usecase "Radio" as UC_Person_mayor_22_5
+  usecase "Create groups" as UC_Person_mayor_23
+  usecase "Remember elements necessary" as UC_Person_mayor_24
+  usecase "Send messages" as UC_Person_mayor_25
+  usecase "Contar the steps" as UC_Social_Caregiver_1
+  usecase "Know about the pain or stress of patient" as UC_Social_Caregiver_2
+}
+
+doctor --> UC_doctor_1
+doctor --> UC_doctor_2
+doctor --> UC_doctor_3
+doctor --> UC_doctor_4
+doctor --> UC_doctor_5
+doctor --> UC_doctor_6
+doctor --> UC_doctor_7
+Developer --> UC_Developer_1
+Developer --> UC_Developer_2
+Developer --> UC_Developer_3
+Developer --> UC_Developer_4
+System --> UC_System_1
+System --> UC_System_2
+System --> UC_System_3
+System --> UC_System_4
+System --> UC_System_5
+System --> UC_System_6
+Informal_Caregiver --> UC_Informal_Caregiver_1
+Person_mayor --> UC_Person_mayor_1
+Person_mayor --> UC_Person_mayor_2
+Person_mayor --> UC_Person_mayor_3
+Person_mayor --> UC_Person_mayor_4
+Person_mayor --> UC_Person_mayor_5
+Person_mayor --> UC_Person_mayor_6
+Person_mayor --> UC_Person_mayor_7
+Person_mayor --> UC_Person_mayor_8
+Person_mayor --> UC_Person_mayor_9
+Person_mayor --> UC_Person_mayor_10
+Person_mayor --> UC_Person_mayor_11
+Person_mayor --> UC_Person_mayor_12
+Person_mayor --> UC_Person_mayor_13
+Person_mayor --> UC_Person_mayor_14
+Person_mayor --> UC_Person_mayor_15
+Person_mayor --> UC_Person_mayor_16
+Person_mayor --> UC_Person_mayor_17
+Person_mayor --> UC_Person_mayor_18
+Person_mayor --> UC_Person_mayor_19
+Person_mayor --> UC_Person_mayor_20
+Person_mayor --> UC_Person_mayor_21
+Person_mayor --> UC_Person_mayor_22
+Person_mayor --> UC_Person_mayor_23
+Person_mayor --> UC_Person_mayor_24
+Person_mayor --> UC_Person_mayor_25
+Social_Caregiver --> UC_Social_Caregiver_1
+Social_Caregiver --> UC_Social_Caregiver_2
+
+UC_doctor_2 ..> UC_doctor_2_1 : <<include>>
+UC_doctor_5 ..> UC_doctor_5_1 : <<extend>>
+UC_doctor_5 ..> UC_doctor_5_2 : <<extend>>
+UC_doctor_5 ..> UC_doctor_5_3 : <<extend>>
+UC_doctor_5 ..> UC_doctor_5_4 : <<extend>>
+UC_System_4 ..> UC_System_4_1 : <<include>>
+UC_Person_mayor_8 ..> UC_Person_mayor_8_1 : <<extend>>
+UC_Person_mayor_8 ..> UC_Person_mayor_8_2 : <<extend>>
+UC_Person_mayor_8 ..> UC_Person_mayor_8_3 : <<extend>>
+UC_Person_mayor_8 ..> UC_Person_mayor_8_4 : <<extend>>
+UC_Person_mayor_9 ..> UC_Person_mayor_9_1 : <<include>>
+UC_Person_mayor_11 ..> UC_Person_mayor_11_1 : <<include>>
+UC_Person_mayor_13 ..> UC_Person_mayor_13_1 : <<extend>>
+UC_Person_mayor_13 ..> UC_Person_mayor_13_2 : <<extend>>
+UC_Person_mayor_15 ..> UC_Person_mayor_15_1 : <<include>>
+UC_Person_mayor_20 ..> UC_Person_mayor_20_1 : <<extend>>
+UC_Person_mayor_20 ..> UC_Person_mayor_20_2 : <<extend>>
+UC_Person_mayor_20 ..> UC_Person_mayor_20_3 : <<extend>>
+UC_Person_mayor_20 ..> UC_Person_mayor_20_4 : <<extend>>
+UC_Person_mayor_20 ..> UC_Person_mayor_20_5 : <<extend>>
+UC_Person_mayor_20 ..> UC_Person_mayor_20_6 : <<extend>>
+UC_Person_mayor_20_6 ..> UC_Person_mayor_20_6_1 : <<extend>>
+UC_Person_mayor_22 ..> UC_Person_mayor_22_1 : <<extend>>
+UC_Person_mayor_22 ..> UC_Person_mayor_22_2 : <<extend>>
+UC_Person_mayor_22 ..> UC_Person_mayor_22_3 : <<extend>>
+UC_Person_mayor_22 ..> UC_Person_mayor_22_4 : <<extend>>
+UC_Person_mayor_22 ..> UC_Person_mayor_22_5 : <<extend>>
+
+@enduml

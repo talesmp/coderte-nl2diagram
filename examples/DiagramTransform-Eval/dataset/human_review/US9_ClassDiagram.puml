@@ -1,0 +1,39 @@
+@startuml
+
+class Participant {
+  +Budget
+  +Participant()
+  +temporizador()
+  +get_Budget()
+  +set_Budget()
+}
+
+class Moderator {
+  +name
+  +password
+  +email
+  +username
+  +Moderator()
+  +create_game()
+  +modo_estimation()
+  +comenzar_round()
+  +add_Element()
+  +select_Element()
+  +delete_Element()
+  +aceptar_Promedio()
+  +enter_Budget()
+  +import_Stories()
+  +export_Transcript()
+  +delete_game()
+}
+
+class Estimador {
+  +name
+  +Estimador()
+  +estimate()
+}
+
+Moderator o-- Participant
+Moderator o-- Estimador
+
+@enduml

@@ -1,0 +1,152 @@
+@startuml
+
+actor "Staff" as Staff
+actor "Solicitante" as Solicitante
+actor "Client" as Client
+actor "Inspector" as Inspector
+actor "Candidato_potencial" as Candidato_potencial
+actor "Staff_condado" as Staff_condado
+actor "Tecnico" as Tecnico
+actor "User_publico" as User_publico
+actor "Member_zoning" as Member_zoning
+actor "Member_review_plan" as Member_review_plan
+actor "Member_review_planes" as Member_review_planes
+actor "Member_planning" as Member_planning
+actor "Member_inspection" as Member_inspection
+actor "Member_desarrollo" as Member_desarrollo
+actor "Member_compliance" as Member_compliance
+actor "Supervisor" as Supervisor
+
+rectangle "System" {
+  usecase "Manage ordenanzas" as UC_Staff_1
+  usecase "Manage calendarios" as UC_Staff_2
+  usecase "Assign date of audiencia" as UC_Staff_2_1
+  usecase "Create meeting" as UC_Staff_2_2
+  usecase "Develop report" as UC_Staff_3
+  usecase "Search information about property" as UC_Staff_4
+  usecase "Owners" as UC_Staff_4_1
+  usecase "Permissions" as UC_Staff_4_2
+  usecase "Solicitudes" as UC_Staff_4_3
+  usecase "Close Request" as UC_Staff_4_3_1
+  usecase "Send citaciones" as UC_Staff_5
+  usecase "Publish citaciones" as UC_Staff_6
+  usecase "Process apelaciones" as UC_Staff_7
+  usecase "Register decisiones" as UC_Staff_7_1
+  usecase "Send response" as UC_Staff_7_2
+  usecase "Perform review of integrity" as UC_Staff_7_3
+  usecase "Manage actions" as UC_Staff_8
+  usecase "Declaraciones" as UC_Staff_8_1
+  usecase "Ofertas aprobadas" as UC_Staff_8_2
+  usecase "Bonos" as UC_Staff_8_3
+  usecase "Create retencion" as UC_Staff_9
+  usecase "Delete retencion" as UC_Staff_9_1
+  usecase "Create Request" as UC_Solicitante_1
+  usecase "Upload documents" as UC_Solicitante_1_1
+  usecase "Edit Request" as UC_Solicitante_1_2
+  usecase "Pagar tarifa" as UC_Solicitante_2
+  usecase "Verify status" as UC_Solicitante_2_2
+  usecase "Request meeting" as UC_Solicitante_3
+  usecase "Publish projects" as UC_Solicitante_4
+  usecase "Create account" as UC_Client_1
+  usecase "Start session" as UC_Client_1_1
+  usecase "Perform transaction" as UC_Client_1_2
+  usecase "Request inspection" as UC_Client_2
+  usecase "Assign inspector" as UC_Client_2_1
+  usecase "Perform inspection" as UC_Inspector_1
+  usecase "Investigar services" as UC_Candidato_potencial_1
+  usecase "Select services" as UC_Candidato_potencial_1_1
+  usecase "Perform consulta personalizada" as UC_Staff_condado_1
+  usecase "Perform report personalizado" as UC_Staff_condado_2
+  usecase "Update pin transaccional" as UC_Tecnico_1
+  usecase "Update GIS Property Management" as UC_Tecnico_2
+  usecase "Get information publica" as UC_User_publico_1
+  usecase "Procesar_solicitudes" as UC_Member_zoning_1
+  usecase "Issue permissions" as UC_Member_zoning_2
+  usecase "Perform tracking" as UC_Member_review_plan_1
+  usecase "Perform meeting" as UC_Member_review_plan_2
+  usecase "Register result" as UC_Member_review_plan_2_1
+  usecase "Review modificaciones" as UC_Member_review_plan_3
+  usecase "Associate to project" as UC_Member_review_plan_3_1
+  usecase "Generate reports" as UC_Member_review_planes_1
+  usecase "Assign planes" as UC_Member_review_planes_2
+  usecase "Review planes" as UC_Member_review_planes_3
+  usecase "Approve" as UC_Member_review_planes_3_1
+  usecase "Reprobar" as UC_Member_review_planes_3_2
+  usecase "Reject" as UC_Member_review_planes_3_3
+  usecase "Register trabajo, results e information" as UC_Member_planning_1
+  usecase "Create inspection" as UC_Member_inspection_1
+  usecase "Assign inspector" as UC_Member_inspection_1_1
+  usecase "Evaluate coherencia" as UC_Member_inspection_2
+  usecase "Completar review" as UC_Member_inspection_2_1
+  usecase "Issue notice of desarrollo" as UC_Member_desarrollo_1
+  usecase "Issue notice of infraccion" as UC_Member_compliance_1
+  usecase "Manage workload of work" as UC_Supervisor_1
+  usecase "Assign inspecciones" as UC_Supervisor_2
+}
+
+Staff --> UC_Staff_1
+Staff --> UC_Staff_2
+Staff --> UC_Staff_3
+Staff --> UC_Staff_4
+Staff --> UC_Staff_5
+Staff --> UC_Staff_6
+Staff --> UC_Staff_7
+Staff --> UC_Staff_8
+Staff --> UC_Staff_9
+Solicitante --> UC_Solicitante_1
+Solicitante --> UC_Solicitante_2
+Solicitante --> UC_Solicitante_3
+Solicitante --> UC_Solicitante_4
+Client --> UC_Client_1
+Client --> UC_Client_2
+Inspector --> UC_Inspector_1
+Candidato_potencial --> UC_Candidato_potencial_1
+Staff_condado --> UC_Staff_condado_1
+Staff_condado --> UC_Staff_condado_2
+Tecnico --> UC_Tecnico_1
+Tecnico --> UC_Tecnico_2
+User_publico --> UC_User_publico_1
+Member_zoning --> UC_Member_zoning_1
+Member_zoning --> UC_Member_zoning_2
+Member_review_plan --> UC_Member_review_plan_1
+Member_review_plan --> UC_Member_review_plan_2
+Member_review_plan --> UC_Member_review_plan_3
+Member_review_planes --> UC_Member_review_planes_1
+Member_review_planes --> UC_Member_review_planes_2
+Member_review_planes --> UC_Member_review_planes_3
+Member_planning --> UC_Member_planning_1
+Member_inspection --> UC_Member_inspection_1
+Member_inspection --> UC_Member_inspection_2
+Member_desarrollo --> UC_Member_desarrollo_1
+Member_compliance --> UC_Member_compliance_1
+Supervisor --> UC_Supervisor_1
+Supervisor --> UC_Supervisor_2
+
+UC_Staff_2 ..> UC_Staff_2_1 : <<extend>>
+UC_Staff_2 ..> UC_Staff_2_2 : <<extend>>
+UC_Staff_4 ..> UC_Staff_4_1 : <<extend>>
+UC_Staff_4 ..> UC_Staff_4_2 : <<extend>>
+UC_Staff_4 ..> UC_Staff_4_3 : <<extend>>
+UC_Staff_4_3 ..> UC_Staff_4_3_1 : <<extend>>
+UC_Staff_7 ..> UC_Staff_7_1 : <<extend>>
+UC_Staff_7 ..> UC_Staff_7_2 : <<extend>>
+UC_Staff_7 ..> UC_Staff_7_3 : <<extend>>
+UC_Staff_8 ..> UC_Staff_8_1 : <<extend>>
+UC_Staff_8 ..> UC_Staff_8_2 : <<extend>>
+UC_Staff_8 ..> UC_Staff_8_3 : <<extend>>
+UC_Staff_9 ..> UC_Staff_9_1 : <<extend>>
+UC_Solicitante_1 ..> UC_Solicitante_1_1 : <<extend>>
+UC_Solicitante_1 ..> UC_Solicitante_1_2 : <<extend>>
+UC_Client_1 ..> UC_Client_1_1 : <<extend>>
+UC_Client_1 ..> UC_Client_1_2 : <<extend>>
+UC_Client_2 ..> UC_Client_2_1 : <<include>>
+UC_Candidato_potencial_1 ..> UC_Candidato_potencial_1_1 : <<include>>
+UC_Member_review_plan_2 ..> UC_Member_review_plan_2_1 : <<include>>
+UC_Member_review_plan_3 ..> UC_Member_review_plan_3_1 : <<include>>
+UC_Member_review_planes_3 ..> UC_Member_review_planes_3_1 : <<extend>>
+UC_Member_review_planes_3 ..> UC_Member_review_planes_3_2 : <<extend>>
+UC_Member_review_planes_3 ..> UC_Member_review_planes_3_3 : <<extend>>
+UC_Member_inspection_1 ..> UC_Member_inspection_1_1 : <<include>>
+UC_Member_inspection_2 ..> UC_Member_inspection_2_1 : <<extend>>
+
+@enduml

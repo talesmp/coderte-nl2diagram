@@ -1,0 +1,118 @@
+@startuml
+
+actor "Developer_applications" as Developer_applications
+actor "Developer_canalizaciones" as Developer_canalizaciones
+actor "Developer_complementos" as Developer_complementos
+actor "User" as User
+actor "Developer_sets" as Developer_sets
+
+rectangle "System" {
+  usecase "Create set of data" as UC_Developer_applications_1
+  usecase "Implement new version" as UC_Developer_applications_2
+  usecase "Verify the compatibilidad with a set" as UC_Developer_applications_2_1
+  usecase "Error of conflict" as UC_Developer_applications_2_1_1
+  usecase "Error of creation" as UC_Developer_applications_2_1_2
+  usecase "Error of Configuration" as UC_Developer_applications_2_1_3
+  usecase "Tolerar data" as UC_Developer_applications_2_1_4
+  usecase "Depender of a solo set" as UC_Developer_applications_2_1_5
+  usecase "Verify instances" as UC_Developer_applications_2_1_5_1
+  usecase "Update instances" as UC_Developer_applications_2_1_5_1_1
+  usecase "Share set" as UC_Developer_applications_3
+  usecase "Display code of type" as UC_Developer_applications_3_1
+  usecase "Instanciar set" as UC_Developer_applications_4
+  usecase "Version specific" as UC_Developer_applications_4_1
+  usecase "Write tests" as UC_Developer_applications_4_1_1
+  usecase "Explorar instance" as UC_Developer_applications_4_1_2
+  usecase "Update set of data" as UC_Developer_canalizaciones_1
+  usecase "Instance" as UC_Developer_canalizaciones_1_1
+  usecase "Include condigo of type" as UC_Developer_canalizaciones_1_2
+  usecase "Edit code" as UC_Developer_canalizaciones_1_2_1
+  usecase "Use set of data" as UC_Developer_complementos_1
+  usecase "Create canalizacion" as UC_User_1
+  usecase "Read instance" as UC_User_1_1
+  usecase "Write instance" as UC_User_1_2
+  usecase "Especificar version set" as UC_User_2
+  usecase "Explorar set of data" as UC_User_2_1
+  usecase "View properties compatible" as UC_User_2_1_1
+  usecase "Especificar time of vida" as UC_User_2_1_2
+  usecase "Migrate set of data" as UC_User_2_2
+  usecase "Create schema" as UC_User_3
+  usecase "SQL" as UC_User_3_1
+  usecase "Exploracion by separado" as UC_User_3_2
+  usecase "JSON" as UC_User_3_3
+  usecase "Assign versions to the code" as UC_Developer_sets_1
+  usecase "Reject versions imcompatibles" as UC_Developer_sets_1_1
+  usecase "Create new versions" as UC_Developer_sets_2
+  usecase "Delete versions antiguas" as UC_Developer_sets_2_1
+  usecase "Enumerar instances" as UC_Developer_sets_3
+  usecase "Explorar instance" as UC_Developer_sets_3_1
+  usecase "Perform operations adminsitrativas" as UC_Developer_sets_3_1_1
+  usecase "Include set of a type of set" as UC_Developer_sets_3_1_1_1
+  usecase "UI" as UC_Developer_sets_3_1_1_2
+  usecase "CLI and REST" as UC_Developer_sets_3_1_1_3
+  usecase "Separar interfaces" as UC_Developer_sets_4
+  usecase "Modify sets" as UC_Developer_sets_5
+  usecase "Forzar inyeccion of code" as UC_Developer_sets_5_1
+  usecase "Migrarlos" as UC_Developer_sets_5_2
+  usecase "Desconectar set" as UC_Developer_sets_5_2_1
+  usecase "Actualizarlos" as UC_Developer_sets_5_3
+  usecase "Use arquetipos" as UC_Developer_sets_6
+  usecase "Verify instance" as UC_Developer_sets_7
+  usecase "Update properties" as UC_Developer_sets_7_1
+}
+
+Developer_applications --> UC_Developer_applications_1
+Developer_applications --> UC_Developer_applications_2
+Developer_applications --> UC_Developer_applications_3
+Developer_applications --> UC_Developer_applications_4
+Developer_canalizaciones --> UC_Developer_canalizaciones_1
+Developer_complementos --> UC_Developer_complementos_1
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+Developer_sets --> UC_Developer_sets_1
+Developer_sets --> UC_Developer_sets_2
+Developer_sets --> UC_Developer_sets_3
+Developer_sets --> UC_Developer_sets_4
+Developer_sets --> UC_Developer_sets_5
+Developer_sets --> UC_Developer_sets_6
+Developer_sets --> UC_Developer_sets_7
+
+UC_Developer_applications_2 ..> UC_Developer_applications_2_1 : <<extend>>
+UC_Developer_applications_2_1 ..> UC_Developer_applications_2_1_1 : <<extend>>
+UC_Developer_applications_2_1 ..> UC_Developer_applications_2_1_2 : <<extend>>
+UC_Developer_applications_2_1 ..> UC_Developer_applications_2_1_3 : <<extend>>
+UC_Developer_applications_2_1 ..> UC_Developer_applications_2_1_4 : <<extend>>
+UC_Developer_applications_2_1 ..> UC_Developer_applications_2_1_5 : <<include>>
+UC_Developer_applications_2_1_5 ..> UC_Developer_applications_2_1_5_1 : <<include>>
+UC_Developer_applications_2_1_5_1 ..> UC_Developer_applications_2_1_5_1_1 : <<extend>>
+UC_Developer_applications_3 ..> UC_Developer_applications_3_1 : <<extend>>
+UC_Developer_applications_4 ..> UC_Developer_applications_4_1 : <<extend>>
+UC_Developer_applications_4_1 ..> UC_Developer_applications_4_1_1 : <<extend>>
+UC_Developer_applications_4_1 ..> UC_Developer_applications_4_1_2 : <<extend>>
+UC_Developer_canalizaciones_1 ..> UC_Developer_canalizaciones_1_1 : <<extend>>
+UC_Developer_canalizaciones_1 ..> UC_Developer_canalizaciones_1_2 : <<extend>>
+UC_Developer_canalizaciones_1_2 ..> UC_Developer_canalizaciones_1_2_1 : <<extend>>
+UC_User_1 ..> UC_User_1_1 : <<extend>>
+UC_User_1 ..> UC_User_1_2 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<include>>
+UC_User_2_1 ..> UC_User_2_1_1 : <<extend>>
+UC_User_2_1 ..> UC_User_2_1_2 : <<extend>>
+UC_User_2 ..> UC_User_2_1 : <<extend>>
+UC_User_3 ..> UC_User_3_1 : <<extend>>
+UC_User_3 ..> UC_User_3_2 : <<extend>>
+UC_User_3 ..> UC_User_3_3 : <<extend>>
+UC_Developer_sets_1 ..> UC_Developer_sets_1_1 : <<include>>
+UC_Developer_sets_2 ..> UC_Developer_sets_2_1 : <<extend>>
+UC_Developer_sets_3 ..> UC_Developer_sets_3_1 : <<extend>>
+UC_Developer_sets_3_1 ..> UC_Developer_sets_3_1_1 : <<extend>>
+UC_Developer_sets_3_1_1 ..> UC_Developer_sets_3_1_1_1 : <<extend>>
+UC_Developer_sets_3_1_1 ..> UC_Developer_sets_3_1_1_2 : <<extend>>
+UC_Developer_sets_3_1_1 ..> UC_Developer_sets_3_1_1_3 : <<extend>>
+UC_Developer_sets_5 ..> UC_Developer_sets_5_1 : <<extend>>
+UC_Developer_sets_5 ..> UC_Developer_sets_5_2 : <<extend>>
+UC_Developer_sets_5_2 ..> UC_Developer_sets_5_2_1 : <<extend>>
+UC_Developer_sets_5 ..> UC_Developer_sets_5_3 : <<extend>>
+UC_Developer_sets_7 ..> UC_Developer_sets_7_1 : <<extend>>
+
+@enduml

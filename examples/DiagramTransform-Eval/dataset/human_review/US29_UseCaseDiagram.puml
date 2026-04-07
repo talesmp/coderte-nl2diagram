@@ -1,0 +1,68 @@
+@startuml
+
+actor "Employee" as Employee
+
+rectangle "System" {
+  usecase "Add new sources of data" as UC_Employee_1
+  usecase "Use new sources of data" as UC_Employee_1_1
+  usecase "Add measurements of sensors" as UC_Employee_2
+  usecase "Compare data" as UC_Employee_3
+  usecase "Levels environmental" as UC_Employee_3_1
+  usecase "Dos situations different" as UC_Employee_3_2
+  usecase "Historical of traffic" as UC_Employee_3_3
+  usecase "Make predictions of traffic" as UC_Employee_3_3_1
+  usecase "View reliability" as UC_Employee_3_3_1_1
+  usecase "Notice of area busy" as UC_Employee_3_3_1_2
+  usecase "Save levels environmental" as UC_Employee_4
+  usecase "View measurements environmental" as UC_Employee_4_1
+  usecase "View indicators" as UC_Employee_5
+  usecase "Level of noise" as UC_Employee_5_1
+  usecase "Emissions of CO2" as UC_Employee_5_2
+  usecase "Level of pollution" as UC_Employee_5_3
+  usecase "by point in the map" as UC_Employee_5_3_1
+  usecase "Load levels environmental" as UC_Employee_6
+  usecase "Save simulation" as UC_Employee_7
+  usecase "Map traffic" as UC_Employee_7_1
+  usecase "Map heat" as UC_Employee_7_1_1
+  usecase "Map heat" as UC_Employee_7_2
+  usecase "Change planning urban" as UC_Employee_8
+  usecase "Predict consequences" as UC_Employee_8_1
+  usecase "View reliability" as UC_Employee_8_1_1
+  usecase "Select period" as UC_Employee_9
+  usecase "View data registered" as UC_Employee_9_1
+  usecase "Take snapshots" as UC_Employee_9_2
+  usecase "View map of streets" as UC_Employee_10
+}
+
+Employee --> UC_Employee_1
+Employee --> UC_Employee_2
+Employee --> UC_Employee_3
+Employee --> UC_Employee_4
+Employee --> UC_Employee_5
+Employee --> UC_Employee_6
+Employee --> UC_Employee_7
+Employee --> UC_Employee_8
+Employee --> UC_Employee_9
+Employee --> UC_Employee_10
+
+UC_Employee_1 ..> UC_Employee_1_1 : <<include>>
+UC_Employee_3 ..> UC_Employee_3_1 : <<extend>>
+UC_Employee_3 ..> UC_Employee_3_2 : <<extend>>
+UC_Employee_3 ..> UC_Employee_3_3 : <<extend>>
+UC_Employee_3_3 ..> UC_Employee_3_3_1 : <<extend>>
+UC_Employee_3_3_1 ..> UC_Employee_3_3_1_1 : <<include>>
+UC_Employee_3_3_1 ..> UC_Employee_3_3_1_2 : <<include>>
+UC_Employee_4 ..> UC_Employee_4_1 : <<extend>>
+UC_Employee_5 ..> UC_Employee_5_1 : <<extend>>
+UC_Employee_5 ..> UC_Employee_5_2 : <<extend>>
+UC_Employee_5 ..> UC_Employee_5_3 : <<extend>>
+UC_Employee_5_3 ..> UC_Employee_5_3_1 : <<extend>>
+UC_Employee_7 ..> UC_Employee_7_1 : <<extend>>
+UC_Employee_7_1 ..> UC_Employee_7_1_1 : <<extend>>
+UC_Employee_7 ..> UC_Employee_7_2 : <<extend>>
+UC_Employee_8 ..> UC_Employee_8_1 : <<extend>>
+UC_Employee_8_1 ..> UC_Employee_8_1_1 : <<include>>
+UC_Employee_9 ..> UC_Employee_9_1 : <<extend>>
+UC_Employee_9 ..> UC_Employee_9_2 : <<extend>>
+
+@enduml

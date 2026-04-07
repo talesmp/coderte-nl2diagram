@@ -1,0 +1,166 @@
+@startuml
+
+actor "Archivero" as Archivero
+actor "Attendee" as Attendee
+actor "Representante" as Representante
+actor "Researcher" as Researcher
+actor "Administrator" as Administrator
+
+rectangle "System" {
+  usecase "Access to inventories" as UC_Archivero_1
+  usecase "Manage prestamos" as UC_Archivero_2
+  usecase "Fotografias" as UC_Archivero_2_1
+  usecase "Forms" as UC_Archivero_2_2
+  usecase "Correspondencia" as UC_Archivero_2_3
+  usecase "Create escaneos" as UC_Archivero_3
+  usecase "Operations automatic" as UC_Archivero_3_1
+  usecase "Contraste" as UC_Archivero_3_1_1
+  usecase "Adjustment manual" as UC_Archivero_3_1_1_1
+  usecase "Level" as UC_Archivero_3_1_2
+  usecase "Identificador" as UC_Archivero_3_1_3
+  usecase "Manage escaneos" as UC_Archivero_3_2
+  usecase "Create files" as UC_Archivero_4
+  usecase "Create copias of access" as UC_Archivero_4_1
+  usecase "Edit by batches" as UC_Archivero_4_2
+  usecase "Search files" as UC_Archivero_4_3
+  usecase "Search images" as UC_Archivero_4_3_1
+  usecase "Tracking of usage" as UC_Archivero_4_3_1_1
+  usecase "Rights" as UC_Archivero_4_3_1_2
+  usecase "Tag" as UC_Archivero_4_3_1_3
+  usecase "Venue" as UC_Archivero_4_3_1_4
+  usecase "Fotografo" as UC_Archivero_4_3_1_5
+  usecase "People" as UC_Archivero_4_3_1_6
+  usecase "Access to files" as UC_Archivero_5
+  usecase "Examinar files" as UC_Archivero_5_1
+  usecase "Use palabra Password" as UC_Archivero_5_1_1
+  usecase "Access to metadata" as UC_Archivero_5_1_2
+  usecase "Rights" as UC_Archivero_5_1_2_1
+  usecase "Location" as UC_Archivero_5_1_2_2
+  usecase "Define time" as UC_Archivero_5_1_3
+  usecase "Restrict files" as UC_Archivero_5_2
+  usecase "by user" as UC_Archivero_5_2_1
+  usecase "by IP" as UC_Archivero_5_2_2
+  usecase "by group" as UC_Archivero_5_2_3
+  usecase "Inventories" as UC_Archivero_5_2_3_1
+  usecase "Files" as UC_Archivero_5_2_3_2
+  usecase "Batches" as UC_Archivero_5_2_3_3
+  usecase "Upload data" as UC_Attendee_1
+  usecase "View downloads" as UC_Attendee_2
+  usecase "by user" as UC_Attendee_2_1
+  usecase "Access to forms" as UC_Attendee_3
+  usecase "Interdepartamentales" as UC_Attendee_3_1
+  usecase "Load documents" as UC_Attendee_4
+  usecase "Read documents" as UC_Attendee_4_1
+  usecase "Tag documents" as UC_Attendee_4_2
+  usecase "View miniatura" as UC_Representante_1
+  usecase "Create collection" as UC_Representante_2
+  usecase "View images descargadas" as UC_Representante_2_1
+  usecase "View information descriptiva" as UC_Representante_3
+  usecase "Reset password" as UC_Researcher_1
+  usecase "Search to files" as UC_Researcher_2
+  usecase "Keyword" as UC_Researcher_2_1
+  usecase "OCR" as UC_Researcher_2_2
+  usecase "Access to files" as UC_Researcher_3
+  usecase "Document of work" as UC_Researcher_3_1
+  usecase "Files digitalizados" as UC_Researcher_3_2
+  usecase "View date" as UC_Researcher_3_2_1
+  usecase "Request versions analogicas" as UC_Researcher_3_2_2
+  usecase "View in navegador" as UC_Researcher_3_2_3
+  usecase "Material educativo" as UC_Researcher_3_3
+  usecase "Download" as UC_Researcher_3_4
+  usecase "Images" as UC_Researcher_3_5
+  usecase "View miniatura" as UC_Researcher_3_5_1
+  usecase "View information descriptiva" as UC_Researcher_3_5_2
+  usecase "Create reports" as UC_Researcher_4
+  usecase "Share reports" as UC_Researcher_4_1
+  usecase "Link" as UC_Researcher_4_1_1
+  usecase "Read documents" as UC_Researcher_5
+  usecase "Assign" as UC_Administrator_1
+  usecase "Rights" as UC_Administrator_1_1
+  usecase "Users" as UC_Administrator_1_2
+  usecase "Create" as UC_Administrator_2
+  usecase "Users" as UC_Administrator_2_1
+  usecase "Group" as UC_Administrator_2_2
+  usecase "Roles" as UC_Administrator_2_3
+  usecase "Restrict data" as UC_Administrator_3
+  usecase "Enable credentials" as UC_Administrator_4
+  usecase "Active Directory" as UC_Administrator_4_1
+}
+
+Archivero --> UC_Archivero_1
+Archivero --> UC_Archivero_2
+Archivero --> UC_Archivero_3
+Archivero --> UC_Archivero_4
+Archivero --> UC_Archivero_5
+Attendee --> UC_Attendee_1
+Attendee --> UC_Attendee_2
+Attendee --> UC_Attendee_3
+Attendee --> UC_Attendee_4
+Representante --> UC_Representante_1
+Representante --> UC_Representante_2
+Representante --> UC_Representante_3
+Researcher --> UC_Researcher_1
+Researcher --> UC_Researcher_2
+Researcher --> UC_Researcher_3
+Researcher --> UC_Researcher_4
+Researcher --> UC_Researcher_5
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+
+UC_Archivero_2 ..> UC_Archivero_2_1 : <<extend>>
+UC_Archivero_2 ..> UC_Archivero_2_2 : <<extend>>
+UC_Archivero_2 ..> UC_Archivero_2_3 : <<extend>>
+UC_Archivero_3 ..> UC_Archivero_3_1 : <<extend>>
+UC_Archivero_3_1 ..> UC_Archivero_3_1_1 : <<extend>>
+UC_Archivero_3_1_1 ..> UC_Archivero_3_1_1_1 : <<extend>>
+UC_Archivero_3_1 ..> UC_Archivero_3_1_2 : <<extend>>
+UC_Archivero_3_1 ..> UC_Archivero_3_1_3 : <<extend>>
+UC_Archivero_3 ..> UC_Archivero_3_2 : <<extend>>
+UC_Archivero_4 ..> UC_Archivero_4_1 : <<extend>>
+UC_Archivero_4 ..> UC_Archivero_4_2 : <<extend>>
+UC_Archivero_4 ..> UC_Archivero_4_3 : <<extend>>
+UC_Archivero_4_3 ..> UC_Archivero_4_3_1 : <<extend>>
+UC_Archivero_4_3_1 ..> UC_Archivero_4_3_1_1 : <<extend>>
+UC_Archivero_4_3_1 ..> UC_Archivero_4_3_1_2 : <<extend>>
+UC_Archivero_4_3_1 ..> UC_Archivero_4_3_1_3 : <<extend>>
+UC_Archivero_4_3_1 ..> UC_Archivero_4_3_1_4 : <<extend>>
+UC_Archivero_4_3_1 ..> UC_Archivero_4_3_1_5 : <<extend>>
+UC_Archivero_4_3_1 ..> UC_Archivero_4_3_1_6 : <<extend>>
+UC_Archivero_5 ..> UC_Archivero_5_1 : <<extend>>
+UC_Archivero_5_1 ..> UC_Archivero_5_1_1 : <<extend>>
+UC_Archivero_5_1 ..> UC_Archivero_5_1_2 : <<extend>>
+UC_Archivero_5_1_2 ..> UC_Archivero_5_1_2_1 : <<extend>>
+UC_Archivero_5_1_2 ..> UC_Archivero_5_1_2_2 : <<extend>>
+UC_Archivero_5_1 ..> UC_Archivero_5_1_3 : <<extend>>
+UC_Archivero_5_2 ..> UC_Archivero_5_2_1 : <<extend>>
+UC_Archivero_5_2 ..> UC_Archivero_5_2_2 : <<extend>>
+UC_Archivero_5_2 ..> UC_Archivero_5_2_3 : <<extend>>
+UC_Archivero_5_2_3 ..> UC_Archivero_5_2_3_1 : <<extend>>
+UC_Archivero_5_2_3 ..> UC_Archivero_5_2_3_2 : <<extend>>
+UC_Archivero_5_2_3 ..> UC_Archivero_5_2_3_3 : <<extend>>
+UC_Attendee_2 ..> UC_Attendee_2_1 : <<extend>>
+UC_Attendee_3 ..> UC_Attendee_3_1 : <<extend>>
+UC_Attendee_4 ..> UC_Attendee_4_1 : <<include>>
+UC_Attendee_4 ..> UC_Attendee_4_2 : <<extend>>
+UC_Representante_2 ..> UC_Representante_2_1 : <<extend>>
+UC_Researcher_2 ..> UC_Researcher_2_1 : <<extend>>
+UC_Researcher_2 ..> UC_Researcher_2_2 : <<extend>>
+UC_Researcher_3 ..> UC_Researcher_3_1 : <<extend>>
+UC_Researcher_3 ..> UC_Researcher_3_2 : <<extend>>
+UC_Researcher_3_2 ..> UC_Researcher_3_2_1 : <<extend>>
+UC_Researcher_3_2 ..> UC_Researcher_3_2_2 : <<extend>>
+UC_Researcher_3_2 ..> UC_Researcher_3_2_3 : <<extend>>
+UC_Researcher_3_5 ..> UC_Researcher_3_5_1 : <<extend>>
+UC_Researcher_3_5 ..> UC_Researcher_3_5_2 : <<extend>>
+UC_Researcher_4 ..> UC_Researcher_4_1 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_1 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_1 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_2 : <<extend>>
+UC_Administrator_2 ..> UC_Administrator_2_1 : <<extend>>
+UC_Administrator_2 ..> UC_Administrator_2_2 : <<extend>>
+UC_Administrator_2 ..> UC_Administrator_2_3 : <<extend>>
+UC_Administrator_4 ..> UC_Administrator_4_1 : <<extend>>
+
+@enduml

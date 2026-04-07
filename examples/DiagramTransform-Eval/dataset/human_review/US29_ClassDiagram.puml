@@ -1,0 +1,108 @@
+@startuml
+
+class DataPoint {
+  +Content
+  +author
+  +DataPoint()
+  +get_Content()
+  +get_author()
+}
+
+class Level_environmental {
+  +Measurement
+  +Time
+  +Level_environmental()
+  +get_Measurement()
+  +get_Time()
+}
+
+class Traffic_History {
+  +Dates
+  +Traffic_History()
+  +get_Dates()
+}
+
+class Indicator {
+  +Name
+  +Location
+  +Indicator()
+  +get_Name()
+  +get_Location()
+}
+
+class Level_noise {
+  +Decibel
+  +Level_noise()
+  +get_Decibel()
+}
+
+class CO2_Emission {
+  +Quantity
+  +CO2_Emission()
+  +get_Quantity()
+}
+
+class Level_pollution {
+  +Quantity
+  +Level_pollution()
+  +get_Quantity()
+}
+
+class Traffic_Map {
+  +Traffic_Map()
+  +get_Name()
+}
+
+class Map {
+  +Name
+  +Map()
+  +get_Name()
+}
+
+class Heat_Map {
+  +Map()
+  +get_Name()
+}
+
+class Employee {
+  +Name
+  +LastName
+  +Phone
+  +Email
+  +Id
+  +salary
+  +Employee()
+  +get_Name()
+  +get_LastName()
+  +get_Phone()
+  +get_Email()
+  +get_Id()
+  +get_salary()
+  +add_new_sources()
+  +use_sources()
+  +add_measurements_sensoriales()
+  +compare_data()
+  +hacer_predictions_traffic()
+  +save_levels_environmental()
+  +load_levels_environmental()
+  +view_indicators()
+  +save_simulation()
+  +change_planning()
+  +predict_consequences()
+  +view_reliability()
+  +select_period()
+  +view_maps_Street()
+}
+
+DataPoint <|-- Level_environmental
+DataPoint <|-- Traffic_History
+Indicator <|-- Level_noise
+Indicator <|-- CO2_Emission
+Indicator <|-- Level_pollution
+Employee o-- DataPoint
+Employee o-- Indicator
+Employee o-- Map
+Map <|-- Traffic_Map
+Map <|-- Heat_Map
+
+@enduml

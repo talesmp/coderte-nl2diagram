@@ -1,0 +1,161 @@
+@startuml
+
+class Person {
+  +Name
+  +Id
+  +Sex
+  +Height
+  +date_birth
+}
+
+class authenticate_System_IFA {
+  +User
+  +Password
+  +access_System()
+}
+
+class Fan {
+  +Event
+  +access_System()
+  +notify_changes()
+  +choose_events_notification()
+  +inform_events_live()
+}
+
+class Official_match {
+  +Schedule
+  +Date
+  +Venue
+  +access_System()
+  +set_franjas_time()
+  +notify_changes_calendar()
+  +inform_events_live()
+}
+
+class Employee_IFA {
+  +access_System()
+  +automate_schedule()
+  +automate_assignment_officials()
+}
+
+class Member_Staff_team {
+  +access_System()
+  +access_statistics()
+}
+
+class Manager_team {
+  +Finance
+  +access_System()
+  +manage_finances()
+  +assign_roles()
+}
+
+class Aficionado {
+  +check_statistics_matches()
+  +check_statistics_players()
+}
+
+class Auditor_budgets_IFA {
+  +control_management_budget()
+  +auditar_management_budget()
+  +get_report_budget()
+}
+
+class Administrator_IFA {
+  +add_leagues()
+  +register_new_teams()
+}
+
+class Manager_IFA {
+  +approve_new_teams()
+  +approve_new_leagues()
+}
+
+class Player {
+  +Goals
+  +Assists
+  +Playing_Position
+  +Weight
+  +Passes
+  +Cards
+}
+
+class league {
+  +Teams
+  +Table_standings
+  +Tournament
+  +Sponsor
+  +matches_total
+  +results
+  +Transfers
+}
+
+class Match {
+  +Score
+  +Shots
+  +Formation
+  +minutes_played
+  +Stadium
+}
+
+class System_IFA {
+  +Number_people
+  +Rules
+  +Transaction
+  +integrate_different_systems()
+  +handle_languages()
+  +trust_System()
+  +get_Access_tools()
+  +manage_leagues()
+  +enter_set_rules()
+  +avoid_bias()
+  +apply_rules_league()
+  +avoid_conflicts_schedules()
+  +cancel_schedule()
+  +enter_transaction()
+  +notify_event_game()
+  +inform_officials()
+  +generate_statistics()
+}
+
+Person <|-- Fan
+Person <|-- Official_match
+Person <|-- Employee_IFA
+Person <|-- Member_Staff_team
+Person <|-- Manager_team
+Person <|-- Aficionado
+Person <|-- Auditor_budgets_IFA
+Person <|-- Player
+Person <|-- Administrator_IFA
+Person <|-- Manager_IFA
+authenticate_System_IFA <|-- Fan
+authenticate_System_IFA <|-- Official_match
+authenticate_System_IFA <|-- Employee_IFA
+authenticate_System_IFA <|-- Member_Staff_team
+authenticate_System_IFA <|-- Manager_team
+authenticate_System_IFA ..> System_IFA
+Official_match o-- Match
+Employee_IFA o-- Official_match
+Employee_IFA o-- Match
+Member_Staff_team o-- Match
+Member_Staff_team o-- Player
+Aficionado o-- Match
+Aficionado o-- Player
+Administrator_IFA o-- league
+Manager_IFA o-- league
+Player *-- league
+Player *-- Match
+System_IFA *-- Fan
+System_IFA *-- Official_match
+System_IFA *-- Employee_IFA
+System_IFA *-- Member_Staff_team
+System_IFA *-- Manager_team
+System_IFA *-- Aficionado
+System_IFA *-- Auditor_budgets_IFA
+System_IFA *-- Player
+System_IFA *-- Match
+System_IFA *-- league
+System_IFA *-- Administrator_IFA
+System_IFA *-- Manager_IFA
+
+@enduml

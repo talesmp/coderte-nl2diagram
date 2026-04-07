@@ -1,0 +1,97 @@
+@startuml
+
+class Owner {
+  +User
+  +password
+  +owner()
+  +define_schedule()
+  +reset_Valores()
+}
+
+class User {
+  +User
+  +password
+  +Developer()
+  +generate_File()
+  +validate_File()
+  +list_files()
+}
+
+class Developer {
+  +User
+  +password
+  +Developer()
+  +update_Rules()
+  +update_Data()
+  +add_Data()
+  +start_Session()
+  +create_Group()
+}
+
+class Agency_Team {
+  +agency
+  +Agency_Team()
+  +add_Case()
+}
+
+class Runners_Team {
+  +agency
+  +Runners_Team()
+  +derive_FAC()
+  +update_SQL()
+}
+
+class Web_User {
+  +Web_User()
+  +list_FABS()
+}
+
+class Agency_User {
+  +agency
+  +Agency_User()
+  +view_Timestamp()
+  +detail_submission()
+  +assign_FAO()
+  +send_Data()
+}
+
+class FABS_User {
+  +FABS_User()
+  +download_File()
+  +send_File()
+  +link_File()
+}
+
+class Data_User {
+  +Data_User()
+  +list_offices()
+}
+
+class Designer {
+  +User
+  +password
+  +Designer()
+  +perform_test()
+  +perform_Report()
+}
+
+class Tester {
+  +User
+  +password
+  +Tester()
+  +viewificar_derivation()
+  +generate_Report()
+}
+
+Owner -- Agency_Team
+Owner -- Runners_Team
+Owner -- Developer
+Owner -- User
+User <|-- Web_User
+User <|-- Agency_User
+User <|-- FABS_User
+User <|-- Data_User
+Developer -- Designer
+Developer -- Tester
+
+@enduml

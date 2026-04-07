@@ -1,0 +1,214 @@
+@startuml
+
+class Reutilizador_data {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +User
+  +password
+  +reutilizador_data()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_User()
+  +get_Password()
+  +modify_language()
+  +search_File()
+  +examinar_File()
+  +share_File()
+  +view_appointment()
+}
+
+class Administrator {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +administrator()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_User()
+  +get_Password()
+  +approve_disposal_data()
+  +consult_File()
+  +import_data()
+  +perform_comprobaciones()
+}
+
+class Developer {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +User
+  +password
+  +Developer()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_User()
+  +get_Password()
+  +deposit_data()
+}
+
+class DataPoint {
+  +id
+  +Type
+  +content
+  +author
+  +DataPoint()
+  +get_id()
+  +get_Type()
+  +get_content()
+  +get_author()
+}
+
+class Service_univIT {
+  +name
+  +Service_univIT()
+  +get_Name()
+  +export_data()
+  +store_data()
+  +integrate_File()
+}
+
+class Editor {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +User
+  +password
+  +editor()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_User()
+  +get_Password()
+  +create_enlaces()
+}
+
+class depositor {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +files
+  +User
+  +password
+  +administrator()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_files()
+  +get_User()
+  +get_Password()
+  +deposit_Data()
+  +associate_DOI()
+  +dar_permissions()
+  +associate_metadata()
+  +apply_license()
+  +maintain_Data()
+  +link_data()
+  +follow_interacciones()
+}
+
+class Colaborador_external {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +colaborador_external()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +access_Project()
+}
+
+class Manager_center {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +User
+  +password
+  +manager_center()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_User()
+  +get_Password()
+  +deposit_data()
+  +assign_researcher()
+}
+
+class Manager_information {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +User
+  +password
+  +manager_information()
+  +get_Name()
+  +get_LastName()
+  +get_ID()
+  +get_Phone()
+  +get_User()
+  +integrate_File()
+  +recontar_appointments()
+  +segmentar_view()
+  +download_Statistic()
+  +link_set_metadato()
+}
+
+class Entidad_financiera {
+  +name
+  +phone
+  +aprote
+  +Developer()
+  +get_Name()
+  +get_Phone()
+  +get_aporte()
+  +view_planes_research()
+  +recolectar_metadata()
+}
+
+class Coordinator_external {
+  +name
+  +last_name
+  +id_number
+  +phone
+  +colaborador_external()
+  +get_Name()
+  +get_last_name()
+  +get_id_number()
+  +get_Phone()
+  +access_data_colaborador()
+  +define_license()
+}
+
+Reutilizador_data o-- DataPoint
+Administrator -- DataPoint
+Developer -- Editor
+Developer o-- DataPoint
+Editor -- Colaborador_external
+Service_univIT -- DataPoint
+Coordinator_external -- Colaborador_external
+depositor o-- DataPoint
+depositor -- Entidad_financiera
+Entidad_financiera -- Manager_center
+Entidad_financiera -- Manager_information
+Manager_center o-- DataPoint
+Manager_center -- Manager_information
+
+@enduml

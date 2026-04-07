@@ -1,0 +1,80 @@
+@startuml
+
+class Administrator {
+  +User
+  +Password
+  +administrator()
+  +add_information()
+  +bloquear_User()
+  +view_statistics()
+  +communicate_con_facilities()
+}
+
+class Executive {
+  +User
+  +Password
+  +executive()
+  +view_data_empresa()
+}
+
+class Contador {
+  +User
+  +Password
+  +contador()
+  +view_tarifas()
+}
+
+class Resources {
+  +User
+  +Password
+  +resources()
+  +list_employees()
+}
+
+class Representante {
+  +User
+  +Password
+  +resources()
+  +update_information()
+  +view_statistics()
+  +view_schedules()
+}
+
+class Facility {
+  +Address
+  +facility()
+  +communicate_con_administrator()
+}
+
+class User {
+  +User
+  +Password
+  +User()
+  +view_address()
+  +enter_ZIP_code()
+  +list_facilities_cercanas()
+  +select_reciclables()
+  +view_map_contenedores()
+  +view_map_entregas()
+  +view_map_disposal()
+  +publish_comment()
+  +list_facilities()
+}
+
+class Superusuario {
+  +User
+  +Password
+  +superusuario()
+  +update_information()
+  +view_statistics()
+}
+
+Superusuario <|-- User
+Executive <|-- Contador
+Executive <|-- Representante
+Executive <|-- Resources
+Executive -- Administrator
+Executive -- Facility
+Executive -- User
+
+@enduml

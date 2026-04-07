@@ -1,0 +1,5 @@
+@startuml
+
+note "No class diagram data available\nin Diagrams.json for US8.\nRequires manual construction." as N
+
+@enduml

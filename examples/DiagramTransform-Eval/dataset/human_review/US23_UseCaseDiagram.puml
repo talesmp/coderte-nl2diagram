@@ -1,0 +1,106 @@
+@startuml
+
+actor "Administrator" as Administrator
+actor "UHOPE_Employee" as UHOPE_Employee
+actor "Employee_Billing" as Employee_Billing
+actor "Nurse" as Nurse
+actor "doctor" as doctor
+actor "Patient" as Patient
+actor "User" as User
+actor "Receptionist" as Receptionist
+actor "UHOPE" as UHOPE
+
+rectangle "System" {
+  usecase "Change rights" as UC_Administrator_1
+  usecase "Groups" as UC_Administrator_1_1
+  usecase "People" as UC_Administrator_1_2
+  usecase "Search data" as UC_UHOPE_Employee_1
+  usecase "Keyword" as UC_UHOPE_Employee_1_1
+  usecase "Enter patient to database of data" as UC_UHOPE_Employee_2
+  usecase "View the information of the patient" as UC_UHOPE_Employee_2_1
+  usecase "Create account" as UC_UHOPE_Employee_3
+  usecase "Start session" as UC_UHOPE_Employee_3_1
+  usecase "View data" as UC_UHOPE_Employee_3_1_1
+  usecase "View appointment" as UC_Employee_Billing_1
+  usecase "View date" as UC_Employee_Billing_1_1
+  usecase "View doctor" as UC_Employee_Billing_1_2
+  usecase "View time" as UC_Employee_Billing_1_3
+  usecase "View history doctor" as UC_Nurse_1
+  usecase "Mobile" as UC_Nurse_1_1
+  usecase "View history doctor" as UC_doctor_1
+  usecase "Edit history doctor" as UC_doctor_1_1
+  usecase "Schedule appointment medical" as UC_doctor_1_2
+  usecase "View reason of visita" as UC_doctor_1_3
+  usecase "View schedule" as UC_doctor_2
+  usecase "Request appointment" as UC_Patient_1
+  usecase "Reason" as UC_Patient_1_1
+  usecase "View schedules available" as UC_Patient_1_2
+  usecase "Cancel appointment" as UC_Patient_2
+  usecase "View history doctor" as UC_Patient_3
+  usecase "Change direction" as UC_Patient_3_1
+  usecase "View results of test" as UC_Patient_3_2
+  usecase "Start session" as UC_Patient_4
+  usecase "Start session" as UC_User_1
+  usecase "Access to database" as UC_Receptionist_1
+  usecase "Search a file" as UC_Receptionist_1_1
+  usecase "Edit a file" as UC_Receptionist_1_1_1
+  usecase "Modify time of appointment" as UC_Receptionist_1_1_2
+  usecase "Desaprobar appointment" as UC_Receptionist_1_1_3
+  usecase "List schedule" as UC_Receptionist_2
+  usecase "Room" as UC_Receptionist_2_1
+  usecase "Enfermeras" as UC_Receptionist_2_2
+  usecase "Doctors" as UC_Receptionist_2_3
+  usecase "Duplicar record" as UC_UHOPE_1
+  usecase "Generate Invoice" as UC_UHOPE_2
+  usecase "Send Invoice" as UC_UHOPE_2_1
+  usecase "Access to database of data" as UC_UHOPE_3
+  usecase "Database national" as UC_UHOPE_3_1
+}
+
+Administrator --> UC_Administrator_1
+UHOPE_Employee --> UC_UHOPE_Employee_1
+UHOPE_Employee --> UC_UHOPE_Employee_2
+UHOPE_Employee --> UC_UHOPE_Employee_3
+Employee_Billing --> UC_Employee_Billing_1
+Nurse --> UC_Nurse_1
+doctor --> UC_doctor_1
+doctor --> UC_doctor_2
+Patient --> UC_Patient_1
+Patient --> UC_Patient_2
+Patient --> UC_Patient_3
+Patient --> UC_Patient_4
+User --> UC_User_1
+Receptionist --> UC_Receptionist_1
+Receptionist --> UC_Receptionist_2
+UHOPE --> UC_UHOPE_1
+UHOPE --> UC_UHOPE_2
+UHOPE --> UC_UHOPE_3
+
+UC_Administrator_1 ..> UC_Administrator_1_1 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_2 : <<extend>>
+UC_UHOPE_Employee_1 ..> UC_UHOPE_Employee_1_1 : <<extend>>
+UC_UHOPE_Employee_2 ..> UC_UHOPE_Employee_2_1 : <<extend>>
+UC_UHOPE_Employee_3 ..> UC_UHOPE_Employee_3_1 : <<extend>>
+UC_UHOPE_Employee_3_1 ..> UC_UHOPE_Employee_3_1_1 : <<extend>>
+UC_Employee_Billing_1 ..> UC_Employee_Billing_1_1 : <<extend>>
+UC_Employee_Billing_1 ..> UC_Employee_Billing_1_2 : <<extend>>
+UC_Employee_Billing_1 ..> UC_Employee_Billing_1_3 : <<extend>>
+UC_Nurse_1 ..> UC_Nurse_1_1 : <<extend>>
+UC_doctor_1 ..> UC_doctor_1_1 : <<extend>>
+UC_doctor_1 ..> UC_doctor_1_2 : <<extend>>
+UC_doctor_1 ..> UC_doctor_1_3 : <<extend>>
+UC_Patient_1 ..> UC_Patient_1_1 : <<include>>
+UC_Patient_1 ..> UC_Patient_1_2 : <<extend>>
+UC_Patient_3 ..> UC_Patient_3_1 : <<extend>>
+UC_Patient_3 ..> UC_Patient_3_2 : <<extend>>
+UC_Receptionist_1 ..> UC_Receptionist_1_1 : <<extend>>
+UC_Receptionist_1_1 ..> UC_Receptionist_1_1_1 : <<extend>>
+UC_Receptionist_1_1 ..> UC_Receptionist_1_1_2 : <<extend>>
+UC_Receptionist_1_1 ..> UC_Receptionist_1_1_3 : <<extend>>
+UC_Receptionist_2 ..> UC_Receptionist_2_1 : <<extend>>
+UC_Receptionist_2 ..> UC_Receptionist_2_2 : <<extend>>
+UC_Receptionist_2 ..> UC_Receptionist_2_3 : <<extend>>
+UC_UHOPE_2 ..> UC_UHOPE_2_1 : <<extend>>
+UC_UHOPE_3 ..> UC_UHOPE_3_1 : <<extend>>
+
+@enduml

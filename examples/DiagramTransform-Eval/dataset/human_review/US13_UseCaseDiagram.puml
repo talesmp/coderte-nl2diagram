@@ -1,0 +1,128 @@
+@startuml
+
+actor "Researcher" as Researcher
+actor "Supervisor" as Supervisor
+actor "Operador" as Operador
+actor "Member" as Member
+actor "Administrator" as Administrator
+actor "Ingeniero_viewsiones" as Ingeniero_viewsiones
+actor "User" as User
+
+rectangle "System" {
+  usecase "Access to files almacenados" as UC_Researcher_1
+  usecase "Access remotely" as UC_Researcher_1_1
+  usecase "Attach files to libro of record" as UC_Researcher_2
+  usecase "Attach images of fisiologia" as UC_Researcher_2_1
+  usecase "Associate metadata to group" as UC_Researcher_2_2
+  usecase "Download files adjuntos" as UC_Researcher_2_3
+  usecase "Share reviews" as UC_Researcher_3
+  usecase "Link files" as UC_Researcher_3_1
+  usecase "Create page of libro of record" as UC_Researcher_4
+  usecase "Load files" as UC_Researcher_4_1
+  usecase "Web" as UC_Researcher_4_1_1
+  usecase "Attach file" as UC_Researcher_4_1_2
+  usecase "Indicar quality of data" as UC_Researcher_4_1_3
+  usecase "Attach directorio" as UC_Researcher_4_1_4
+  usecase "Network assigned" as UC_Researcher_4_1_5
+  usecase "Restrict usage of data" as UC_Researcher_4_1_6
+  usecase "Use simbolos griegos" as UC_Researcher_4_1_7
+  usecase "Collect data" as UC_Researcher_5
+  usecase "Use recopilacion" as UC_Researcher_5_1
+  usecase "Search data" as UC_Researcher_6
+  usecase "Usando metadata" as UC_Researcher_6_1
+  usecase "Use plantilla" as UC_Researcher_7
+  usecase "Create forms of feedback" as UC_Supervisor_1
+  usecase "Register responses of the forms" as UC_Operador_1
+  usecase "View availability of elements" as UC_Member_1
+  usecase "Create plantilla" as UC_Administrator_1
+  usecase "Assign topics to UI" as UC_Administrator_1_1
+  usecase "Manage cepa" as UC_Administrator_2
+  usecase "Instalar with script" as UC_Administrator_3
+  usecase "Script with verificacion" as UC_Administrator_3_1
+  usecase "Poseer system of respaldo" as UC_Administrator_4
+  usecase "Instalar with script" as UC_Ingeniero_viewsiones_1
+  usecase "Script with verificacion" as UC_Ingeniero_viewsiones_1_1
+  usecase "Have access to versions previous" as UC_Ingeniero_viewsiones_2
+  usecase "Control versions of the data" as UC_Ingeniero_viewsiones_2_1
+  usecase "Migrate data between versions" as UC_Ingeniero_viewsiones_2_2
+  usecase "Define builds automatic" as UC_Ingeniero_viewsiones_3
+  usecase "Limit search" as UC_User_1
+  usecase "Download results" as UC_User_1_1
+  usecase "Files" as UC_User_1_2
+  usecase "Libros of record" as UC_User_1_3
+  usecase "Protocolos" as UC_User_1_4
+  usecase "Manage inventory" as UC_User_2
+  usecase "Create tablas with HTML" as UC_User_3
+  usecase "Configure privacidad" as UC_User_4
+  usecase "Attach files" as UC_User_5
+  usecase "Tag files" as UC_User_5_1
+  usecase "View versions antiguas" as UC_User_5_2
+  usecase "Assign metadata" as UC_User_5_3
+  usecase "Move files" as UC_User_5_4
+  usecase "Assign information extra" as UC_User_5_5
+  usecase "Associate files" as UC_User_5_6
+  usecase "Navigate in libros of record" as UC_User_6
+  usecase "Link calendar" as UC_User_7
+  usecase "Link twitter" as UC_User_8
+  usecase "Twittear avances" as UC_User_8_1
+}
+
+Researcher --> UC_Researcher_1
+Researcher --> UC_Researcher_2
+Researcher --> UC_Researcher_3
+Researcher --> UC_Researcher_4
+Researcher --> UC_Researcher_5
+Researcher --> UC_Researcher_6
+Researcher --> UC_Researcher_7
+Supervisor --> UC_Supervisor_1
+Operador --> UC_Operador_1
+Member --> UC_Member_1
+Administrator --> UC_Administrator_1
+Administrator --> UC_Administrator_2
+Administrator --> UC_Administrator_3
+Administrator --> UC_Administrator_4
+Ingeniero_viewsiones --> UC_Ingeniero_viewsiones_1
+Ingeniero_viewsiones --> UC_Ingeniero_viewsiones_2
+Ingeniero_viewsiones --> UC_Ingeniero_viewsiones_3
+User --> UC_User_1
+User --> UC_User_2
+User --> UC_User_3
+User --> UC_User_4
+User --> UC_User_5
+User --> UC_User_6
+User --> UC_User_7
+User --> UC_User_8
+
+UC_Researcher_1 ..> UC_Researcher_1_1 : <<extend>>
+UC_Researcher_2 ..> UC_Researcher_2_1 : <<extend>>
+UC_Researcher_2 ..> UC_Researcher_2_2 : <<extend>>
+UC_Researcher_2 ..> UC_Researcher_2_3 : <<extend>>
+UC_Researcher_3 ..> UC_Researcher_3_1 : <<extend>>
+UC_Researcher_4 ..> UC_Researcher_4_1 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_1 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_2 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_3 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_4 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_5 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_6 : <<extend>>
+UC_Researcher_4_1 ..> UC_Researcher_4_1_7 : <<extend>>
+UC_Researcher_5 ..> UC_Researcher_5_1 : <<extend>>
+UC_Researcher_6 ..> UC_Researcher_6_1 : <<extend>>
+UC_Administrator_1 ..> UC_Administrator_1_1 : <<extend>>
+UC_Administrator_3 ..> UC_Administrator_3_1 : <<include>>
+UC_Ingeniero_viewsiones_1 ..> UC_Ingeniero_viewsiones_1_1 : <<include>>
+UC_Ingeniero_viewsiones_2 ..> UC_Ingeniero_viewsiones_2_1 : <<extend>>
+UC_Ingeniero_viewsiones_2 ..> UC_Ingeniero_viewsiones_2_2 : <<extend>>
+UC_User_1 ..> UC_User_1_1 : <<extend>>
+UC_User_1 ..> UC_User_1_2 : <<extend>>
+UC_User_1 ..> UC_User_1_3 : <<extend>>
+UC_User_1 ..> UC_User_1_4 : <<extend>>
+UC_User_5 ..> UC_User_5_1 : <<extend>>
+UC_User_5 ..> UC_User_5_2 : <<extend>>
+UC_User_5 ..> UC_User_5_3 : <<extend>>
+UC_User_5 ..> UC_User_5_4 : <<extend>>
+UC_User_5 ..> UC_User_5_5 : <<extend>>
+UC_User_5 ..> UC_User_5_6 : <<extend>>
+UC_User_8 ..> UC_User_8_1 : <<extend>>
+
+@enduml
