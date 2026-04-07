@@ -1,0 +1,14 @@
+[project]
+name = "coderte-nl2diagram"
+version = "0.1.0"
+description = "LLM-based evaluation of NL-to-Diagram and Diagram-to-NL transformations, adapting the CodeRPE framework."
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "nltk>=3.8",
+    "openpyxl>=3.1",
+    "tqdm>=4.65",
+]
